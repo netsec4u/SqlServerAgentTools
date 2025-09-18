@@ -1,136 +1,184 @@
-﻿---
+---
+document type: cmdlet
 external help file: SQLServerAgentTools-help.xml
-Module Name: SQLServerAgentTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: en-US
+Module Name: SqlServerAgentTools
+ms.date: 07/29/2025
+PlatyPS schema version: 2024-05-01
+title: Set-SmoSqlAgentMsxEncryptChannelOption
 ---
 
 # Set-SmoSqlAgentMsxEncryptChannelOption
 
 ## SYNOPSIS
+
 Sets MSX encrypt channel option.
 
 ## SYNTAX
 
 ### ServerInstance (Default)
+
 ```
 Set-SmoSqlAgentMsxEncryptChannelOption
-	-ServerInstance <String>
-	-MsxEncryptChannelOption <Int32>
-	[-WhatIf]
-	[-Confirm]
-	[<CommonParameters>]
+  -ServerInstance <string>
+  -MsxEncryptChannelOption <int>
+  [-WhatIf]
+  [-Confirm]
+  [<CommonParameters>]
 ```
 
 ### SmoServer
+
 ```
 Set-SmoSqlAgentMsxEncryptChannelOption
-	-SmoServerObject <Server>
-	-MsxEncryptChannelOption <Int32>
-	[-WhatIf]
-	[-Confirm]
-	[<CommonParameters>]
+  -SmoServerObject <Server>
+  -MsxEncryptChannelOption <int>
+  [-WhatIf]
+  [-Confirm]
+  [<CommonParameters>]
 ```
 
+## ALIASES
+
+This cmdlet has the following aliases:
+  None
+
 ## DESCRIPTION
+
 Sets MSX encrypt channel option.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```powershell
+
 Set-SmoSqlAgentMsxEncryptChannelOption -ServerInstance MyServer -SubSystem PowerShell -MsxEncryptChannelOption 2
-```
 
 Sets MsxEncryptChannelOption to 2.
 
 ### EXAMPLE 2
-```powershell
+
 Set-SmoSqlAgentMsxEncryptChannelOption -SmoServerObject $SmoServerObject -SubSystem PowerShell -MsxEncryptChannelOption 2
-```
 
 Sets MsxEncryptChannelOption to 2 using the specified Smo server object.
 
 ## PARAMETERS
 
-### -MsxEncryptChannelOption
-Specifies MsxEncryptChannelOption value.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ServerInstance
-SQL Server host name and instance name.
-
-```yaml
-Type: String
-Parameter Sets: ServerInstance
-Aliases: SqlServer
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SmoServerObject
-SQL Server Management Object.
-
-```yaml
-Type: Server
-Parameter Sets: SmoServer
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+### -MsxEncryptChannelOption
+
+Specifies MsxEncryptChannelOption value.
+
+```yaml
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -ServerInstance
+
+SQL Server host name and instance name.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- SqlServer
+ParameterSets:
+- Name: ServerInstance
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -SmoServerObject
+
+SQL Server Management Object.
+
+```yaml
+Type: Microsoft.SqlServer.Management.Smo.Server
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SmoServer
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -138,6 +186,14 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### SqlServerAgent.MsxEncryptChannelOption
 
+
+
 ## NOTES
 
+
+
+
 ## RELATED LINKS
+
+None.
+

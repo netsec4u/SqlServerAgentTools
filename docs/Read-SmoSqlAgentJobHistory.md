@@ -1,187 +1,250 @@
-﻿---
+---
+document type: cmdlet
 external help file: SQLServerAgentTools-help.xml
-Module Name: SQLServerAgentTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: en-US
+Module Name: SqlServerAgentTools
+ms.date: 07/29/2025
+PlatyPS schema version: 2024-05-01
+title: Read-SmoSqlAgentJobHistory
 ---
 
 # Read-SmoSqlAgentJobHistory
 
 ## SYNOPSIS
+
 Reads a SQL Agent Job history.
 
 ## SYNTAX
 
 ### ServerInstance (Default)
+
 ```
 Read-SmoSqlAgentJobHistory
-	-ServerInstance <String>
-	-JobName <String>
-	[-CompletionResult <CompletionResult[]>]
-	[-MessageID <Int32>]
-	[-Severity <Int32>]
-	[-StartRunDate <DateTime>]
-	[-EndRunDate <DateTime>]
-	[<CommonParameters>]
+  -ServerInstance <string>
+  -JobName <string>
+  [-CompletionResult <CompletionResult[]>]
+  [-MessageID <int>]
+  [-Severity <int>]
+  [-StartRunDate <datetime>]
+  [-EndRunDate <datetime>]
+  [<CommonParameters>]
 ```
 
 ### SmoServer
+
 ```
 Read-SmoSqlAgentJobHistory
-	-SmoServerObject <Server>
-	-JobName <String>
-	[-CompletionResult <CompletionResult[]>]
-	[-MessageID <Int32>]
-	[-Severity <Int32>]
-	[-StartRunDate <DateTime>]
-	[-EndRunDate <DateTime>]
-	[<CommonParameters>]
+  -SmoServerObject <Server>
+  -JobName <string>
+  [-CompletionResult <CompletionResult[]>]
+  [-MessageID <int>]
+  [-Severity <int>]
+  [-StartRunDate <datetime>]
+  [-EndRunDate <datetime>]
+  [<CommonParameters>]
 ```
 
+## ALIASES
+
+This cmdlet has the following aliases:
+  None
+
 ## DESCRIPTION
+
 Reads a SQL Agent Job history.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```powershell
+
 Read-SmoSqlAgentJobHistory -ServerInstance MyServer -JobName MyJob
-```
 
 Lists agent job history for MyJob.
 
 ### EXAMPLE 2
-```powershell
+
 Read-SmoSqlAgentJobHistory -SmoServerObject $SmoServerObject -JobName MyJob
-```
 
 Lists agent job history using specified SMO connection for job MyJob.
 
 ## PARAMETERS
 
 ### -CompletionResult
+
 Specifies the job completion status result.
 
 ```yaml
-Type: CompletionResult[]
-Parameter Sets: (All)
-Aliases:
-Accepted values: Failed, Succeeded, Retry, Cancelled, InProgress, Unknown
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: Microsoft.SqlServer.Management.Smo.Agent.CompletionResult[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -EndRunDate
+
 Specifies end run date.
 
 ```yaml
-Type: DateTime
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.DateTime
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -JobName
+
 Specifies the name of the job.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -MessageID
+
 Specifies message ID.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -ServerInstance
+
 SQL Server host name and instance name.
 
 ```yaml
-Type: String
-Parameter Sets: ServerInstance
-Aliases: SqlServer
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- SqlServer
+ParameterSets:
+- Name: ServerInstance
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Severity
+
 Specifies severity.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -SmoServerObject
+
 SQL Server Management Object.
 
 ```yaml
-Type: Server
-Parameter Sets: SmoServer
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: Microsoft.SqlServer.Management.Smo.Server
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SmoServer
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -StartRunDate
+
 Specifies start run date.
 
 ```yaml
-Type: DateTime
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.DateTime
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -189,6 +252,14 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### SqlServerAgent.JobHistory
 
+
+
 ## NOTES
 
+
+
+
 ## RELATED LINKS
+
+None.
+
