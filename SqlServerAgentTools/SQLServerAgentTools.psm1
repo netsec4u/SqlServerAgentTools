@@ -541,6 +541,8 @@ function Add-SmoSqlAgentJobStep {
 
 		if ($PSBoundParameters['AgentSubSystem'] -in @('CmdExec', 'PowerShell', 'Ssis')) {
 			#Region ProxyName
+			$ParameterName = 'ProxyName'
+
 			$ProxyNameParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 			$ProxyNameParameterAttribute.Mandatory = $true
 
@@ -550,14 +552,16 @@ function Add-SmoSqlAgentJobStep {
 			$ValidateRangeAttribute = [System.Management.Automation.ValidateLengthAttribute]::New(1, 128)
 			$AttributeCollection.Add($ValidateRangeAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('ProxyName', [string], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('ProxyName', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
 		if ($PSBoundParameters['AgentSubSystem'] -in @('AnalysisCommand', 'AnalysisQuery')) {
 			#Region Server
+			$ParameterName = 'Server'
+
 			$ServerParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 			$ServerParameterAttribute.Mandatory = $true
 
@@ -567,30 +571,34 @@ function Add-SmoSqlAgentJobStep {
 			$ValidateRangeAttribute = [System.Management.Automation.ValidateLengthAttribute]::New(1, 128)
 			$AttributeCollection.Add($ValidateRangeAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('Server', [string], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('Server', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
 		if ($PSBoundParameters['AgentSubSystem'] -eq 'CmdExec') {
 			#Region CommandExecutionSuccessCode
+			$ParameterName = 'CommandExecutionSuccessCode'
+
 			$CommandExecutionSuccessCodeParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 			$CommandExecutionSuccessCodeParameterAttribute.Mandatory = $true
 
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 			$AttributeCollection.Add($CommandExecutionSuccessCodeParameterAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('CommandExecutionSuccessCode', [int], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [int], $AttributeCollection)
 
 			$RuntimeDefinedParameter.Value = 0
 
-			$RuntimeDefinedParameterDictionary.Add('CommandExecutionSuccessCode', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
 		if ($PSBoundParameters['AgentSubSystem'] -in @('AnalysisQuery', 'TransactSql')) {
 			#Region DatabaseName
+			$ParameterName = 'DatabaseName'
+
 			$DatabaseNameParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 			$DatabaseNameParameterAttribute.Mandatory = $true
 
@@ -600,14 +608,16 @@ function Add-SmoSqlAgentJobStep {
 			$ValidateRangeAttribute = [System.Management.Automation.ValidateLengthAttribute]::New(1, 128)
 			$AttributeCollection.Add($ValidateRangeAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('DatabaseName', [string], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('DatabaseName', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
 		if ($PSBoundParameters['OnSuccessAction'] -eq 'GoToStep') {
 			#Region OnSuccessStep
+			$ParameterName = 'OnSuccessStep'
+
 			$OnSuccessStepParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 			$OnSuccessStepParameterAttribute.Mandatory = $true
 
@@ -617,14 +627,16 @@ function Add-SmoSqlAgentJobStep {
 			$ValidateRangeAttribute = [System.Management.Automation.ValidateRangeAttribute]::New([System.Management.Automation.ValidateRangeKind]::Positive)
 			$AttributeCollection.Add($ValidateRangeAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('OnSuccessStep', [int], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [int], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('OnSuccessStep', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
 		if ($PSBoundParameters['OnFailureAction'] -eq 'GoToStep') {
 			#Region OnFailStep
+			$ParameterName = 'OnFailStep'
+
 			$OnFailStepParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 			$OnFailStepParameterAttribute.Mandatory = $true
 
@@ -634,14 +646,16 @@ function Add-SmoSqlAgentJobStep {
 			$ValidateRangeAttribute = [System.Management.Automation.ValidateRangeAttribute]::New([System.Management.Automation.ValidateRangeKind]::Positive)
 			$AttributeCollection.Add($ValidateRangeAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('OnFailStep', [int], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [int], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('OnFailStep', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
 		if ($PSBoundParameters['AgentSubSystem'] -eq 'TransactSql') {
 			#Region DatabaseUserName
+			$ParameterName = 'DatabaseUserName'
+
 			$DatabaseUserNameParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 			$DatabaseUserNameParameterAttribute.Mandatory = $true
 
@@ -651,9 +665,9 @@ function Add-SmoSqlAgentJobStep {
 			$ValidateRangeAttribute = [System.Management.Automation.ValidateLengthAttribute]::New(1, 128)
 			$AttributeCollection.Add($ValidateRangeAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('DatabaseUserName', [string], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('DatabaseUserName', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
@@ -1829,6 +1843,8 @@ function New-SmoSqlAgentAlert {
 
 			'SqlServerEvent' {
 				#Region DatabaseName
+				$ParameterName = 'DatabaseName'
+
 				$DatabaseNameParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
@@ -1837,12 +1853,14 @@ function New-SmoSqlAgentAlert {
 				$ValidateLengthAttribute = [System.Management.Automation.ValidateLengthAttribute]::New(1, 128)
 				$AttributeCollection.Add($ValidateLengthAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('DatabaseName', [string], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-				$RuntimeDefinedParameterDictionary.Add('DatabaseName', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 
 				#Region MessageID
+				$ParameterName = 'MessageID'
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 				$MessageIDParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -1860,12 +1878,14 @@ function New-SmoSqlAgentAlert {
 				$ValidateRangeAttribute = [System.Management.Automation.ValidateRangeAttribute]::New(1, 65535)
 				$AttributeCollection.Add($ValidateRangeAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('MessageID', [int], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [int], $AttributeCollection)
 
-				$RuntimeDefinedParameterDictionary.Add('MessageID', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 
 				#Region Severity
+				$ParameterName = 'Severity'
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 				$SeverityParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -1883,26 +1903,30 @@ function New-SmoSqlAgentAlert {
 				$ValidateRangeAttribute = [System.Management.Automation.ValidateRangeAttribute]::New(1, 25)
 				$AttributeCollection.Add($ValidateRangeAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('Severity', [int], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [int], $AttributeCollection)
 
-				$RuntimeDefinedParameterDictionary.Add('Severity', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 
 				#Region EventDescriptionKeyword
+				$ParameterName = 'EventDescriptionKeyword'
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 				$EventDescriptionKeywordParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 
 				$AttributeCollection.Add($EventDescriptionKeywordParameterAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('EventDescriptionKeyword', [string], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-				$RuntimeDefinedParameterDictionary.Add('EventDescriptionKeyword', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 			}
 
 			'SqlServerPerformanceCondition' {
 				#Region PerformanceObject
+				$ParameterName = 'PerformanceObject'
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 				$PerformanceObjectParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -1913,12 +1937,14 @@ function New-SmoSqlAgentAlert {
 				$ValidateNotNullOrEmptyAttribute = [System.Management.Automation.ValidateNotNullOrEmptyAttribute]::New()
 				$AttributeCollection.Add($ValidateNotNullOrEmptyAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('PerformanceObject', [string], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-				$RuntimeDefinedParameterDictionary.Add('PerformanceObject', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 
 				#Region PerformanceCounter
+				$ParameterName = 'PerformanceCounter'
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 				$PerformanceCounterParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -1929,12 +1955,14 @@ function New-SmoSqlAgentAlert {
 				$ValidateNotNullOrEmptyAttribute = [System.Management.Automation.ValidateNotNullOrEmptyAttribute]::New()
 				$AttributeCollection.Add($ValidateNotNullOrEmptyAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('PerformanceCounter', [string], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-				$RuntimeDefinedParameterDictionary.Add('PerformanceCounter', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 
 				#Region PerformanceCounterInstance
+				$ParameterName = 'PerformanceCounterInstance'
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 				$PerformanceCounterParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -1944,13 +1972,15 @@ function New-SmoSqlAgentAlert {
 				$ValidateNotNullAttribute = [System.Management.Automation.ValidateNotNullAttribute]::New()
 				$AttributeCollection.Add($ValidateNotNullAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('PerformanceCounterInstance', [string], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 				$RuntimeDefinedParameter.Value = ''
 
-				$RuntimeDefinedParameterDictionary.Add('PerformanceCounterInstance', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 
 				#Region ComparisonOperator
+				$ParameterName = 'ComparisonOperator'
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 				$ComparisonOperatorParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -1961,12 +1991,14 @@ function New-SmoSqlAgentAlert {
 				$ValidateSetAttribute = [System.Management.Automation.ValidateSetAttribute]::New('>', '<', '=')
 				$AttributeCollection.Add($ValidateSetAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('ComparisonOperator', [string], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-				$RuntimeDefinedParameterDictionary.Add('ComparisonOperator', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 
 				#Region PerformanceValue
+				$ParameterName = 'PerformanceValue'
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 				$PerformanceValueParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -1974,14 +2006,16 @@ function New-SmoSqlAgentAlert {
 
 				$AttributeCollection.Add($PerformanceValueParameterAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('PerformanceValue', [decimal], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [decimal], $AttributeCollection)
 
-				$RuntimeDefinedParameterDictionary.Add('PerformanceValue', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 			}
 
 			'WmiEvent' {
 				#Region WmiEventNamespace
+				$ParameterName = 'WmiEventNamespace'
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 				$WmiEventNamespaceParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -1992,12 +2026,14 @@ function New-SmoSqlAgentAlert {
 				$ValidateNotNullOrEmptyAttribute = [System.Management.Automation.ValidateNotNullOrEmptyAttribute]::New()
 				$AttributeCollection.Add($ValidateNotNullOrEmptyAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('WmiEventNamespace', [string], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-				$RuntimeDefinedParameterDictionary.Add('WmiEventNamespace', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 
 				#Region WmiEventQuery
+				$ParameterName = 'WmiEventQuery'
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 				$WmiEventQueryParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -2008,9 +2044,9 @@ function New-SmoSqlAgentAlert {
 				$ValidateNotNullOrEmptyAttribute = [System.Management.Automation.ValidateNotNullOrEmptyAttribute]::New()
 				$AttributeCollection.Add($ValidateNotNullOrEmptyAttribute)
 
-				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('WmiEventQuery', [string], $AttributeCollection)
+				$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [string], $AttributeCollection)
 
-				$RuntimeDefinedParameterDictionary.Add('WmiEventQuery', $RuntimeDefinedParameter)
+				$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 				#EndRegion
 			}
 
@@ -2694,6 +2730,8 @@ function New-SmoSqlAgentSchedule {
 
 		if ($PSBoundParameters['FrequencyType'] -in @('Daily', 'Monthly', 'MonthlyRelative', 'Weekly')) {
 			#Region FrequencyInterval
+			$ParameterName = 'FrequencyInterval'
+
 			$FrequencyIntervalParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 			$FrequencyIntervalParameterAttribute.Mandatory = $true
 
@@ -2725,12 +2763,14 @@ function New-SmoSqlAgentSchedule {
 
 			$AttributeCollection.Add($ValidateRangeAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('FrequencyInterval', [int], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [int], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('FrequencyInterval', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 
 			#Region FrequencySubDayType
+			$ParameterName = 'FrequencySubDayType'
+
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 			$FrequencySubDayTypeParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -2745,12 +2785,14 @@ function New-SmoSqlAgentSchedule {
 
 			$AttributeCollection.Add($FrequencySubDayTypeParameterAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('FrequencySubDayType', [Microsoft.SqlServer.Management.SMO.Agent.FrequencySubDayTypes], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [Microsoft.SqlServer.Management.SMO.Agent.FrequencySubDayTypes], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('FrequencySubDayType', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 
 			#Region FrequencySubDayInterval
+			$ParameterName = 'FrequencySubDayInterval'
+
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 			$FrequencySubDayIntervalParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -2766,12 +2808,14 @@ function New-SmoSqlAgentSchedule {
 			$ValidateRangeAttribute = [System.Management.Automation.ValidateRangeAttribute]::New([System.Management.Automation.ValidateRangeKind]::Positive)
 			$AttributeCollection.Add($ValidateRangeAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('FrequencySubDayInterval', [int], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [int], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('FrequencySubDayInterval', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 
 			#Region ActiveEndTimeOfDay
+			$ParameterName = 'ActiveEndTimeOfDay'
+
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 
 			$ActiveEndTimeOfDayParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
@@ -2784,57 +2828,65 @@ function New-SmoSqlAgentSchedule {
 
 			$AttributeCollection.Add($ActiveEndTimeOfDayParameterAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('ActiveEndTimeOfDay', [TimeSpan], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [TimeSpan], $AttributeCollection)
 
 			$RuntimeDefinedParameter.Value = [System.TimeSpan]::New(23, 59, 59)
 
-			$RuntimeDefinedParameterDictionary.Add('ActiveEndTimeOfDay', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
 		if ($PSBoundParameters['FrequencyType'] -in @('Daily', 'Monthly', 'MonthlyRelative', 'Onetime', 'Weekly')) {
 			#Region ActiveStartTimeOfDay
+			$ParameterName = 'ActiveStartTimeOfDay'
+
 			$ActiveStartTimeOfDayParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 			$AttributeCollection.Add($ActiveStartTimeOfDayParameterAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('ActiveStartTimeOfDay', [TimeSpan], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [TimeSpan], $AttributeCollection)
 
 			$RuntimeDefinedParameter.Value = [System.TimeSpan]::New(0, 0, 0)
 
-			$RuntimeDefinedParameterDictionary.Add('ActiveStartTimeOfDay', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 
 			#Region ActiveStartDate
+			$ParameterName = 'ActiveStartDate'
+
 			$ActiveStartDateParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 			$AttributeCollection.Add($ActiveStartDateParameterAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('ActiveStartDate', [DateTime], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [DateTime], $AttributeCollection)
 
 			$RuntimeDefinedParameter.Value = Get-Date
 
-			$RuntimeDefinedParameterDictionary.Add('ActiveStartDate', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 
 			#Region ActiveEndDate
+			$ParameterName = 'ActiveEndDate'
+
 			$ActiveEndDateParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 			$AttributeCollection.Add($ActiveEndDateParameterAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('ActiveEndDate', [DateTime], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [DateTime], $AttributeCollection)
 
 			$RuntimeDefinedParameter.Value = '9999-12-31 00:00:00'
 
-			$RuntimeDefinedParameterDictionary.Add('ActiveEndDate', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
 		if ($PSBoundParameters['FrequencyType'] -in @('Monthly', 'MonthlyRelative', 'Weekly')) {
 			#Region FrequencyRecurrenceFactor
+			$ParameterName = 'FrequencyRecurrenceFactor'
+
 			$FrequencyRecurrenceFactorParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 			$FrequencyRecurrenceFactorParameterAttribute.Mandatory = $true
 
@@ -2844,23 +2896,25 @@ function New-SmoSqlAgentSchedule {
 			$ValidateRangeAttribute = [System.Management.Automation.ValidateRangeAttribute]::New([System.Management.Automation.ValidateRangeKind]::Positive)
 			$AttributeCollection.Add($ValidateRangeAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('FrequencyRecurrenceFactor', [int], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [int], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('FrequencyRecurrenceFactor', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
 		if ($PSBoundParameters['FrequencyType'] -in @('MonthlyRelative')) {
 			#Region FrequencyRelativeIntervals
+			$ParameterName = 'FrequencyRelativeIntervals'
+
 			$FrequencyRelativeIntervalsParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
 			$FrequencyRelativeIntervalsParameterAttribute.Mandatory = $true
 
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
 			$AttributeCollection.Add($FrequencyRelativeIntervalsParameterAttribute)
 
-			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New('FrequencyRelativeIntervals', [Microsoft.SqlServer.Management.Smo.Agent.FrequencyRelativeIntervals], $AttributeCollection)
+			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [Microsoft.SqlServer.Management.Smo.Agent.FrequencyRelativeIntervals], $AttributeCollection)
 
-			$RuntimeDefinedParameterDictionary.Add('FrequencyRelativeIntervals', $RuntimeDefinedParameter)
+			$RuntimeDefinedParameterDictionary.Add($ParameterName, $RuntimeDefinedParameter)
 			#EndRegion
 		}
 
