@@ -4,7 +4,7 @@
 RootModule = 'SQLServerAgentTools.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.1.0'
+ModuleVersion = '1.0.1.1'
 
 # Supported PSEditions
 CompatiblePSEditions = @('Core', 'Desktop')
@@ -44,7 +44,7 @@ PowerShellHostVersion = '5.1'
 
 # Modules that must be imported into the global environment prior to importing this module
 RequiredModules = @(
-	@{ModuleName="SQLServerTools"; ModuleVersion="3.3.6.0"; GUID="0dbb8289-ae5b-4633-afc8-dfaf0acbe06c"}
+	@{ModuleName="SQLServerTools"; ModuleVersion="3.6.1.2"; GUID="0dbb8289-ae5b-4633-afc8-dfaf0acbe06c"}
 )
 
 # Assemblies that must be loaded prior to importing this module

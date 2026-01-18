@@ -10,6 +10,18 @@ Comment Based Help
 #EndRegion
 
 #Region Classes
+class TransformPath : System.Management.Automation.ArgumentTransformationAttribute {
+	[object]Transform([System.Management.Automation.EngineIntrinsics]$EngineIntrinsics, [object]$InputData) {
+		if ([System.IO.Path]::IsPathRooted($InputData)) {
+			return $InputData
+		} else {
+			return [System.IO.Path]::GetFullPath([System.IO.Path]::Combine($PWD.Path, $InputData))
+		}
+
+		throw [System.InvalidOperationException]::New('Unexpected error.')
+	}
+}
+
 class ValidatePathIsValid : System.Management.Automation.ValidateArgumentsAttribute {
 	[void]Validate([object]$Path, [System.Management.Automation.EngineIntrinsics]$EngineIntrinsics) {
 		if([string]::IsNullOrWhiteSpace($Path)) {
@@ -526,7 +538,7 @@ function Add-SmoSqlAgentJobStep {
 			ValueFromPipelineByPropertyName = $false
 		)]
 		[ValidatePathIsValid()]
-		[System.IO.FileInfo]$OutputFileName,
+		[System.IO.FileInfo][TransformPath()]$OutputFileName,
 
 		[Parameter(
 			Mandatory = $false,
