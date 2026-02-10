@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -56,15 +56,19 @@ Reads a SQL Agent Job history.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Read-SmoSqlAgentJobHistory -ServerInstance MyServer -JobName MyJob
+```
 
 Lists agent job history for MyJob.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Read-SmoSqlAgentJobHistory -SmoServerObject $SmoServerObject -JobName MyJob
+```
 
 Lists agent job history using specified SMO connection for job MyJob.
 
@@ -156,7 +160,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -199,7 +203,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

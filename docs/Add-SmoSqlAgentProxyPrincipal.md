@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -52,15 +52,19 @@ Adds SQL Server logins, server roles to grant access to the proxy account.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Add-SmoSqlAgentProxyPrincipal -ServerInstance MyServer -ProxyAccountName MyProxy -PrincipalName 'domain\jdoe'
+```
 
 Adds principal "domain\jdoe" to proxy MyProxy.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Add-SmoSqlAgentProxyPrincipal -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy -PrincipalName 'domain\jdoe'
+```
 
 Adds principal "domain\jdoe" to proxy MyProxy using Smo server object.
 
@@ -132,7 +136,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -154,7 +158,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

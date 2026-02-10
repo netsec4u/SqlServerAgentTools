@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -56,15 +56,19 @@ Creates the specified SQL Server Agent proxy.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 New-SmoSqlAgentProxyAccount -ServerInstance MyServer -ProxyAccountName MyProxyName -CredentialName MyCredential -AgentSubSystem PowerShell
+```
 
 Creates agent proxy account MyProxyName in the PowerShell agent subsystem.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 New-SmoSqlAgentProxyAccount -SmoServerObject $SmoServerObject -ProxyAccountName MyProxyName -CredentialName MyCredential -AgentSubSystem PowerShell
+```
 
 Creates agent proxy account MyProxyName in the PowerShell agent subsystem using Smo server object.
 
@@ -178,7 +182,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -200,7 +204,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

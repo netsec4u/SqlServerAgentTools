@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -52,15 +52,19 @@ Removes the specified category of jobs, alerts, or operators from the current se
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Remove-SmoSqlAgentCategory -ServerInstance MyServer -Class Alert -CategoryName MyCategory
+```
 
 Removes agent category MyCategory in class Alert.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Remove-SmoSqlAgentCategory -SmoServerObject $SmoServerObject -Class Alert -CategoryName MyCategory
+```
 
 Removes agent category MyCategory in class Alert using Smo server object.
 
@@ -132,7 +136,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -154,7 +158,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

@@ -202,7 +202,7 @@ Remove-Variable -Name @('TypeDefinition')
 function Add-SmoSqlAgentAlertOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -323,7 +323,7 @@ function Add-SmoSqlAgentAlertOperator {
 function Add-SmoSqlAgentJobSchedule {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -439,7 +439,7 @@ function Add-SmoSqlAgentJobSchedule {
 function Add-SmoSqlAgentJobStep {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -809,7 +809,7 @@ function Add-SmoSqlAgentJobStep {
 function Add-SmoSqlAgentProxyPrincipal {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -918,7 +918,7 @@ function Add-SmoSqlAgentProxyPrincipal {
 function Add-SmoSqlAgentProxySubSystem {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1011,7 +1011,7 @@ function Add-SmoSqlAgentProxySubSystem {
 function Get-SmoSqlAgentAlert {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1088,7 +1088,7 @@ function Get-SmoSqlAgentAlert {
 function Get-SmoSqlAgentCategory {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1195,7 +1195,7 @@ function Get-SmoSqlAgentCategory {
 function Get-SmoSqlAgentJob {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1272,7 +1272,7 @@ function Get-SmoSqlAgentJob {
 function Get-SmoSqlAgentJobServer {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1335,7 +1335,7 @@ function Get-SmoSqlAgentJobServer {
 function Get-SmoSqlAgentMsxEncryptChannelOption {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1416,7 +1416,7 @@ function Get-SmoSqlAgentMsxEncryptChannelOption {
 function Get-SmoSqlAgentOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1493,7 +1493,7 @@ function Get-SmoSqlAgentOperator {
 function Get-SmoSqlAgentProxyAccount {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1570,7 +1570,7 @@ function Get-SmoSqlAgentProxyAccount {
 function Get-SmoSqlAgentSchedule {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1647,7 +1647,7 @@ function Get-SmoSqlAgentSchedule {
 function Get-SmoSqlAgentSubSystem {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1741,7 +1741,7 @@ function Get-SmoSqlAgentSubSystem {
 function New-SmoSqlAgentAlert {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2188,7 +2188,7 @@ function New-SmoSqlAgentAlert {
 function New-SmoSqlAgentCategory {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2287,7 +2287,7 @@ function New-SmoSqlAgentCategory {
 function New-SmoSqlAgentJob {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2472,7 +2472,7 @@ function New-SmoSqlAgentJob {
 function New-SmoSqlAgentOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2567,7 +2567,7 @@ function New-SmoSqlAgentOperator {
 function New-SmoSqlAgentProxyAccount {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2669,7 +2669,7 @@ function New-SmoSqlAgentProxyAccount {
 function New-SmoSqlAgentSchedule {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3091,7 +3091,7 @@ function New-SmoSqlAgentSchedule {
 function Read-SmoSqlAgentErrorLog {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3169,7 +3169,7 @@ function Read-SmoSqlAgentErrorLog {
 function Read-SmoSqlAgentJobHistory {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3319,7 +3319,7 @@ function Read-SmoSqlAgentJobHistory {
 function Remove-SmoSqlAgentAlert {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3394,7 +3394,7 @@ function Remove-SmoSqlAgentAlert {
 function Remove-SmoSqlAgentAlertOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3492,7 +3492,7 @@ function Remove-SmoSqlAgentAlertOperator {
 function Remove-SmoSqlAgentCategory {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3585,7 +3585,7 @@ function Remove-SmoSqlAgentCategory {
 function Remove-SmoSqlAgentJob {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3660,7 +3660,7 @@ function Remove-SmoSqlAgentJob {
 function Remove-SmoSqlAgentJobSchedule {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3746,7 +3746,7 @@ function Remove-SmoSqlAgentJobSchedule {
 function Remove-SmoSqlAgentJobStep {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3831,7 +3831,7 @@ function Remove-SmoSqlAgentJobStep {
 function Remove-SmoSqlAgentOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3906,7 +3906,7 @@ function Remove-SmoSqlAgentOperator {
 function Remove-SmoSqlAgentProxyAccount {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3981,7 +3981,7 @@ function Remove-SmoSqlAgentProxyAccount {
 function Remove-SmoSqlAgentProxyPrincipal {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4070,7 +4070,7 @@ function Remove-SmoSqlAgentProxyPrincipal {
 function Remove-SmoSqlAgentProxySubSystem {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4154,7 +4154,7 @@ function Remove-SmoSqlAgentProxySubSystem {
 function Remove-SmoSqlAgentSchedule {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4229,7 +4229,7 @@ function Remove-SmoSqlAgentSchedule {
 function Set-SmoSqlAgentJobOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4324,7 +4324,7 @@ function Set-SmoSqlAgentJobOperator {
 function Set-SmoSqlAgentMsxEncryptChannelOption {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4459,7 +4459,7 @@ function Set-SmoSqlAgentMsxEncryptChannelOption {
 function Set-SmoSqlAgentSubSystem {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4589,7 +4589,7 @@ function Set-SmoSqlAgentSubSystem {
 function Start-SmoSqlAgentJob {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4696,7 +4696,7 @@ function Start-SmoSqlAgentJob {
 function Stop-SmoSqlAgentJob {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-help.xml
+	SQLServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]

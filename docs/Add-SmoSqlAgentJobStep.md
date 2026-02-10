@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -80,15 +80,19 @@ Add step to job.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Add-SmoSqlAgentJobStep -ServerInstance MyServer -JobName MyJob -JobStepName MyJobStep -AgentSubSystem TransactSql
+```
 
 Adds job step MyJobStep to agent job MyJob.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Add-SmoSqlAgentJobStep -SmoServerObject $SmoServerObject -JobName MyJob -JobStepName MyJobStep
+```
 
 Adds job step MyJobStep to agent job MyJob using Smo server object.
 
@@ -482,7 +486,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -504,7 +508,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

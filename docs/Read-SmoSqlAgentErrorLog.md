@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -46,15 +46,19 @@ Reads a SQL Agent error log.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Read-SmoSqlAgentErrorLog -ServerInstance MyServer
+```
 
 Returns agent error log.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Read-SmoSqlAgentErrorLog -SmoServerObject $SmoServerObject
+```
 
 Returns agent error log using specified Smo connection.
 
@@ -83,7 +87,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -105,7 +109,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

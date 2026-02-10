@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -106,45 +106,59 @@ Creates a schedule that can be used by any number of jobs.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_OneTime -FrequencyType OneTime -ActiveStartTimeOfDay 15:00:00 -ActiveStartDate 2022-12-20
+```
 
 Creates a schedule to execute once at 15:00:00 on 2022-12-20.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_AutoStart -FrequencyType AutoStart
+```
 
 Creates a schedule to execute when SQL Server Agent Starts.
 
-### EXAMPLE 3
+### Example 3
 
+```powershell
 New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_OnIdle -FrequencyType OnIdle
+```
 
 Creates a schedule to execute when CPU becomes idle.
 
-### EXAMPLE 4
+### Example 4
 
+```powershell
 New-SmoSqlAgentSchedule -ServerInstance MyServer -ScheduleName MySchedule -FrequencyType Daily -FrequencyInterval 1 -FrequencySubDayType Minute -FrequencySubDayInterval 15 -ActiveStartTimeOfDay 0:00:00 -ActiveEndTimeOfDay 23:59:59
+```
 
 Creates a schedule that executes daily every 15 minute(s) between 12:00:00 AM and 11:59:59 PM.
 
-### EXAMPLE 5
+### Example 5
 
+```powershell
 New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_Daily -FrequencyType Daily -FrequencyInterval 1 -FrequencySubDayType Once -ActiveStartTimeOfDay 10:00:00
+```
 
 Creates a schedule that executes once daily at 10:00:00.
 
-### EXAMPLE 6
+### Example 6
 
+```powershell
 New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_MonthlyRelative -FrequencyType Weekly -FrequencyRecurrenceFactor 1 -FrequencyInterval 42 -FrequencySubDayType Once -ActiveStartTimeOfDay 04:00:00
+```
 
 Creates a schedule that executes each week on Monday, Wednesday, and Friday at 04:00:00.
 
-### EXAMPLE 7
+### Example 7
 
+```powershell
 New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_MonthlyRelative -FrequencyType MonthlyRelative -FrequencyRelativeIntervals 1 -FrequencyInterval 3 -FrequencyRecurrenceFactor 2
+```
 
 Creates a schedule that executes the first Tuesday of every 2 months.
 
@@ -485,7 +499,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -513,7 +527,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <helpItems xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" schema="maml" xmlns="http://msh">
   <command:command>
     <command:details>
@@ -40,7 +40,7 @@
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -80,7 +80,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -119,14 +119,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -157,27 +157,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Add-SmoSqlAgentAlertOperator -ServerInstance MyServer -AlertName MyAlert -OperatorName MyOperator</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Adds MyOperator to alert MyAlert.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Add-SmoSqlAgentAlertOperator -ServerInstance MyServer -AlertName MyAlert -OperatorName MyOperator</dev:code>
+        <dev:remarks>
+          <maml:para>Adds MyOperator to alert MyAlert.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Add-SmoSqlAgentAlertOperator -SmoServerObject $SmoServerObject -AlertName MyAlert -OperatorName MyOperator</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Adds MyOperator to alert MyAlert using the Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Add-SmoSqlAgentAlertOperator -SmoServerObject $SmoServerObject -AlertName MyAlert -OperatorName MyOperator</dev:code>
+        <dev:remarks>
+          <maml:para>Adds MyOperator to alert MyAlert using the Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -219,7 +222,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -259,7 +262,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -298,14 +301,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -336,27 +339,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Add-SmoSqlAgentJobSchedule -ServerInstance MyServer -JobName MyJob -ScheduleName MySchedule</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Adds schedule MySchedule to agent job MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Add-SmoSqlAgentJobSchedule -ServerInstance MyServer -JobName MyJob -ScheduleName MySchedule</dev:code>
+        <dev:remarks>
+          <maml:para>Adds schedule MySchedule to agent job MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Add-SmoSqlAgentJobSchedule -SmoServerObject $SmoServerObject -JobName MyJob -ScheduleName MySchedule</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Adds schedule MySchedule to agent job MyJob using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Add-SmoSqlAgentJobSchedule -SmoServerObject $SmoServerObject -JobName MyJob -ScheduleName MySchedule</dev:code>
+        <dev:remarks>
+          <maml:para>Adds schedule MySchedule to agent job MyJob using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -510,7 +516,7 @@ Dynamic parameter required when agent subsystem is AnalysisCommand or AnalysisQu
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -646,7 +652,7 @@ Dynamic parameter required when OnSuccessAction is GoToStep.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -797,14 +803,14 @@ Dynamic parameter required when agent subsystem is AnalysisCommand or AnalysisQu
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -835,27 +841,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Add-SmoSqlAgentJobStep -ServerInstance MyServer -JobName MyJob -JobStepName MyJobStep -AgentSubSystem TransactSql</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Adds job step MyJobStep to agent job MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Add-SmoSqlAgentJobStep -ServerInstance MyServer -JobName MyJob -JobStepName MyJobStep -AgentSubSystem TransactSql</dev:code>
+        <dev:remarks>
+          <maml:para>Adds job step MyJobStep to agent job MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Add-SmoSqlAgentJobStep -SmoServerObject $SmoServerObject -JobName MyJob -JobStepName MyJobStep</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Adds job step MyJobStep to agent job MyJob using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Add-SmoSqlAgentJobStep -SmoServerObject $SmoServerObject -JobName MyJob -JobStepName MyJobStep</dev:code>
+        <dev:remarks>
+          <maml:para>Adds job step MyJobStep to agent job MyJob using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -897,7 +906,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -937,7 +946,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -976,14 +985,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -1014,27 +1023,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Add-SmoSqlAgentProxyPrincipal -ServerInstance MyServer -ProxyAccountName MyProxy -PrincipalName 'domain\jdoe'</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Adds principal "domain\jdoe" to proxy MyProxy.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Add-SmoSqlAgentProxyPrincipal -ServerInstance MyServer -ProxyAccountName MyProxy -PrincipalName 'domain\jdoe'</dev:code>
+        <dev:remarks>
+          <maml:para>Adds principal "domain\jdoe" to proxy MyProxy.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Add-SmoSqlAgentProxyPrincipal -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy -PrincipalName 'domain\jdoe'</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Adds principal "domain\jdoe" to proxy MyProxy using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Add-SmoSqlAgentProxyPrincipal -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy -PrincipalName 'domain\jdoe'</dev:code>
+        <dev:remarks>
+          <maml:para>Adds principal "domain\jdoe" to proxy MyProxy using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -1069,7 +1081,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1109,7 +1121,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -1148,14 +1160,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -1193,27 +1205,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Add-SmoSqlAgentProxySubSystem -ServerInstance MyServer -ProxyAccountName MyPRoxyAccount -SubSystemName PowerShell</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Adds Powershell subsystem to proxy account MyPRoxyAccount.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Add-SmoSqlAgentProxySubSystem -ServerInstance MyServer -ProxyAccountName MyPRoxyAccount -SubSystemName PowerShell</dev:code>
+        <dev:remarks>
+          <maml:para>Adds Powershell subsystem to proxy account MyPRoxyAccount.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Add-SmoSqlAgentProxySubSystem -SmoServerObject $SmoServerObject -ProxyAccountName MyPRoxyAccount -SubSystemName PowerShell</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Adds Powershell subsystem to proxy account MyPRoxyAccount using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Add-SmoSqlAgentProxySubSystem -SmoServerObject $SmoServerObject -ProxyAccountName MyPRoxyAccount -SubSystemName PowerShell</dev:code>
+        <dev:remarks>
+          <maml:para>Adds Powershell subsystem to proxy account MyPRoxyAccount using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -1241,7 +1256,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1259,7 +1274,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -1276,14 +1291,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -1306,37 +1321,39 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentAlert -ServerInstance MyServer</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Get-SmoSqlAgentAlert -ServerInstance MyServer</dev:code>
+        <dev:remarks>
           <maml:para>Lists all agent alerts.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentAlert -SmoServerObject $SmoServerObject</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Get-SmoSqlAgentAlert -SmoServerObject $SmoServerObject</dev:code>
+        <dev:remarks>
           <maml:para>Lists all agent alerts using Smo server object.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 3 ---------</maml:title>
+        <maml:title>--------- Example 3 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName MyAlert</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Lists agent alert MyAlert using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName MyAlert</dev:code>
+        <dev:remarks>
+          <maml:para>Lists agent alert MyAlert using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -1371,7 +1388,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1396,7 +1413,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -1420,14 +1437,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -1466,27 +1483,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentCategory -ServerInstance MyServer -Class Alert -CategoryName MyCategory</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Gets agent category MyCategory in class Alert.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentCategory -ServerInstance MyServer -Class Alert -CategoryName MyCategory</dev:code>
+        <dev:remarks>
+          <maml:para>Gets agent category MyCategory in class Alert.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentCategory -SmoServerObject $SmoServerObject -Class Alert -CategoryName MyCategory</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Gets agent category MyCategory in class Alert using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentCategory -SmoServerObject $SmoServerObject -Class Alert -CategoryName MyCategory</dev:code>
+        <dev:remarks>
+          <maml:para>Gets agent category MyCategory in class Alert using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -1514,7 +1534,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1532,7 +1552,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -1549,14 +1569,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -1579,37 +1599,39 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentJob -ServerInstance MyServer</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Get-SmoSqlAgentJob -ServerInstance MyServer</dev:code>
+        <dev:remarks>
           <maml:para>Lists all agent jobs.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject</dev:code>
+        <dev:remarks>
           <maml:para>Lists all agent jobs using Smo server object.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 3 ---------</maml:title>
+        <maml:title>--------- Example 3 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Lists agent job MyJob using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob</dev:code>
+        <dev:remarks>
+          <maml:para>Lists agent job MyJob using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -1630,7 +1652,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1641,7 +1663,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -1651,14 +1673,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -1681,27 +1703,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentJobServer -ServerInstance MyServer</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Gets agent job server.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentJobServer -ServerInstance MyServer</dev:code>
+        <dev:remarks>
+          <maml:para>Gets agent job server.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentJobServer -SmoServerObject $SmoServerObject</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Gets agent job server using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentJobServer -SmoServerObject $SmoServerObject</dev:code>
+        <dev:remarks>
+          <maml:para>Gets agent job server using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -1722,7 +1747,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1733,7 +1758,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -1743,14 +1768,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -1773,27 +1798,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentMsxEncryptChannelOption -ServerInstance MyServer</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Gets SQL agent encrypt channel option from MyServer.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentMsxEncryptChannelOption -ServerInstance MyServer</dev:code>
+        <dev:remarks>
+          <maml:para>Gets SQL agent encrypt channel option from MyServer.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentMsxEncryptChannelOption -SmoServerObject $SmoServerObject</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Gets SQL agent encrypt channel option using specified SMO connection for job MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentMsxEncryptChannelOption -SmoServerObject $SmoServerObject</dev:code>
+        <dev:remarks>
+          <maml:para>Gets SQL agent encrypt channel option using specified SMO connection for job MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -1821,7 +1849,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1839,7 +1867,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -1856,14 +1884,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -1886,37 +1914,39 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentOperator -ServerInstance MyServer</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Get-SmoSqlAgentOperator -ServerInstance MyServer</dev:code>
+        <dev:remarks>
           <maml:para>Lists agent operators.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentOperator -SmoServerObject $SmoServerObject</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Get-SmoSqlAgentOperator -SmoServerObject $SmoServerObject</dev:code>
+        <dev:remarks>
           <maml:para>Lists agent operators using Smo server object.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 3 ---------</maml:title>
+        <maml:title>--------- Example 3 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentOperator -SmoServerObject $SmoServerObject -OperatorName MyOperator</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Lists agent operator MyOperator using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentOperator -SmoServerObject $SmoServerObject -OperatorName MyOperator</dev:code>
+        <dev:remarks>
+          <maml:para>Lists agent operator MyOperator using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -1944,7 +1974,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1962,7 +1992,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -1979,14 +2009,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -2009,37 +2039,39 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentProxyAccount -ServerInstance MyServer</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Get-SmoSqlAgentProxyAccount -ServerInstance MyServer</dev:code>
+        <dev:remarks>
           <maml:para>Lists agent proxy accounts.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentProxyAccount -SmoServerObject $SmoServerObject</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Get-SmoSqlAgentProxyAccount -SmoServerObject $SmoServerObject</dev:code>
+        <dev:remarks>
           <maml:para>Lists agent proxy accounts using Smo server object.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 3 ---------</maml:title>
+        <maml:title>--------- Example 3 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentProxyAccount -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Lists agent proxy MyProxy using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentProxyAccount -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy</dev:code>
+        <dev:remarks>
+          <maml:para>Lists agent proxy MyProxy using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -2067,7 +2099,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -2085,7 +2117,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -2102,14 +2134,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -2132,37 +2164,39 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentSchedule -ServerInstance MyServer</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Get-SmoSqlAgentSchedule -ServerInstance MyServer</dev:code>
+        <dev:remarks>
           <maml:para>Gets SQL agent schedules from MyServer.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentSchedule -SmoServerObject $SmoServerObject</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Get-SmoSqlAgentSchedule -SmoServerObject $SmoServerObject</dev:code>
+        <dev:remarks>
           <maml:para>Lists agent schedule using Smo server object.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 3 ---------</maml:title>
+        <maml:title>--------- Example 3 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentSchedule -SmoServerObject $SmoServerObject -ScheduleName MySchedule</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Lists agent schedule MySchedule using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentSchedule -SmoServerObject $SmoServerObject -ScheduleName MySchedule</dev:code>
+        <dev:remarks>
+          <maml:para>Lists agent schedule MySchedule using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -2190,7 +2224,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -2208,7 +2242,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -2225,14 +2259,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -2255,27 +2289,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentSubSystem -ServerInstance MyServer -SubSystem PowerShell</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Lists agent PowerShell subsystem.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentSubSystem -ServerInstance MyServer -SubSystem PowerShell</dev:code>
+        <dev:remarks>
+          <maml:para>Lists agent PowerShell subsystem.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Get-SmoSqlAgentSubSystem -SmoServerObject $SmoServerObject -SubSystem PowerShell</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Lists agent PowerShell subsystem using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Get-SmoSqlAgentSubSystem -SmoServerObject $SmoServerObject -SubSystem PowerShell</dev:code>
+        <dev:remarks>
+          <maml:para>Lists agent PowerShell subsystem using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -2377,7 +2414,7 @@ Dynamic parameter available when AlertType is SqlServerEvent.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -2469,7 +2506,7 @@ Dynamic parameter available when AlertType is SqlServerEvent.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -2592,7 +2629,7 @@ Dynamic parameter required when AlertType is SqlServerPerformanceCondition.</mam
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -2667,7 +2704,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -2783,7 +2820,7 @@ Dynamic parameter available when AlertType is SqlServerEvent.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -2883,7 +2920,7 @@ Dynamic parameter available when AlertType is SqlServerEvent.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -2998,7 +3035,7 @@ Dynamic parameter required when AlertType is SqlServerPerformanceCondition.</mam
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -3073,7 +3110,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -3228,7 +3265,7 @@ Dynamic parameter required when AlertType is SqlServerPerformanceCondition.</mam
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -3243,7 +3280,7 @@ Dynamic parameter available when AlertType is SqlServerEvent.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -3290,57 +3327,57 @@ Dynamic parameter required when AlertType is WmiEvent.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentAlert -ServerInstance . -AlertName MyAlert -AlertType SqlServerEvent -MessageID 823</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>New-SmoSqlAgentAlert -ServerInstance . -AlertName MyAlert -AlertType SqlServerEvent -MessageID 823</dev:code>
+        <dev:remarks>
           <maml:para>Creates agent alert for events with message ID 823.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName MyAlert -AlertType SqlServerEvent -MessageID 823</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>New-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName MyAlert -AlertType SqlServerEvent -MessageID 823</dev:code>
+        <dev:remarks>
           <maml:para>Creates agent alert for events with message ID 823 using Smo server object.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 3 ---------</maml:title>
+        <maml:title>--------- Example 3 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentAlert -ServerInstance . -AlertName TestServerEvent -AlertType SqlServerEvent -Severity 16</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>New-SmoSqlAgentAlert -ServerInstance . -AlertName TestServerEvent -AlertType SqlServerEvent -Severity 16</dev:code>
+        <dev:remarks>
           <maml:para>Creates agent alert for events with severity 16.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 4 ---------</maml:title>
+        <maml:title>--------- Example 4 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SqlAgentAlert -ServerInstance . -AlertName TestPerformanceCondition -AlertType SqlServerPerformanceCondition -PerformanceObject 'SQL Statistics' -PerformanceCounter 'SQL Compilations/sec' -PerformanceCounterInstance '' -ComparisonOperator '&gt;' -PerformanceValue 3000</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>New-SqlAgentAlert -ServerInstance . -AlertName TestPerformanceCondition -AlertType SqlServerPerformanceCondition -PerformanceObject 'SQL Statistics' -PerformanceCounter 'SQL Compilations/sec' -PerformanceCounterInstance '' -ComparisonOperator '&gt;' -PerformanceValue 3000</dev:code>
+        <dev:remarks>
           <maml:para>Creates alert on performance object.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 5 ---------</maml:title>
+        <maml:title>--------- Example 5 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentAlert -ServerInstance . -AlertName TestWmiEvent -AlertType WmiEvent -WmiEventNamespace '\\.\root\Microsoft\SqlServer\ServerEvents\MSSQLSERVER' -WmiEventQuery 'SELECT * FROM DDL_DATABASE_EVENTS'</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Creates alert on WMI results.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>New-SmoSqlAgentAlert -ServerInstance . -AlertName TestWmiEvent -AlertType WmiEvent -WmiEventNamespace '\\.\root\Microsoft\SqlServer\ServerEvents\MSSQLSERVER' -WmiEventQuery 'SELECT * FROM DDL_DATABASE_EVENTS'</dev:code>
+        <dev:remarks>
+          <maml:para>Creates alert on WMI results.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -3382,7 +3419,7 @@ Dynamic parameter required when AlertType is WmiEvent.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -3422,7 +3459,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -3461,14 +3498,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -3515,27 +3552,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentCategory -ServerInstance MyServer -Class Alert -CategoryName MyCategory</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Creates agent category MyCategory in Alert class.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>New-SmoSqlAgentCategory -ServerInstance MyServer -Class Alert -CategoryName MyCategory</dev:code>
+        <dev:remarks>
+          <maml:para>Creates agent category MyCategory in Alert class.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentCategory -SmoServerObject $SmoServerObject -Class Alert -CategoryName MyCategory</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Creates agent category MyCategory in Alert class using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>New-SmoSqlAgentCategory -SmoServerObject $SmoServerObject -Class Alert -CategoryName MyCategory</dev:code>
+        <dev:remarks>
+          <maml:para>Creates agent category MyCategory in Alert class using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -3612,7 +3652,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -3701,7 +3741,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -3790,7 +3830,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -3865,7 +3905,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -3953,14 +3993,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -3991,27 +4031,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentJob -ServerInstance MyServer -JobName MyJob -OwnerLoginName sa -OperatorToEmail MyOperator -EmailLevel OnFailure</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Creates agent job MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>New-SmoSqlAgentJob -ServerInstance MyServer -JobName MyJob -OwnerLoginName sa -OperatorToEmail MyOperator -EmailLevel OnFailure</dev:code>
+        <dev:remarks>
+          <maml:para>Creates agent job MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob -OwnerLoginName sa -OperatorToEmail MyOperator -EmailLevel OnFailure</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Creates agent job MyJob using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>New-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob -OwnerLoginName sa -OperatorToEmail MyOperator -EmailLevel OnFailure</dev:code>
+        <dev:remarks>
+          <maml:para>Creates agent job MyJob using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -4060,7 +4103,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -4107,7 +4150,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -4153,14 +4196,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -4191,27 +4234,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentOperator -ServerInstance MyServer -OperatorName MyOperator -OperatorEmailAddress operator@domain.com</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Creates agent operator MyOperator.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>New-SmoSqlAgentOperator -ServerInstance MyServer -OperatorName MyOperator -OperatorEmailAddress operator@domain.com</dev:code>
+        <dev:remarks>
+          <maml:para>Creates agent operator MyOperator.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentOperator -SmoServerObject $SmoServerObject -OperatorName MyOperator -OperatorEmailAddress operator@domain.com</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Creates agent operator MyOperator using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>New-SmoSqlAgentOperator -SmoServerObject $SmoServerObject -OperatorName MyOperator -OperatorEmailAddress operator@domain.com</dev:code>
+        <dev:remarks>
+          <maml:para>Creates agent operator MyOperator using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -4267,7 +4313,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -4321,7 +4367,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -4374,14 +4420,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -4412,27 +4458,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentProxyAccount -ServerInstance MyServer -ProxyAccountName MyProxyName -CredentialName MyCredential -AgentSubSystem PowerShell</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Creates agent proxy account MyProxyName in the PowerShell agent subsystem.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>New-SmoSqlAgentProxyAccount -ServerInstance MyServer -ProxyAccountName MyProxyName -CredentialName MyCredential -AgentSubSystem PowerShell</dev:code>
+        <dev:remarks>
+          <maml:para>Creates agent proxy account MyProxyName in the PowerShell agent subsystem.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentProxyAccount -SmoServerObject $SmoServerObject -ProxyAccountName MyProxyName -CredentialName MyCredential -AgentSubSystem PowerShell</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Creates agent proxy account MyProxyName in the PowerShell agent subsystem using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>New-SmoSqlAgentProxyAccount -SmoServerObject $SmoServerObject -ProxyAccountName MyProxyName -CredentialName MyCredential -AgentSubSystem PowerShell</dev:code>
+        <dev:remarks>
+          <maml:para>Creates agent proxy account MyProxyName in the PowerShell agent subsystem using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -4555,7 +4604,7 @@ Dynamic parameter required when FrequencyType is Daily, Monthly, MonthlyRelative
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -4700,7 +4749,7 @@ Dynamic parameter required when FrequencyType is Daily, Monthly, MonthlyRelative
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -4845,7 +4894,7 @@ Dynamic parameter required when FrequencyType is Daily, Monthly, MonthlyRelative
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -4966,7 +5015,7 @@ Dynamic parameter required when FrequencyType is Daily, Monthly, MonthlyRelative
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -5110,14 +5159,14 @@ Dynamic parameter required when FrequencyType is Daily, Monthly, MonthlyRelative
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -5148,77 +5197,75 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_OneTime -FrequencyType OneTime -ActiveStartTimeOfDay 15:00:00 -ActiveStartDate 2022-12-20</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_OneTime -FrequencyType OneTime -ActiveStartTimeOfDay 15:00:00 -ActiveStartDate 2022-12-20</dev:code>
+        <dev:remarks>
           <maml:para>Creates a schedule to execute once at 15:00:00 on 2022-12-20.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_AutoStart -FrequencyType AutoStart</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_AutoStart -FrequencyType AutoStart</dev:code>
+        <dev:remarks>
           <maml:para>Creates a schedule to execute when SQL Server Agent Starts.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 3 ---------</maml:title>
+        <maml:title>--------- Example 3 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_OnIdle -FrequencyType OnIdle</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_OnIdle -FrequencyType OnIdle</dev:code>
+        <dev:remarks>
           <maml:para>Creates a schedule to execute when CPU becomes idle.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 4 ---------</maml:title>
+        <maml:title>--------- Example 4 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentSchedule -ServerInstance MyServer -ScheduleName MySchedule -FrequencyType Daily -FrequencyInterval 1 -FrequencySubDayType Minute -FrequencySubDayInterval 15 -ActiveStartTimeOfDay 0:00:00 -ActiveEndTimeOfDay 23:59:59</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>New-SmoSqlAgentSchedule -ServerInstance MyServer -ScheduleName MySchedule -FrequencyType Daily -FrequencyInterval 1 -FrequencySubDayType Minute -FrequencySubDayInterval 15 -ActiveStartTimeOfDay 0:00:00 -ActiveEndTimeOfDay 23:59:59</dev:code>
+        <dev:remarks>
           <maml:para>Creates a schedule that executes daily every 15 minute(s) between 12:00:00 AM and 11:59:59 PM.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 5 ---------</maml:title>
+        <maml:title>--------- Example 5 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_Daily -FrequencyType Daily -FrequencyInterval 1 -FrequencySubDayType Once -ActiveStartTimeOfDay 10:00:00</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_Daily -FrequencyType Daily -FrequencyInterval 1 -FrequencySubDayType Once -ActiveStartTimeOfDay 10:00:00</dev:code>
+        <dev:remarks>
           <maml:para>Creates a schedule that executes once daily at 10:00:00.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 6 ---------</maml:title>
+        <maml:title>--------- Example 6 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_MonthlyRelative -FrequencyType Weekly -FrequencyRecurrenceFactor 1 -FrequencyInterval 42 -FrequencySubDayType Once -ActiveStartTimeOfDay 04:00:00</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_MonthlyRelative -FrequencyType Weekly -FrequencyRecurrenceFactor 1 -FrequencyInterval 42 -FrequencySubDayType Once -ActiveStartTimeOfDay 04:00:00</dev:code>
+        <dev:remarks>
           <maml:para>Creates a schedule that executes each week on Monday, Wednesday, and Friday at 04:00:00.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 7 ---------</maml:title>
+        <maml:title>--------- Example 7 ---------</maml:title>
         <maml:introduction>
-          <maml:para>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_MonthlyRelative -FrequencyType MonthlyRelative -FrequencyRelativeIntervals 1 -FrequencyInterval 3 -FrequencyRecurrenceFactor 2</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Creates a schedule that executes the first Tuesday of every 2 months.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>New-SmoSqlAgentSchedule -ServerInstance . -ScheduleName Test_MonthlyRelative -FrequencyType MonthlyRelative -FrequencyRelativeIntervals 1 -FrequencyInterval 3 -FrequencyRecurrenceFactor 2</dev:code>
+        <dev:remarks>
+          <maml:para>Creates a schedule that executes the first Tuesday of every 2 months.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -5246,7 +5293,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -5264,7 +5311,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -5281,14 +5328,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -5311,27 +5358,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Read-SmoSqlAgentErrorLog -ServerInstance MyServer</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Returns agent error log.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Read-SmoSqlAgentErrorLog -ServerInstance MyServer</dev:code>
+        <dev:remarks>
+          <maml:para>Returns agent error log.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Read-SmoSqlAgentErrorLog -SmoServerObject $SmoServerObject</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Returns agent error log using specified Smo connection.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Read-SmoSqlAgentErrorLog -SmoServerObject $SmoServerObject</dev:code>
+        <dev:remarks>
+          <maml:para>Returns agent error log using specified Smo connection.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -5380,7 +5430,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -5440,7 +5490,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -5485,7 +5535,7 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -5499,7 +5549,7 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -5529,27 +5579,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Read-SmoSqlAgentJobHistory -ServerInstance MyServer -JobName MyJob</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Lists agent job history for MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Read-SmoSqlAgentJobHistory -ServerInstance MyServer -JobName MyJob</dev:code>
+        <dev:remarks>
+          <maml:para>Lists agent job history for MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Read-SmoSqlAgentJobHistory -SmoServerObject $SmoServerObject -JobName MyJob</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Lists agent job history using specified SMO connection for job MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Read-SmoSqlAgentJobHistory -SmoServerObject $SmoServerObject -JobName MyJob</dev:code>
+        <dev:remarks>
+          <maml:para>Lists agent job history using specified SMO connection for job MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -5584,7 +5637,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -5617,7 +5670,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -5649,14 +5702,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -5687,27 +5740,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentAlert -ServerInstance MyServer -AlertName MyAlert</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent alert MyAlert.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentAlert -ServerInstance MyServer -AlertName MyAlert</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent alert MyAlert.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName MyAlert</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent alert MyAlert using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName MyAlert</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent alert MyAlert using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -5749,7 +5805,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -5789,7 +5845,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -5828,14 +5884,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -5866,27 +5922,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentAlertOperator -ServerInstance MyServer -AlertName MyAlert -OperatorName MyOperator</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent alert operator MyOperator from alert MyAlert.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentAlertOperator -ServerInstance MyServer -AlertName MyAlert -OperatorName MyOperator</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent alert operator MyOperator from alert MyAlert.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentAlertOperator -SmoServerObject $SmoServerObject -AlertName MyAlert -OperatorName MyOperator</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent alert operator MyOperator from alert MyAlert using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentAlertOperator -SmoServerObject $SmoServerObject -AlertName MyAlert -OperatorName MyOperator</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent alert operator MyOperator from alert MyAlert using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -5928,7 +5987,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -5968,7 +6027,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -6007,14 +6066,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -6045,27 +6104,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentCategory -ServerInstance MyServer -Class Alert -CategoryName MyCategory</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent category MyCategory in class Alert.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentCategory -ServerInstance MyServer -Class Alert -CategoryName MyCategory</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent category MyCategory in class Alert.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentCategory -SmoServerObject $SmoServerObject -Class Alert -CategoryName MyCategory</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent category MyCategory in class Alert using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentCategory -SmoServerObject $SmoServerObject -Class Alert -CategoryName MyCategory</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent category MyCategory in class Alert using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -6100,7 +6162,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -6133,7 +6195,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -6165,14 +6227,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -6203,27 +6265,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentJob -ServerInstance MyServer -JobName MyJob</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent job MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentJob -ServerInstance MyServer -JobName MyJob</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent job MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent job MyJob using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent job MyJob using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -6265,7 +6330,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -6305,7 +6370,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -6344,14 +6409,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -6382,27 +6447,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentJobSchedule -ServerInstance MyServer -JobName MyJob -ScheduleName MySchedule</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent job schedule MySchedule from job MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentJobSchedule -ServerInstance MyServer -JobName MyJob -ScheduleName MySchedule</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent job schedule MySchedule from job MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentJobSchedule -SmoServerObject $SmoServerObject -JobName MyJob -ScheduleName MySchedule</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent job schedule MySchedule from job MyJob using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentJobSchedule -SmoServerObject $SmoServerObject -JobName MyJob -ScheduleName MySchedule</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent job schedule MySchedule from job MyJob using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -6444,7 +6512,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -6484,7 +6552,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -6523,14 +6591,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -6561,27 +6629,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentJobStep -ServerInstance MyServer -JobName MyJob -JobStepName "Step 1"</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes job step "Step 1" from agent job MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentJobStep -ServerInstance MyServer -JobName MyJob -JobStepName "Step 1"</dev:code>
+        <dev:remarks>
+          <maml:para>Removes job step "Step 1" from agent job MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentJobStep -SmoServerObject $SmoServerObject -JobName MyJob -JobStepName "Step 1"</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes job step "Step 1" from agent job MyJob using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentJobStep -SmoServerObject $SmoServerObject -JobName MyJob -JobStepName "Step 1"</dev:code>
+        <dev:remarks>
+          <maml:para>Removes job step "Step 1" from agent job MyJob using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -6616,7 +6687,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -6649,7 +6720,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -6681,14 +6752,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -6719,27 +6790,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentOperator -ServerInstance MyServer -OperatorName MyOperator</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent operator MyOperator.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentOperator -ServerInstance MyServer -OperatorName MyOperator</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent operator MyOperator.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentOperator -SmoServerObject $SmoServerObject -OperatorName MyOperator</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent operator MyOperator using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentOperator -SmoServerObject $SmoServerObject -OperatorName MyOperator</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent operator MyOperator using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -6774,7 +6848,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -6807,7 +6881,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -6839,14 +6913,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -6877,27 +6951,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentProxyAccount -ServerInstance MyServer -ProxyAccountName MyProxy</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent proxy account MyProxy.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentProxyAccount -ServerInstance MyServer -ProxyAccountName MyProxy</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent proxy account MyProxy.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentProxyAccount -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent proxy account MyProxy using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentProxyAccount -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent proxy account MyProxy using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -6939,7 +7016,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -6979,7 +7056,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -7018,14 +7095,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -7056,27 +7133,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentProxyPrincipal -ServerInstance MyServer -ProxyAccountName MyProxy -PrincipalName MyPrincipal</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes principal MyPrincipal from MyProxy agent proxy.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentProxyPrincipal -ServerInstance MyServer -ProxyAccountName MyProxy -PrincipalName MyPrincipal</dev:code>
+        <dev:remarks>
+          <maml:para>Removes principal MyPrincipal from MyProxy agent proxy.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentProxyPrincipal -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy -PrincipalName MyPrincipal</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes principal MyPrincipal from MyProxy agent proxy using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentProxyPrincipal -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy -PrincipalName MyPrincipal</dev:code>
+        <dev:remarks>
+          <maml:para>Removes principal MyPrincipal from MyProxy agent proxy using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -7111,7 +7191,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -7151,7 +7231,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -7190,14 +7270,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -7235,27 +7315,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentProxySubSystem -ServerInstance MyServer -ProxyAccountName MyProxy -SubSystemName PowerShell</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes PowerShell subsystem from proxy account MyProxy.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentProxySubSystem -ServerInstance MyServer -ProxyAccountName MyProxy -SubSystemName PowerShell</dev:code>
+        <dev:remarks>
+          <maml:para>Removes PowerShell subsystem from proxy account MyProxy.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentProxySubSystem -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy -SubSystemName PowerShell</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes PowerShell subsystem from proxy account MyProxy using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentProxySubSystem -SmoServerObject $SmoServerObject -ProxyAccountName MyProxy -SubSystemName PowerShell</dev:code>
+        <dev:remarks>
+          <maml:para>Removes PowerShell subsystem from proxy account MyProxy using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -7290,7 +7373,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -7323,7 +7406,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -7355,14 +7438,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -7393,27 +7476,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentSchedule -ServerInstance MyServer -ScheduleName MySchedule</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent schedule MySchedule.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentSchedule -ServerInstance MyServer -ScheduleName MySchedule</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent schedule MySchedule.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Remove-SmoSqlAgentSchedule -SmoServerObject -ScheduleName MySchedule</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Removes agent schedule MySchedule using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Remove-SmoSqlAgentSchedule -SmoServerObject -ScheduleName MySchedule</dev:code>
+        <dev:remarks>
+          <maml:para>Removes agent schedule MySchedule using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -7462,7 +7548,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -7509,7 +7595,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -7555,14 +7641,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -7593,27 +7679,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Set-SmoSqlAgentJobOperator -ServerInstance MyServer -JobName MyJob -OperatorName MyOperator -EmailLevel OnFailure</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Set agent job operator properties on MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Set-SmoSqlAgentJobOperator -ServerInstance MyServer -JobName MyJob -OperatorName MyOperator -EmailLevel OnFailure</dev:code>
+        <dev:remarks>
+          <maml:para>Set agent job operator properties on MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Set-SmoSqlAgentJobOperator -SmoServerObject $SmoServerObject -JobName MyJob -OperatorName MyOperator -EmailLevel OnFailure</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Set agent job operator properties on MyJob using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Set-SmoSqlAgentJobOperator -SmoServerObject $SmoServerObject -JobName MyJob -OperatorName MyOperator -EmailLevel OnFailure</dev:code>
+        <dev:remarks>
+          <maml:para>Set agent job operator properties on MyJob using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -7648,7 +7737,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -7681,7 +7770,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -7713,14 +7802,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -7751,27 +7840,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Set-SmoSqlAgentMsxEncryptChannelOption -ServerInstance MyServer -SubSystem PowerShell -MsxEncryptChannelOption 2</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Sets MsxEncryptChannelOption to 2.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Set-SmoSqlAgentMsxEncryptChannelOption -ServerInstance MyServer -SubSystem PowerShell -MsxEncryptChannelOption 2</dev:code>
+        <dev:remarks>
+          <maml:para>Sets MsxEncryptChannelOption to 2.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Set-SmoSqlAgentMsxEncryptChannelOption -SmoServerObject $SmoServerObject -SubSystem PowerShell -MsxEncryptChannelOption 2</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Sets MsxEncryptChannelOption to 2 using the specified Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Set-SmoSqlAgentMsxEncryptChannelOption -SmoServerObject $SmoServerObject -SubSystem PowerShell -MsxEncryptChannelOption 2</dev:code>
+        <dev:remarks>
+          <maml:para>Sets MsxEncryptChannelOption to 2 using the specified Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -7813,7 +7905,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -7853,7 +7945,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -7892,14 +7984,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -7930,27 +8022,30 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Set-SmoSqlAgentSubSystem -ServerInstance MyServer -SubSystem PowerShell -MaxWorkerThreads 20</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Sets PowerShell agent subsystem max worker threads to 20.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Set-SmoSqlAgentSubSystem -ServerInstance MyServer -SubSystem PowerShell -MaxWorkerThreads 20</dev:code>
+        <dev:remarks>
+          <maml:para>Sets PowerShell agent subsystem max worker threads to 20.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Set-SmoSqlAgentSubSystem -SmoServerObject $SmoServerObject -SubSystem PowerShell -MaxWorkerThreads 20</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Sets PowerShell agent subsystem max worker threads to 20 using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Set-SmoSqlAgentSubSystem -SmoServerObject $SmoServerObject -SubSystem PowerShell -MaxWorkerThreads 20</dev:code>
+        <dev:remarks>
+          <maml:para>Sets PowerShell agent subsystem max worker threads to 20 using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -7992,7 +8087,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -8032,7 +8127,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -8071,14 +8166,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -8109,37 +8204,39 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Start-SmoSqlAgentJob -ServerInstance MyServer -JobName MyJob</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Start-SmoSqlAgentJob -ServerInstance MyServer -JobName MyJob</dev:code>
+        <dev:remarks>
           <maml:para>Starts agent job MyJob.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Start-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob</maml:para>
-          <maml:para>&#x80;</maml:para>
+        </maml:introduction>
+        <dev:code>Start-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob</dev:code>
+        <dev:remarks>
           <maml:para>Starts agent job MyJob using Smo server object.</maml:para>
-        </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 3 ---------</maml:title>
+        <maml:title>--------- Example 3 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Start-SmoSqlAgentJob -ServerInstance MyServer -JobName MyJob -JobStepName 'MyJobStep'</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Starts agent job MyJob at step MyJobStep.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Start-SmoSqlAgentJob -ServerInstance MyServer -JobName MyJob -JobStepName 'MyJobStep'</dev:code>
+        <dev:remarks>
+          <maml:para>Starts agent job MyJob at step MyJobStep.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
@@ -8174,7 +8271,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>ServerInstance</maml:name>
           <maml:description>
-            <maml:para>SQL Server host name and instance name.</maml:para>
+            <maml:para>The name of the SQL Server instance to connect to.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -8207,7 +8304,7 @@ The cmdlet is not run.</maml:para>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>SmoServerObject</maml:name>
           <maml:description>
-            <maml:para>SQL Server Management Object.</maml:para>
+            <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
         </command:parameter>
@@ -8239,14 +8336,14 @@ The cmdlet is not run.</maml:para>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>ServerInstance</maml:name>
         <maml:description>
-          <maml:para>SQL Server host name and instance name.</maml:para>
+          <maml:para>The name of the SQL Server instance to connect to.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>SmoServerObject</maml:name>
         <maml:description>
-          <maml:para>SQL Server Management Object.</maml:para>
+          <maml:para>An existing SMO Server object representing the SQL Server instance.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
       </command:parameter>
@@ -8277,26 +8374,29 @@ The cmdlet is not run.</maml:para>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- EXAMPLE 1 ---------</maml:title>
+        <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Stop-SmoSqlAgentJob -ServerInstance MyServer -JobName MyJob</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Stops agent job MyJob.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Stop-SmoSqlAgentJob -ServerInstance MyServer -JobName MyJob</dev:code>
+        <dev:remarks>
+          <maml:para>Stops agent job MyJob.</maml:para>
+        </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- EXAMPLE 2 ---------</maml:title>
+        <maml:title>--------- Example 2 ---------</maml:title>
         <maml:introduction>
-          <maml:para>Stop-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob</maml:para>
-          <maml:para>&#x80;</maml:para>
-          <maml:para>Stops agent job MyJob using Smo server object.</maml:para>
         </maml:introduction>
-        <dev:code />
-        <dev:remarks />
+        <dev:code>Stop-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob</dev:code>
+        <dev:remarks>
+          <maml:para>Stops agent job MyJob using Smo server object.</maml:para>
+        </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
 </helpItems>

@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -52,15 +52,19 @@ Add schedule to Agent job.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Add-SmoSqlAgentJobSchedule -ServerInstance MyServer -JobName MyJob -ScheduleName MySchedule
+```
 
 Adds schedule MySchedule to agent job MyJob.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Add-SmoSqlAgentJobSchedule -SmoServerObject $SmoServerObject -JobName MyJob -ScheduleName MySchedule
+```
 
 Adds schedule MySchedule to agent job MyJob using Smo server object.
 
@@ -132,7 +136,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -154,7 +158,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

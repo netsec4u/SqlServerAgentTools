@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -52,15 +52,19 @@ Grants a proxy access to a subsystem.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Add-SmoSqlAgentProxySubSystem -ServerInstance MyServer -ProxyAccountName MyPRoxyAccount -SubSystemName PowerShell
+```
 
 Adds Powershell subsystem to proxy account MyPRoxyAccount.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Add-SmoSqlAgentProxySubSystem -SmoServerObject $SmoServerObject -ProxyAccountName MyPRoxyAccount -SubSystemName PowerShell
+```
 
 Adds Powershell subsystem to proxy account MyPRoxyAccount using Smo server object.
 
@@ -111,7 +115,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -133,7 +137,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

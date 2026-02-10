@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -52,15 +52,19 @@ Add operator to agent alert.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Add-SmoSqlAgentAlertOperator -ServerInstance MyServer -AlertName MyAlert -OperatorName MyOperator
+```
 
 Adds MyOperator to alert MyAlert.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Add-SmoSqlAgentAlertOperator -SmoServerObject $SmoServerObject -AlertName MyAlert -OperatorName MyOperator
+```
 
 Adds MyOperator to alert MyAlert using the Smo server object.
 
@@ -132,7 +136,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -154,7 +158,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

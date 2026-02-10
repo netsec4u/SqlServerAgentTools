@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -182,33 +182,43 @@ Creates a agent alert.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 New-SmoSqlAgentAlert -ServerInstance . -AlertName MyAlert -AlertType SqlServerEvent -MessageID 823
+```
 
 Creates agent alert for events with message ID 823.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 New-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName MyAlert -AlertType SqlServerEvent -MessageID 823
+```
 
 Creates agent alert for events with message ID 823 using Smo server object.
 
-### EXAMPLE 3
+### Example 3
 
+```powershell
 New-SmoSqlAgentAlert -ServerInstance . -AlertName TestServerEvent -AlertType SqlServerEvent -Severity 16
+```
 
 Creates agent alert for events with severity 16.
 
-### EXAMPLE 4
+### Example 4
 
+```powershell
 New-SqlAgentAlert -ServerInstance . -AlertName TestPerformanceCondition -AlertType SqlServerPerformanceCondition -PerformanceObject 'SQL Statistics' -PerformanceCounter 'SQL Compilations/sec' -PerformanceCounterInstance '' -ComparisonOperator '>' -PerformanceValue 3000
+```
 
 Creates alert on performance object.
 
-### EXAMPLE 5
+### Example 5
 
+```powershell
 New-SmoSqlAgentAlert -ServerInstance . -AlertName TestWmiEvent -AlertType WmiEvent -WmiEventNamespace '\\.\root\Microsoft\SqlServer\ServerEvents\MSSQLSERVER' -WmiEventQuery 'SELECT * FROM DDL_DATABASE_EVENTS'
+```
 
 Creates alert on WMI results.
 
@@ -633,7 +643,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -701,7 +711,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

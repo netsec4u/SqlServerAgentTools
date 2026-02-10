@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -54,15 +54,19 @@ Set job operator notification methods.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Set-SmoSqlAgentJobOperator -ServerInstance MyServer -JobName MyJob -OperatorName MyOperator -EmailLevel OnFailure
+```
 
 Set agent job operator properties on MyJob.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Set-SmoSqlAgentJobOperator -SmoServerObject $SmoServerObject -JobName MyJob -OperatorName MyOperator -EmailLevel OnFailure
+```
 
 Set agent job operator properties on MyJob using Smo server object.
 
@@ -155,7 +159,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -177,7 +181,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

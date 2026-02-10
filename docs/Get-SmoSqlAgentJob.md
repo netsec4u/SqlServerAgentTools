@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -47,21 +47,27 @@ If the name of the job is provided, the function gets only this specific job obj
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Get-SmoSqlAgentJob -ServerInstance MyServer
+```
 
 Lists all agent jobs.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject
+```
 
 Lists all agent jobs using Smo server object.
 
-### EXAMPLE 3
+### Example 3
 
+```powershell
 Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName MyJob
+```
 
 Lists agent job MyJob using Smo server object.
 
@@ -90,7 +96,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -112,7 +118,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server

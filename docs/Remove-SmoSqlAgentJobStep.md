@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: SQLServerAgentTools-help.xml
+external help file: SQLServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
@@ -52,15 +52,19 @@ Removes step from job.
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
 
+```powershell
 Remove-SmoSqlAgentJobStep -ServerInstance MyServer -JobName MyJob -JobStepName "Step 1"
+```
 
 Removes job step "Step 1" from agent job MyJob.
 
-### EXAMPLE 2
+### Example 2
 
+```powershell
 Remove-SmoSqlAgentJobStep -SmoServerObject $SmoServerObject -JobName MyJob -JobStepName "Step 1"
+```
 
 Removes job step "Step 1" from agent job MyJob using Smo server object.
 
@@ -132,7 +136,7 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-SQL Server host name and instance name.
+The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
@@ -154,7 +158,7 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-SQL Server Management Object.
+An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server
