@@ -1,11 +1,5 @@
 Set-StrictMode -Version Latest
 
-<#
-Comment Based Help
-	Add-SmoSqlAgentJobStep - Add examples
-
-#>
-
 #Region Enumerations
 #EndRegion
 
@@ -202,7 +196,7 @@ Remove-Variable -Name @('TypeDefinition')
 function Add-SmoSqlAgentAlertOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -252,14 +246,24 @@ function Add-SmoSqlAgentAlertOperator {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -288,7 +292,13 @@ function Add-SmoSqlAgentAlertOperator {
 				}
 			}
 
-			$AlertOperators = $Alert.EnumNotifications([Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods]::NotifyEmail).OperatorName
+			$Notifications = $Alert.EnumNotifications([Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods]::NotifyEmail)
+
+			if ($Notifications.Rows.Count -gt 0) {
+				$AlertOperators = $Notifications.OperatorName
+			} else {
+				$AlertOperators = @()
+			}
 
 			foreach ($Operator in $OperatorName) {
 				if ($Operator -in $AlertOperators) {
@@ -314,6 +324,11 @@ function Add-SmoSqlAgentAlertOperator {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -323,7 +338,7 @@ function Add-SmoSqlAgentAlertOperator {
 function Add-SmoSqlAgentJobSchedule {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -374,14 +389,24 @@ function Add-SmoSqlAgentJobSchedule {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -430,6 +455,11 @@ function Add-SmoSqlAgentJobSchedule {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -439,7 +469,7 @@ function Add-SmoSqlAgentJobSchedule {
 function Add-SmoSqlAgentJobStep {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -687,8 +717,10 @@ function Add-SmoSqlAgentJobStep {
 	}
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
@@ -723,6 +755,14 @@ function Add-SmoSqlAgentJobStep {
 			}
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -800,6 +840,11 @@ function Add-SmoSqlAgentJobStep {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -809,7 +854,7 @@ function Add-SmoSqlAgentJobStep {
 function Add-SmoSqlAgentProxyPrincipal {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -860,14 +905,24 @@ function Add-SmoSqlAgentProxyPrincipal {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -909,6 +964,11 @@ function Add-SmoSqlAgentProxyPrincipal {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -918,7 +978,7 @@ function Add-SmoSqlAgentProxyPrincipal {
 function Add-SmoSqlAgentProxySubSystem {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -968,14 +1028,24 @@ function Add-SmoSqlAgentProxySubSystem {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -1002,6 +1072,11 @@ function Add-SmoSqlAgentProxySubSystem {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -1011,7 +1086,7 @@ function Add-SmoSqlAgentProxySubSystem {
 function Get-SmoSqlAgentAlert {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1054,14 +1129,24 @@ function Get-SmoSqlAgentAlert {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -1079,6 +1164,11 @@ function Get-SmoSqlAgentAlert {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -1088,7 +1178,7 @@ function Get-SmoSqlAgentAlert {
 function Get-SmoSqlAgentCategory {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1143,14 +1233,24 @@ function Get-SmoSqlAgentCategory {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -1186,6 +1286,11 @@ function Get-SmoSqlAgentCategory {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -1195,7 +1300,7 @@ function Get-SmoSqlAgentCategory {
 function Get-SmoSqlAgentJob {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1238,14 +1343,24 @@ function Get-SmoSqlAgentJob {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -1263,6 +1378,11 @@ function Get-SmoSqlAgentJob {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -1272,7 +1392,7 @@ function Get-SmoSqlAgentJob {
 function Get-SmoSqlAgentJobServer {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1307,12 +1427,22 @@ function Get-SmoSqlAgentJobServer {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -1326,6 +1456,11 @@ function Get-SmoSqlAgentJobServer {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -1335,7 +1470,7 @@ function Get-SmoSqlAgentJobServer {
 function Get-SmoSqlAgentMsxEncryptChannelOption {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1370,14 +1505,24 @@ function Get-SmoSqlAgentMsxEncryptChannelOption {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 
@@ -1397,7 +1542,7 @@ function Get-SmoSqlAgentMsxEncryptChannelOption {
 			}
 
 			if ([System.Net.Dns]::GetHostName() -ne $SmoServerObject.NetName) {
-				$CommandParameters.Add('ComputerName', $SmoServerObject.NetName)
+				$CommandParameters.Add('ComputerName', $SmoServerObject.Information.FullyQualifiedNetName)
 			}
 
 			$Results = Invoke-Command @CommandParameters
@@ -1406,6 +1551,11 @@ function Get-SmoSqlAgentMsxEncryptChannelOption {
 		}
 		catch {
 			throw $_
+		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
 		}
 	}
 
@@ -1416,7 +1566,7 @@ function Get-SmoSqlAgentMsxEncryptChannelOption {
 function Get-SmoSqlAgentOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1459,14 +1609,24 @@ function Get-SmoSqlAgentOperator {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -1484,6 +1644,11 @@ function Get-SmoSqlAgentOperator {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -1493,7 +1658,7 @@ function Get-SmoSqlAgentOperator {
 function Get-SmoSqlAgentProxyAccount {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1536,14 +1701,24 @@ function Get-SmoSqlAgentProxyAccount {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -1561,6 +1736,11 @@ function Get-SmoSqlAgentProxyAccount {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -1570,7 +1750,7 @@ function Get-SmoSqlAgentProxyAccount {
 function Get-SmoSqlAgentSchedule {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1613,14 +1793,24 @@ function Get-SmoSqlAgentSchedule {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -1638,6 +1828,11 @@ function Get-SmoSqlAgentSchedule {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -1647,7 +1842,7 @@ function Get-SmoSqlAgentSchedule {
 function Get-SmoSqlAgentSubSystem {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -1689,14 +1884,24 @@ function Get-SmoSqlAgentSubSystem {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$DatabaseObject = $SmoServerObject.Databases['master']
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 
@@ -1732,6 +1937,11 @@ function Get-SmoSqlAgentSubSystem {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -1741,7 +1951,7 @@ function Get-SmoSqlAgentSubSystem {
 function New-SmoSqlAgentAlert {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2076,6 +2286,8 @@ function New-SmoSqlAgentAlert {
 	}
 
 	begin {
+		$ServerInstanceParameterSets = @('SqlServerEventMessageID_ServerInstance', 'SqlServerEventSeverity_ServerInstance')
+
 		try {
 			switch ($AlertType) {
 				'SqlServerEvent' {
@@ -2110,13 +2322,21 @@ function New-SmoSqlAgentAlert {
 				}
 			}
 
-			if ($PSCmdlet.ParameterSetName -in @('SqlServerEventMessageID_ServerInstance', 'SqlServerEventSeverity_ServerInstance')) {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -2159,7 +2379,18 @@ function New-SmoSqlAgentAlert {
 			}
 
 			if ($PSBoundParameters.ContainsKey("JobName")) {
-				$AgentAlert.JobName = $JobName
+				$Job = Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName $JobName
+
+				if ($Job -isnot [Microsoft.SqlServer.Management.Smo.Agent.Job]) {
+					throw [System.Management.Automation.ErrorRecord]::New(
+						[Exception]::New('Job not found.'),
+						'1',
+						[System.Management.Automation.ErrorCategory]::ObjectNotFound,
+						$JobName
+					)
+				}
+
+				$AgentAlert.JobID = $Job.JobID
 			}
 
 			$AgentAlert.IncludeEventDescription = $IncludeEventDescription
@@ -2179,6 +2410,11 @@ function New-SmoSqlAgentAlert {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -2188,7 +2424,7 @@ function New-SmoSqlAgentAlert {
 function New-SmoSqlAgentCategory {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2243,14 +2479,24 @@ function New-SmoSqlAgentCategory {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in 'ServerInstance') {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -2278,6 +2524,11 @@ function New-SmoSqlAgentCategory {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -2287,7 +2538,7 @@ function New-SmoSqlAgentCategory {
 function New-SmoSqlAgentJob {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2414,14 +2665,24 @@ function New-SmoSqlAgentJob {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance', 'EmailOperator_ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -in @('ServerInstance', 'EmailOperator_ServerInstance')) {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -2463,6 +2724,11 @@ function New-SmoSqlAgentJob {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -2472,7 +2738,7 @@ function New-SmoSqlAgentJob {
 function New-SmoSqlAgentOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2530,14 +2796,24 @@ function New-SmoSqlAgentOperator {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -2546,7 +2822,7 @@ function New-SmoSqlAgentOperator {
 		try {
 			$Operator = [Microsoft.SqlServer.Management.Smo.Agent.Operator]::New($JobServer, $OperatorName)
 
-			$Operator.IsEnabled = $IsEnabled
+			$Operator.Enabled = $IsEnabled
 			$Operator.EmailAddress = $OperatorEmailAddress
 
 			if ($PSCmdlet.ShouldProcess($OperatorName, "Create SQL Agent operator")) {
@@ -2558,6 +2834,11 @@ function New-SmoSqlAgentOperator {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -2567,7 +2848,7 @@ function New-SmoSqlAgentOperator {
 function New-SmoSqlAgentProxyAccount {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2633,14 +2914,24 @@ function New-SmoSqlAgentProxyAccount {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -2660,6 +2951,11 @@ function New-SmoSqlAgentProxyAccount {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -2669,7 +2965,7 @@ function New-SmoSqlAgentProxyAccount {
 function New-SmoSqlAgentSchedule {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -2934,6 +3230,8 @@ function New-SmoSqlAgentSchedule {
 	}
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance', 'ServerInstance_FrequencySubDay')
+
 		try {
 			if ($PSBoundParameters.ContainsKey("ActiveEndDate")) {
 				$ActiveEndDate = $PSBoundParameters['ActiveEndDate']
@@ -3013,13 +3311,21 @@ function New-SmoSqlAgentSchedule {
 				}
 			}
 
-			if ($PSCmdlet.ParameterSetName -in @('ServerInstance', 'ServerInstance_FrequencySubDay')) {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -3082,6 +3388,11 @@ function New-SmoSqlAgentSchedule {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -3091,7 +3402,7 @@ function New-SmoSqlAgentSchedule {
 function Read-SmoSqlAgentErrorLog {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3133,32 +3444,52 @@ function Read-SmoSqlAgentErrorLog {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance -StatementTimeout 0
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
 
 	process {
-		$DataView = [System.Data.DataView]::New($JobServer.ReadErrorLog($LogNumber))
-		$DataView.Sort = 'LogDate DESC'
+		try {
+			$DataView = [System.Data.DataView]::New($JobServer.ReadErrorLog($LogNumber))
+			$DataView.Sort = 'LogDate DESC'
 
-		$ColumnNames = $DataView.Table.Columns.ColumnName
+			$ColumnNames = $DataView.Table.Columns.ColumnName
 
-		foreach ($Row in $DataView) {
-			$ErrorLogRecord = [SqlServerAgent.ErrorLogRecord]::New()
+			foreach ($Row in $DataView) {
+				$ErrorLogRecord = [SqlServerAgent.ErrorLogRecord]::New()
 
-			foreach ($ColumnName in $ColumnNames) {
-				$ErrorLogRecord.$ColumnName = $Row.$ColumnName
+				foreach ($ColumnName in $ColumnNames) {
+					$ErrorLogRecord.$ColumnName = $Row.$ColumnName
+				}
+
+				$ErrorLogRecord
 			}
-
-			$ErrorLogRecord
+		}
+		catch {
+			throw $_
+		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
 		}
 	}
 
@@ -3169,7 +3500,7 @@ function Read-SmoSqlAgentErrorLog {
 function Read-SmoSqlAgentJobHistory {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3247,68 +3578,88 @@ function Read-SmoSqlAgentJobHistory {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance -StatementTimeout 0
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
 
 	process {
-		$JobHistoryFilter = [Microsoft.SqlServer.Management.Smo.Agent.JobHistoryFilter]::New()
+		try {
+			$JobHistoryFilter = [Microsoft.SqlServer.Management.Smo.Agent.JobHistoryFilter]::New()
 
-		$JobHistoryFilter.JobName = $JobName
+			$JobHistoryFilter.JobName = $JobName
 
-		if ($PSBoundParameters.ContainsKey("CompletionResult")) {
-			$JobHistoryFilter.OutcomeTypes = $CompletionResult
-		}
-
-		if ($PSBoundParameters.ContainsKey("MessageID")) {
-			$JobHistoryFilter.SqlMessageID = $MessageID
-		}
-
-		if ($PSBoundParameters.ContainsKey("Severity")) {
-			$JobHistoryFilter.SqlSeverity = $Severity
-		}
-
-		if ($PSBoundParameters.ContainsKey("StartRunDate")) {
-			$JobHistoryFilter.StartRunDate = $StartRunDate
-		}
-
-		if ($PSBoundParameters.ContainsKey("EndRunDate")) {
-			$JobHistoryFilter.EndRunDate = $EndRunDate
-		}
-
-		$DataView = [System.Data.DataView]::New($JobServer.EnumJobHistory($JobHistoryFilter))
-		$DataView.Sort = 'InstanceID DESC'
-
-		$ColumnNames = $DataView.Table.Columns.ColumnName
-
-		foreach ($Row in $DataView) {
-			$JobHistory = [SqlServerAgent.JobHistory]::New()
-
-			switch ($ColumnNames) {
-				'RunDuration' {
-					$Duration = $Row.$_
-
-					$JobHistory.$_ = [System.TimeSpan]::New(
-						$(($Duration - ($Duration % 1000000)) / 1000000),
-						$(($Duration - ($Duration % 10000)) % 1000000 / 10000),
-						$(($Duration - ($Duration % 100)) % 10000 / 100),
-						$($Duration % 100)
-					)
-				}
-				Default {
-					$JobHistory.$_ = $Row.$_
-				}
+			if ($PSBoundParameters.ContainsKey("CompletionResult")) {
+				$JobHistoryFilter.OutcomeTypes = $CompletionResult
 			}
 
-			$JobHistory
+			if ($PSBoundParameters.ContainsKey("MessageID")) {
+				$JobHistoryFilter.SqlMessageID = $MessageID
+			}
+
+			if ($PSBoundParameters.ContainsKey("Severity")) {
+				$JobHistoryFilter.SqlSeverity = $Severity
+			}
+
+			if ($PSBoundParameters.ContainsKey("StartRunDate")) {
+				$JobHistoryFilter.StartRunDate = $StartRunDate
+			}
+
+			if ($PSBoundParameters.ContainsKey("EndRunDate")) {
+				$JobHistoryFilter.EndRunDate = $EndRunDate
+			}
+
+			$DataView = [System.Data.DataView]::New($JobServer.EnumJobHistory($JobHistoryFilter))
+			$DataView.Sort = 'InstanceID DESC'
+
+			$ColumnNames = $DataView.Table.Columns.ColumnName
+
+			foreach ($Row in $DataView) {
+				$JobHistory = [SqlServerAgent.JobHistory]::New()
+
+				switch ($ColumnNames) {
+					'RunDuration' {
+						$Duration = $Row.$_
+
+						$JobHistory.$_ = [System.TimeSpan]::New(
+							$(($Duration - ($Duration % 1000000)) / 1000000),
+							$(($Duration - ($Duration % 10000)) % 1000000 / 10000),
+							$(($Duration - ($Duration % 100)) % 10000 / 100),
+							$($Duration % 100)
+						)
+					}
+					Default {
+						$JobHistory.$_ = $Row.$_
+					}
+				}
+
+				$JobHistory
+			}
+		}
+		catch {
+			throw $_
+		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
 		}
 	}
 
@@ -3319,7 +3670,7 @@ function Read-SmoSqlAgentJobHistory {
 function Remove-SmoSqlAgentAlert {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3327,7 +3678,7 @@ function Remove-SmoSqlAgentAlert {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -3362,14 +3713,24 @@ function Remove-SmoSqlAgentAlert {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -3385,6 +3746,11 @@ function Remove-SmoSqlAgentAlert {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -3394,7 +3760,7 @@ function Remove-SmoSqlAgentAlert {
 function Remove-SmoSqlAgentAlertOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3402,7 +3768,7 @@ function Remove-SmoSqlAgentAlertOperator {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -3445,14 +3811,24 @@ function Remove-SmoSqlAgentAlertOperator {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -3483,6 +3859,11 @@ function Remove-SmoSqlAgentAlertOperator {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -3492,7 +3873,7 @@ function Remove-SmoSqlAgentAlertOperator {
 function Remove-SmoSqlAgentCategory {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3500,7 +3881,7 @@ function Remove-SmoSqlAgentCategory {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -3543,14 +3924,24 @@ function Remove-SmoSqlAgentCategory {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -3576,6 +3967,11 @@ function Remove-SmoSqlAgentCategory {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -3585,7 +3981,7 @@ function Remove-SmoSqlAgentCategory {
 function Remove-SmoSqlAgentJob {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3593,7 +3989,7 @@ function Remove-SmoSqlAgentJob {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -3628,14 +4024,24 @@ function Remove-SmoSqlAgentJob {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance', 'EmailOperator_ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -in @('ServerInstance', 'EmailOperator_ServerInstance')) {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -3651,6 +4057,11 @@ function Remove-SmoSqlAgentJob {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -3660,7 +4071,7 @@ function Remove-SmoSqlAgentJob {
 function Remove-SmoSqlAgentJobSchedule {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3668,7 +4079,7 @@ function Remove-SmoSqlAgentJobSchedule {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -3711,8 +4122,10 @@ function Remove-SmoSqlAgentJobSchedule {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
@@ -3722,6 +4135,14 @@ function Remove-SmoSqlAgentJobSchedule {
 			$Schedule = $JobServer.sharedSchedules[$ScheduleName]
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -3737,6 +4158,11 @@ function Remove-SmoSqlAgentJobSchedule {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -3746,7 +4172,7 @@ function Remove-SmoSqlAgentJobSchedule {
 function Remove-SmoSqlAgentJobStep {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3754,7 +4180,7 @@ function Remove-SmoSqlAgentJobStep {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -3797,8 +4223,10 @@ function Remove-SmoSqlAgentJobStep {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
@@ -3807,6 +4235,14 @@ function Remove-SmoSqlAgentJobStep {
 			$AgentJob = $JobServer.Jobs[$JobName]
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -3822,6 +4258,11 @@ function Remove-SmoSqlAgentJobStep {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -3831,7 +4272,7 @@ function Remove-SmoSqlAgentJobStep {
 function Remove-SmoSqlAgentOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3839,7 +4280,7 @@ function Remove-SmoSqlAgentOperator {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -3874,14 +4315,24 @@ function Remove-SmoSqlAgentOperator {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -3897,6 +4348,11 @@ function Remove-SmoSqlAgentOperator {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -3906,7 +4362,7 @@ function Remove-SmoSqlAgentOperator {
 function Remove-SmoSqlAgentProxyAccount {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3914,7 +4370,7 @@ function Remove-SmoSqlAgentProxyAccount {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -3949,14 +4405,24 @@ function Remove-SmoSqlAgentProxyAccount {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -3972,6 +4438,11 @@ function Remove-SmoSqlAgentProxyAccount {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -3981,7 +4452,7 @@ function Remove-SmoSqlAgentProxyAccount {
 function Remove-SmoSqlAgentProxyPrincipal {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -3989,7 +4460,7 @@ function Remove-SmoSqlAgentProxyPrincipal {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -4032,8 +4503,10 @@ function Remove-SmoSqlAgentProxyPrincipal {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
@@ -4042,6 +4515,14 @@ function Remove-SmoSqlAgentProxyPrincipal {
 			$ProxyAccount = $JobServer.ProxyAccounts[$ProxyAccountName]
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -4061,6 +4542,11 @@ function Remove-SmoSqlAgentProxyPrincipal {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -4070,7 +4556,7 @@ function Remove-SmoSqlAgentProxyPrincipal {
 function Remove-SmoSqlAgentProxySubSystem {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4078,7 +4564,7 @@ function Remove-SmoSqlAgentProxySubSystem {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -4120,8 +4606,10 @@ function Remove-SmoSqlAgentProxySubSystem {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
@@ -4130,6 +4618,14 @@ function Remove-SmoSqlAgentProxySubSystem {
 			$ProxyAccount = $JobServer.ProxyAccounts[$ProxyAccountName]
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -4145,6 +4641,11 @@ function Remove-SmoSqlAgentProxySubSystem {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -4154,7 +4655,7 @@ function Remove-SmoSqlAgentProxySubSystem {
 function Remove-SmoSqlAgentSchedule {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4162,7 +4663,7 @@ function Remove-SmoSqlAgentSchedule {
 	[CmdletBinding(
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
-		ConfirmImpact = 'Low',
+		ConfirmImpact = 'High',
 		DefaultParameterSetName = 'ServerInstance'
 	)]
 
@@ -4197,14 +4698,24 @@ function Remove-SmoSqlAgentSchedule {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -4220,6 +4731,464 @@ function Remove-SmoSqlAgentSchedule {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
+	}
+
+	end {
+	}
+}
+
+function Set-SmoSqlAgentAlert {
+	<#
+	.EXTERNALHELP
+	SqlServerAgentTools-Help.xml
+	#>
+
+	[System.Diagnostics.DebuggerStepThrough()]
+
+	[CmdletBinding(
+		PositionalBinding = $false,
+		SupportsShouldProcess = $true,
+		ConfirmImpact = 'Medium',
+		DefaultParameterSetName = 'SqlServerEventMessageID_ServerInstance'
+	)]
+
+	[OutputType([Microsoft.SqlServer.Management.Smo.Agent.Alert])]
+
+	PARAM(
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventMessageID_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventSeverity_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'WmiEvent_ServerInstance'
+		)]
+		[ValidateLength(1, 128)]
+		[Alias('SqlServer')]
+		[string]$ServerInstance,
+
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventMessageID_SmoServer'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventSeverity_SmoServer'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_SmoServer'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'WmiEvent_SmoServer'
+		)]
+		[Microsoft.SqlServer.Management.Smo.Server]$SmoServerObject,
+
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false
+		)]
+		[ValidateLength(1, 128)]
+		[string]$AlertName,
+
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false
+		)]
+		[bool]$IsEnabled = $true,
+
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventMessageID_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventSeverity_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventMessageID_SmoServer'
+		)]
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventSeverity_SmoServer'
+		)]
+		$DatabaseName,
+
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventMessageID_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventMessageID_SmoServer'
+		)]
+		$MessageID,
+
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventSeverity_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventSeverity_SmoServer'
+		)]
+		$Severity,
+
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventMessageID_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventSeverity_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventMessageID_SmoServer'
+		)]
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerEventSeverity_SmoServer'
+		)]
+		$EventDescriptionKeyword,
+
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_SmoServer'
+		)]
+		$PerformanceObject,
+
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_SmoServer'
+		)]
+		$PerformanceCounter,
+
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_SmoServer'
+		)]
+		$PerformanceCounterInstance,
+
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_SmoServer'
+		)]
+		$ComparisonOperator,
+
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'SqlServerPerformanceCondition_SmoServer'
+		)]
+		$PerformanceValue,
+
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'WmiEvent_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'WmiEvent_SmoServer'
+		)]
+		$WmiEventNamespace,
+
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'WmiEvent_ServerInstance'
+		)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false,
+			ParameterSetName = 'WmiEvent_SmoServer'
+		)]
+		$WmiEventQuery,
+
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false
+		)]
+		[ValidateLength(1, 128)]
+		[string]$JobName,
+
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false
+		)]
+		[Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods]$IncludeEventDescription,
+
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false
+		)]
+		[ValidateNotNullOrEmpty()]
+		[string]$NotificationMessage,
+
+		[Parameter(
+			Mandatory = $false,
+			ValueFromPipeline = $false,
+			ValueFromPipelineByPropertyName = $false
+		)]
+		[ValidateRange('Positive')]
+		[int]$DelayBetweenResponses
+	)
+
+	begin {
+		try {
+			$ServerInstanceParameterSets = @('SqlServerEventMessageID_ServerInstance', 'SqlServerEventSeverity_ServerInstance', 'SqlServerPerformanceCondition_ServerInstance', 'WmiEvent_ServerInstance')
+
+			if ($PSBoundParameters.ContainsKey("DatabaseName")) {
+				$DatabaseName = $PSBoundParameters['DatabaseName']
+			}
+
+			if ($PSBoundParameters.ContainsKey("MessageID")) {
+				$MessageID = $PSBoundParameters['MessageID']
+			}
+
+			if ($PSBoundParameters.ContainsKey("Severity")) {
+				$Severity = $PSBoundParameters['Severity']
+			}
+
+			if ($PSBoundParameters.ContainsKey("EventDescriptionKeyword")) {
+				$EventDescriptionKeyword = $PSBoundParameters['EventDescriptionKeyword']
+			}
+
+			if ($PSBoundParameters.ContainsKey("PerformanceObject")) {
+				$PerformanceObject = $PSBoundParameters['PerformanceObject']
+			}
+
+			if ($PSBoundParameters.ContainsKey("PerformanceCounter")) {
+				$PerformanceCounter = $PSBoundParameters['PerformanceCounter']
+			}
+
+			if ($PSBoundParameters.ContainsKey("PerformanceCounterInstance")) {
+				$PerformanceCounterInstance = $PSBoundParameters['PerformanceCounterInstance']
+			}
+
+			if ($PSBoundParameters.ContainsKey("ComparisonOperator")) {
+				$ComparisonOperator = $PSBoundParameters['ComparisonOperator']
+			}
+
+			if ($PSBoundParameters.ContainsKey("PerformanceValue")) {
+				$PerformanceValue = $PSBoundParameters['PerformanceValue']
+			}
+
+			if ($PSBoundParameters.ContainsKey("WmiEventNamespace")) {
+				$WmiEventNamespace = $PSBoundParameters['WmiEventNamespace']
+			}
+
+			if ($PSBoundParameters.ContainsKey("WmiEventQuery")) {
+				$WmiEventQuery = $PSBoundParameters['WmiEventQuery']
+			}
+
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
+			}
+		}
+		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
+			throw $_
+		}
+	}
+
+	process {
+		try {
+			$AgentAlert = Get-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName $AlertName
+
+			if ($PSBoundParameters.ContainsKey("IsEnabled")) {
+				$AgentAlert.IsEnabled = $IsEnabled
+			}
+
+			#Region SqlServerEvent
+			if ($PSBoundParameters.ContainsKey("DatabaseName")) {
+				$AgentAlert.DatabaseName = $DatabaseName
+			}
+
+			if ($PSBoundParameters.ContainsKey("MessageID")) {
+				$AgentAlert.MessageID = $MessageID
+			}
+
+			if ($PSBoundParameters.ContainsKey("Severity")) {
+				$AgentAlert.Severity = $Severity
+			}
+
+			if ($PSBoundParameters.ContainsKey("EventDescriptionKeyword")) {
+				$AgentAlert.EventDescriptionKeyword = $EventDescriptionKeyword
+			}
+			#EndRegion
+
+			#Region SqlServerPerformanceCondition
+			if ($PSCmdlet.ParameterSetName -in @('SqlServerPerformanceCondition_ServerInstance', 'SqlServerPerformanceCondition_SmoServer')) {
+				$PerformanceCondition = [string]::Format('{0}|{1}|{2}|{3}|{4}', $PerformanceObject, $PerformanceCounter, $PerformanceCounterInstance, $ComparisonOperator, $PerformanceValue)
+
+				$AgentAlert.PerformanceCondition = $PerformanceCondition
+			}
+			#EndRegion
+
+			#Region WmiEvent
+			if ($PSBoundParameters.ContainsKey("WmiEventNamespace")) {
+				$AgentAlert.WmiEventNamespace = $WmiEventNamespace
+			}
+
+			if ($PSBoundParameters.ContainsKey("WmiEventQuery")) {
+				$AgentAlert.WmiEventQuery = $WmiEventQuery
+			}
+			#EndRegion
+
+			if ($PSBoundParameters.ContainsKey("JobName")) {
+				$Job = Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName $JobName
+
+				if ($Job -isnot [Microsoft.SqlServer.Management.Smo.Agent.Job]) {
+					throw [System.Management.Automation.ErrorRecord]::New(
+						[Exception]::New('Job not found.'),
+						'1',
+						[System.Management.Automation.ErrorCategory]::ObjectNotFound,
+						$JobName
+					)
+				}
+
+				$AgentAlert.JobID = $Job.JobID
+			}
+
+			if ($PSBoundParameters.ContainsKey("IncludeEventDescription")) {
+				$AgentAlert.IncludeEventDescription = $IncludeEventDescription
+			}
+
+			if ($PSBoundParameters.ContainsKey("NotificationMessage")) {
+				$AgentAlert.NotificationMessage = $NotificationMessage
+			}
+
+			if ($PSBoundParameters.ContainsKey("DelayBetweenResponses")) {
+				$AgentAlert.DelayBetweenResponses = $DelayBetweenResponses
+			}
+
+			if ($PSCmdlet.ShouldProcess($AlertName, "Create SQL Agent alert")) {
+				$AgentAlert.Create()
+
+				$AgentAlert
+			}
+		}
+		catch {
+			throw $_
+		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -4229,7 +5198,7 @@ function Remove-SmoSqlAgentSchedule {
 function Set-SmoSqlAgentJobOperator {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4287,8 +5256,10 @@ function Set-SmoSqlAgentJobOperator {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
@@ -4297,6 +5268,14 @@ function Set-SmoSqlAgentJobOperator {
 			$AgentJob = $JobServer.Jobs[$JobName]
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -4315,6 +5294,11 @@ function Set-SmoSqlAgentJobOperator {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -4324,7 +5308,7 @@ function Set-SmoSqlAgentJobOperator {
 function Set-SmoSqlAgentMsxEncryptChannelOption {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4367,8 +5351,10 @@ function Set-SmoSqlAgentMsxEncryptChannelOption {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
@@ -4377,6 +5363,14 @@ function Set-SmoSqlAgentMsxEncryptChannelOption {
 			$DatabaseObject = $SmoServerObject.Databases['master']
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 
@@ -4420,7 +5414,7 @@ function Set-SmoSqlAgentMsxEncryptChannelOption {
 			}
 
 			if ([System.Net.Dns]::GetHostName() -ne $SmoServerObject.NetName) {
-				$CommandParameters.Add('ComputerName', $SmoServerObject.NetName)
+				$CommandParameters.Add('ComputerName', $SmoServerObject.Information.FullyQualifiedNetName)
 			}
 
 			if ($PSCmdlet.ShouldProcess('SQL Server Agent', "Restart job server")) {
@@ -4435,7 +5429,7 @@ function Set-SmoSqlAgentMsxEncryptChannelOption {
 								[Exception]::New('Unable to restart SQL Server Agent due to running jobs.'),
 								'1',
 								[System.Management.Automation.ErrorCategory]::OperationTimeout,
-								$SmoServer.JobServer.Name
+								$SmoServerObject.JobServer.Name
 							)
 						}
 
@@ -4450,6 +5444,11 @@ function Set-SmoSqlAgentMsxEncryptChannelOption {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -4459,7 +5458,7 @@ function Set-SmoSqlAgentMsxEncryptChannelOption {
 function Set-SmoSqlAgentSubSystem {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4508,8 +5507,10 @@ function Set-SmoSqlAgentSubSystem {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
@@ -4518,6 +5519,14 @@ function Set-SmoSqlAgentSubSystem {
 			$DatabaseObject = $SmoServerObject.Databases['master']
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 
@@ -4550,7 +5559,7 @@ function Set-SmoSqlAgentSubSystem {
 			}
 
 			if ([System.Net.Dns]::GetHostName() -ne $SmoServerObject.NetName) {
-				$CommandParameters.Add('ComputerName', $SmoServerObject.NetName)
+				$CommandParameters.Add('ComputerName', $SmoServerObject.Information.FullyQualifiedNetName)
 			}
 
 			if ($PSCmdlet.ShouldProcess('SQL Server Agent', "Restart job server")) {
@@ -4575,10 +5584,15 @@ function Set-SmoSqlAgentSubSystem {
 			}
 			#EndRegion
 
-			Get-SmoSqlAgentSubSystem -SmoServerObject $SmoServerObject -SubSystem $AgentSubSystem
+			Get-SmoSqlAgentSubSystem -SmoServerObject $SmoServerObject -AgentSubSystem $AgentSubSystem
 		}
 		catch {
 			throw $_
+		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
 		}
 	}
 
@@ -4589,7 +5603,7 @@ function Set-SmoSqlAgentSubSystem {
 function Start-SmoSqlAgentJob {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4640,14 +5654,24 @@ function Start-SmoSqlAgentJob {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -4687,6 +5711,11 @@ function Start-SmoSqlAgentJob {
 		catch {
 			throw $_
 		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
+		}
 	}
 
 	end {
@@ -4696,7 +5725,7 @@ function Start-SmoSqlAgentJob {
 function Stop-SmoSqlAgentJob {
 	<#
 	.EXTERNALHELP
-	SQLServerAgentTools-Help.xml
+	SqlServerAgentTools-Help.xml
 	#>
 
 	[System.Diagnostics.DebuggerStepThrough()]
@@ -4739,14 +5768,24 @@ function Stop-SmoSqlAgentJob {
 	)
 
 	begin {
+		$ServerInstanceParameterSets = @('ServerInstance')
+
 		try {
-			if ($PSCmdlet.ParameterSetName -eq 'ServerInstance') {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
 
 			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				if (Test-Path -Path Variable:\SmoServerObject) {
+					if ($SmoServerObject -is [Microsoft.SqlServer.Management.Smo.Server]) {
+						Disconnect-SmoServer -SmoServerObject $SmoServerObject
+					}
+				}
+			}
+
 			throw $_
 		}
 	}
@@ -4770,6 +5809,11 @@ function Stop-SmoSqlAgentJob {
 		}
 		catch {
 			throw $_
+		}
+		finally {
+			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
+				Disconnect-SmoServer -SmoServerObject $SmoServerObject
+			}
 		}
 	}
 

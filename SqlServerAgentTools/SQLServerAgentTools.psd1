@@ -1,10 +1,10 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-RootModule = 'SQLServerAgentTools.psm1'
+RootModule = 'SqlServerAgentTools.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.1.2'
+ModuleVersion = '1.1.0.0'
 
 # Supported PSEditions
 CompatiblePSEditions = @('Core', 'Desktop')
@@ -44,7 +44,7 @@ PowerShellHostVersion = '5.1'
 
 # Modules that must be imported into the global environment prior to importing this module
 RequiredModules = @(
-	@{ModuleName="SQLServerTools"; ModuleVersion="3.6.1.2"; GUID="0dbb8289-ae5b-4633-afc8-dfaf0acbe06c"}
+	@{ModuleName="SqlServerTools"; ModuleVersion="3.6.1.2"; GUID="0dbb8289-ae5b-4633-afc8-dfaf0acbe06c"}
 )
 
 # Assemblies that must be loaded prior to importing this module
@@ -55,12 +55,12 @@ RequiredModules = @(
 
 # Type files (.ps1xml) to be loaded when importing this module
 TypesToProcess = @(
-	'SQLServerAgentTools.Types.ps1xml'
+	'SqlServerAgentTools.Types.ps1xml'
 )
 
 # Format files (.ps1xml) to be loaded when importing this module
 FormatsToProcess = @(
-	'SQLServerAgentTools.Format.ps1xml'
+	'SqlServerAgentTools.Format.ps1xml'
 )
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
@@ -101,8 +101,13 @@ FunctionsToExport = @(
 	'Remove-SmoSqlAgentProxyPrincipal',
 	'Remove-SmoSqlAgentProxySubSystem',
 	'Remove-SmoSqlAgentSchedule',
+	'Set-SmoSqlAgentAlert',		# needs to be enhanced to allow for alert type changed
+#	'Set-SmoSqlAgentJob',
 	'Set-SmoSqlAgentJobOperator',
 	'Set-SmoSqlAgentMsxEncryptChannelOption',
+#	'Set-SmoSqlAgentOperator',
+#	'Set-SmoSqlAgentProxyAccount',
+#	'Set-SmoSqlAgentSchedule',
 	'Set-SmoSqlAgentSubSystem',
 	'Start-SmoSqlAgentJob',
 	'Stop-SmoSqlAgentJob'
@@ -125,7 +130,7 @@ FunctionsToExport = @(
 
 # List of all files packaged with this module
 FileList = @(
-	'SQLServerAgentTools.psm1'
+	'SqlServerAgentTools.psm1'
 )
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
@@ -134,7 +139,7 @@ PrivateData = @{
 	PSData = @{
 
 		# Tags applied to this module. These help with module discovery in online galleries.
-		Tags = @('SQLClient', 'Smo', 'SQLManagementObjects', 'SQLServerAgent')
+		Tags = @('SqlClient', 'Smo', 'SqlManagementObjects', 'SqlServerAgent')
 
 		# A URL to the license for this module.
 		LicenseUri = 'https://raw.githubusercontent.com/netsec4u/SqlServerAgentTools/main/LICENSE'

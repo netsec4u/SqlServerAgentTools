@@ -3357,7 +3357,7 @@ Dynamic parameter required when AlertType is WmiEvent.</maml:para>
         <maml:title>--------- Example 4 ---------</maml:title>
         <maml:introduction>
         </maml:introduction>
-        <dev:code>New-SqlAgentAlert -ServerInstance . -AlertName TestPerformanceCondition -AlertType SqlServerPerformanceCondition -PerformanceObject 'SQL Statistics' -PerformanceCounter 'SQL Compilations/sec' -PerformanceCounterInstance '' -ComparisonOperator '&gt;' -PerformanceValue 3000</dev:code>
+        <dev:code>New-SmoSqlAgentAlert -ServerInstance . -AlertName TestPerformanceCondition -AlertType SqlServerPerformanceCondition -PerformanceObject 'SQL Statistics' -PerformanceCounter 'SQL Compilations/sec' -PerformanceCounterInstance '' -ComparisonOperator '&gt;' -PerformanceValue 3000</dev:code>
         <dev:remarks>
           <maml:para>Creates alert on performance object.</maml:para>
         </dev:remarks>
@@ -7491,6 +7491,989 @@ The cmdlet is not run.</maml:para>
         <dev:code>Remove-SmoSqlAgentSchedule -SmoServerObject -ScheduleName MySchedule</dev:code>
         <dev:remarks>
           <maml:para>Removes agent schedule MySchedule using Smo server object.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <command:uri />
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command>
+    <command:details>
+      <command:name>Set-SmoSqlAgentAlert</command:name>
+      <maml:description>
+        <maml:para>Sets the properties of a SQL Server Agent alert.</maml:para>
+      </maml:description>
+      <command:verb>Set</command:verb>
+      <command:noun>SmoSqlAgentAlert</command:noun>
+    </command:details>
+    <maml:description>
+      <maml:para>Sets the properties of a SQL Server Agent alert.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-SmoSqlAgentAlert
+</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>AlertName</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Agent Alert to update.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DatabaseName</maml:name>
+          <maml:description>
+            <maml:para>The name of the database to trigger the alert on. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DelayBetweenResponses</maml:name>
+          <maml:description>
+            <maml:para>The delay between responses for the alert.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>EventDescriptionKeyword</maml:name>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IncludeEventDescription</maml:name>
+          <maml:description>
+            <maml:para>Includes the event description in the notification. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IsEnabled</maml:name>
+          <maml:description>
+            <maml:para>Indicates whether the alert is enabled.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>JobName</maml:name>
+          <maml:description>
+            <maml:para>The name of the job to execute when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>MessageID</maml:name>
+          <maml:description>
+            <maml:para>The ID of the message to trigger the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>NotificationMessage</maml:name>
+          <maml:description>
+            <maml:para>The message to include in the notification when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>ServerInstance</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Server instance to configure the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Runs the command in a mode that only reports what would happen without performing the actions.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-SmoSqlAgentAlert
+</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>AlertName</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Agent Alert to update.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DelayBetweenResponses</maml:name>
+          <maml:description>
+            <maml:para>The delay between responses for the alert.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IncludeEventDescription</maml:name>
+          <maml:description>
+            <maml:para>Includes the event description in the notification. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IsEnabled</maml:name>
+          <maml:description>
+            <maml:para>Indicates whether the alert is enabled.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>JobName</maml:name>
+          <maml:description>
+            <maml:para>The name of the job to execute when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>NotificationMessage</maml:name>
+          <maml:description>
+            <maml:para>The message to include in the notification when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>ServerInstance</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Server instance to configure the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Runs the command in a mode that only reports what would happen without performing the actions.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WmiEventNamespace</maml:name>
+          <maml:description>
+            <maml:para>The WMI namespace to trigger the alert on. This is only applicable for WMI event alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WmiEventQuery</maml:name>
+          <maml:description>
+            <maml:para>The WMI event query (WQL) to trigger the alert on. This is only applicable for WMI event alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-SmoSqlAgentAlert
+</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>AlertName</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Agent Alert to update.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>ComparisonOperator</maml:name>
+          <maml:description>
+            <maml:para>The comparison operator for the performance condition.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DelayBetweenResponses</maml:name>
+          <maml:description>
+            <maml:para>The delay between responses for the alert.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IncludeEventDescription</maml:name>
+          <maml:description>
+            <maml:para>Includes the event description in the notification. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IsEnabled</maml:name>
+          <maml:description>
+            <maml:para>Indicates whether the alert is enabled.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>JobName</maml:name>
+          <maml:description>
+            <maml:para>The name of the job to execute when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>NotificationMessage</maml:name>
+          <maml:description>
+            <maml:para>The message to include in the notification when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>PerformanceCounter</maml:name>
+          <maml:description>
+            <maml:para>The performance counter to trigger the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>PerformanceCounterInstance</maml:name>
+          <maml:description>
+            <maml:para>The instance of the performance counter to trigger the alert on. This is only applicable for certain types of performance counters.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>PerformanceObject</maml:name>
+          <maml:description>
+            <maml:para>The performance object to trigger the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>PerformanceValue</maml:name>
+          <maml:description>
+            <maml:para>The value of the performance counter to trigger the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>ServerInstance</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Server instance to configure the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Runs the command in a mode that only reports what would happen without performing the actions.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-SmoSqlAgentAlert
+</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>AlertName</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Agent Alert to update.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DatabaseName</maml:name>
+          <maml:description>
+            <maml:para>The name of the database to trigger the alert on. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DelayBetweenResponses</maml:name>
+          <maml:description>
+            <maml:para>The delay between responses for the alert.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>EventDescriptionKeyword</maml:name>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IncludeEventDescription</maml:name>
+          <maml:description>
+            <maml:para>Includes the event description in the notification. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IsEnabled</maml:name>
+          <maml:description>
+            <maml:para>Indicates whether the alert is enabled.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>JobName</maml:name>
+          <maml:description>
+            <maml:para>The name of the job to execute when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>NotificationMessage</maml:name>
+          <maml:description>
+            <maml:para>The message to include in the notification when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>ServerInstance</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Server instance to configure the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>Severity</maml:name>
+          <maml:description>
+            <maml:para>The severity level to trigger the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Runs the command in a mode that only reports what would happen without performing the actions.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-SmoSqlAgentAlert
+</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>AlertName</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Agent Alert to update.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DelayBetweenResponses</maml:name>
+          <maml:description>
+            <maml:para>The delay between responses for the alert.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IncludeEventDescription</maml:name>
+          <maml:description>
+            <maml:para>Includes the event description in the notification. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IsEnabled</maml:name>
+          <maml:description>
+            <maml:para>Indicates whether the alert is enabled.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>JobName</maml:name>
+          <maml:description>
+            <maml:para>The name of the job to execute when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>NotificationMessage</maml:name>
+          <maml:description>
+            <maml:para>The message to include in the notification when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>SmoServerObject</maml:name>
+          <maml:description>
+            <maml:para>The SMO Server object representing the SQL Server instance to configure the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Runs the command in a mode that only reports what would happen without performing the actions.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WmiEventNamespace</maml:name>
+          <maml:description>
+            <maml:para>The WMI namespace to trigger the alert on. This is only applicable for WMI event alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WmiEventQuery</maml:name>
+          <maml:description>
+            <maml:para>The WMI event query (WQL) to trigger the alert on. This is only applicable for WMI event alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-SmoSqlAgentAlert
+</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>AlertName</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Agent Alert to update.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>ComparisonOperator</maml:name>
+          <maml:description>
+            <maml:para>The comparison operator for the performance condition.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DelayBetweenResponses</maml:name>
+          <maml:description>
+            <maml:para>The delay between responses for the alert.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IncludeEventDescription</maml:name>
+          <maml:description>
+            <maml:para>Includes the event description in the notification. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IsEnabled</maml:name>
+          <maml:description>
+            <maml:para>Indicates whether the alert is enabled.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>JobName</maml:name>
+          <maml:description>
+            <maml:para>The name of the job to execute when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>NotificationMessage</maml:name>
+          <maml:description>
+            <maml:para>The message to include in the notification when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>PerformanceCounter</maml:name>
+          <maml:description>
+            <maml:para>The performance counter to trigger the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>PerformanceCounterInstance</maml:name>
+          <maml:description>
+            <maml:para>The instance of the performance counter to trigger the alert on. This is only applicable for certain types of performance counters.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>PerformanceObject</maml:name>
+          <maml:description>
+            <maml:para>The performance object to trigger the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>PerformanceValue</maml:name>
+          <maml:description>
+            <maml:para>The value of the performance counter to trigger the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>SmoServerObject</maml:name>
+          <maml:description>
+            <maml:para>The SMO Server object representing the SQL Server instance to configure the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Runs the command in a mode that only reports what would happen without performing the actions.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-SmoSqlAgentAlert
+</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>AlertName</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Agent Alert to update.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DatabaseName</maml:name>
+          <maml:description>
+            <maml:para>The name of the database to trigger the alert on. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DelayBetweenResponses</maml:name>
+          <maml:description>
+            <maml:para>The delay between responses for the alert.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>EventDescriptionKeyword</maml:name>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IncludeEventDescription</maml:name>
+          <maml:description>
+            <maml:para>Includes the event description in the notification. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IsEnabled</maml:name>
+          <maml:description>
+            <maml:para>Indicates whether the alert is enabled.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>JobName</maml:name>
+          <maml:description>
+            <maml:para>The name of the job to execute when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>NotificationMessage</maml:name>
+          <maml:description>
+            <maml:para>The message to include in the notification when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>Severity</maml:name>
+          <maml:description>
+            <maml:para>The severity level to trigger the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>SmoServerObject</maml:name>
+          <maml:description>
+            <maml:para>The SMO Server object representing the SQL Server instance to configure the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Runs the command in a mode that only reports what would happen without performing the actions.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-SmoSqlAgentAlert
+</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>AlertName</maml:name>
+          <maml:description>
+            <maml:para>The name of the SQL Agent Alert to update.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DatabaseName</maml:name>
+          <maml:description>
+            <maml:para>The name of the database to trigger the alert on. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>DelayBetweenResponses</maml:name>
+          <maml:description>
+            <maml:para>The delay between responses for the alert.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>EventDescriptionKeyword</maml:name>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IncludeEventDescription</maml:name>
+          <maml:description>
+            <maml:para>Includes the event description in the notification. This is only applicable for certain types of alerts.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>IsEnabled</maml:name>
+          <maml:description>
+            <maml:para>Indicates whether the alert is enabled.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Boolean</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>JobName</maml:name>
+          <maml:description>
+            <maml:para>The name of the job to execute when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>MessageID</maml:name>
+          <maml:description>
+            <maml:para>The ID of the message to trigger the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>NotificationMessage</maml:name>
+          <maml:description>
+            <maml:para>The message to include in the notification when the alert is triggered.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>SmoServerObject</maml:name>
+          <maml:description>
+            <maml:para>The SMO Server object representing the SQL Server instance to configure the alert on.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Runs the command in a mode that only reports what would happen without performing the actions.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>AlertName</maml:name>
+        <maml:description>
+          <maml:para>The name of the SQL Agent Alert to update.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>ComparisonOperator</maml:name>
+        <maml:description>
+          <maml:para>The comparison operator for the performance condition.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>DatabaseName</maml:name>
+        <maml:description>
+          <maml:para>The name of the database to trigger the alert on. This is only applicable for certain types of alerts.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>DelayBetweenResponses</maml:name>
+        <maml:description>
+          <maml:para>The delay between responses for the alert.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">System.Int32</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>EventDescriptionKeyword</maml:name>
+        <maml:description>
+          <maml:para />
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>IncludeEventDescription</maml:name>
+        <maml:description>
+          <maml:para>Includes the event description in the notification. This is only applicable for certain types of alerts.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>IsEnabled</maml:name>
+        <maml:description>
+          <maml:para>Indicates whether the alert is enabled.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">System.Boolean</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>JobName</maml:name>
+        <maml:description>
+          <maml:para>The name of the job to execute when the alert is triggered.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>MessageID</maml:name>
+        <maml:description>
+          <maml:para>The ID of the message to trigger the alert on.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>NotificationMessage</maml:name>
+        <maml:description>
+          <maml:para>The message to include in the notification when the alert is triggered.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">System.String</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>PerformanceCounter</maml:name>
+        <maml:description>
+          <maml:para>The performance counter to trigger the alert on.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>PerformanceCounterInstance</maml:name>
+        <maml:description>
+          <maml:para>The instance of the performance counter to trigger the alert on. This is only applicable for certain types of performance counters.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>PerformanceObject</maml:name>
+        <maml:description>
+          <maml:para>The performance object to trigger the alert on.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>PerformanceValue</maml:name>
+        <maml:description>
+          <maml:para>The value of the performance counter to trigger the alert on.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>ServerInstance</maml:name>
+        <maml:description>
+          <maml:para>The name of the SQL Server instance to configure the alert on.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>Severity</maml:name>
+        <maml:description>
+          <maml:para>The severity level to trigger the alert on.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>SmoServerObject</maml:name>
+        <maml:description>
+          <maml:para>The SMO Server object representing the SQL Server instance to configure the alert on.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">Microsoft.SqlServer.Management.Smo.Server</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Runs the command in a mode that only reports what would happen without performing the actions.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>WmiEventNamespace</maml:name>
+        <maml:description>
+          <maml:para>The WMI namespace to trigger the alert on. This is only applicable for WMI event alerts.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
+        <maml:name>WmiEventQuery</maml:name>
+        <maml:description>
+          <maml:para>The WMI event query (WQL) to trigger the alert on. This is only applicable for WMI event alerts.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">System.Object</command:parameterValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <dev:name>Microsoft.SqlServer.Management.Smo.Agent.Alert</dev:name>
+        </dev:type>
+        <maml:description>
+          <maml:para />
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para />
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>--------- Example 1 ---------</maml:title>
+        <maml:introduction>
+        </maml:introduction>
+        <dev:code>Set-SmoSqlAgentAlert -ServerInstance MyServer -AlertName  'AlwaysOn - AG is Offline' -MessageID 41404</dev:code>
+        <dev:remarks>
+          <maml:para>Sets the alert named 'AlwaysOn - AG is Offline' on the SQL Server instance 'MyServer' to trigger on message ID 41404.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 2 ---------</maml:title>
+        <maml:introduction>
+        </maml:introduction>
+        <dev:code>Set-SmoSqlAgentAlert -ServerInstance MyServer -AlertName DeadlockEvent -WmiEventNamespace '\\.\root\Microsoft\SqlServer\ServerEvents\MSSQLSERVER' -WmiEventQuery 'SELECT * FROM DEADLOCK_GRAPH'</dev:code>
+        <dev:remarks>
+          <maml:para>Sets the alert named 'DeadlockEvent' on the SQL Server instance 'MyServer' to trigger on the WMI event for deadlock graphs.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 3 ---------</maml:title>
+        <maml:introduction>
+        </maml:introduction>
+        <dev:code>Set-SmoSqlAgentAlert -ServerInstance MyServer -AlertName 'Blocked Process Alert' -PerformanceObject 'General Statistics' -PerformanceCounter 'Processes blocked' -PerformanceCounterInstance '' -ComparisonOperator '&gt;' -PerformanceValue 0</dev:code>
+        <dev:remarks>
+          <maml:para>Sets the alert named 'Blocked Process Alert' on the SQL Server instance 'MyServer' to trigger when the 'Processes blocked' performance counter for the 'General Statistics' object is greater than 0.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 4 ---------</maml:title>
+        <maml:introduction>
+        </maml:introduction>
+        <dev:code>Set-SmoSqlAgentAlert -ServerInstance MyServer -AlertName 'Fatal Error: Table Integrity Suspect' -Severity 22</dev:code>
+        <dev:remarks>
+          <maml:para>Sets the alert named 'Fatal Error: Table Integrity Suspect' on the SQL Server instance 'MyServer' to trigger on severity level 22 errors.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 5 ---------</maml:title>
+        <maml:introduction>
+        </maml:introduction>
+        <dev:code>$SmoServerObject = Connect-SmoServer -ServerInstance .
+Set-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName  'AlwaysOn - AG is Offline' -MessageID 41404
+</dev:code>
+        <dev:remarks>
+          <maml:para>Sets the alert named 'AlwaysOn - AG is Offline' on the local SQL Server instance to trigger on message ID 41404 using an SMO Server object.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 6 ---------</maml:title>
+        <maml:introduction>
+        </maml:introduction>
+        <dev:code>$SmoServerObject = Connect-SmoServer -ServerInstance .
+Set-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName DeadlockEvent -WmiEventNamespace '\\.\root\Microsoft\SqlServer\ServerEvents\MSSQLSERVER' -WmiEventQuery 'SELECT * FROM DEADLOCK_GRAPH'</dev:code>
+        <dev:remarks>
+          <maml:para>Sets the alert named 'DeadlockEvent' on the local SQL Server instance to trigger on the WMI event for deadlock graphs using an SMO Server object.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 7 ---------</maml:title>
+        <maml:introduction>
+        </maml:introduction>
+        <dev:code>$SmoServerObject = Connect-SmoServer -ServerInstance .
+Set-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName 'Blocked Process Alert' -PerformanceObject 'General Statistics' -PerformanceCounter 'Processes blocked' -PerformanceCounterInstance '' -ComparisonOperator '&gt;' -PerformanceValue 0</dev:code>
+        <dev:remarks>
+          <maml:para>Sets the alert named 'Blocked Process Alert' on the local SQL Server instance to trigger when the 'Processes blocked' performance counter for the 'General Statistics' object is greater than 0 using an SMO Server object.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 8 ---------</maml:title>
+        <maml:introduction>
+        </maml:introduction>
+        <dev:code>$SmoServerObject = Connect-SmoServer -ServerInstance .
+Set-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName 'Fatal Error: Table Integrity Suspect' -Severity 22</dev:code>
+        <dev:remarks>
+          <maml:para>Sets the alert named 'Fatal Error: Table Integrity Suspect' on the local SQL Server instance to trigger on severity level 22 errors using an SMO Server object.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>

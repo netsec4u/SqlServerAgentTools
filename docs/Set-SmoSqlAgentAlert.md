@@ -1,174 +1,174 @@
----
+﻿---
 document type: cmdlet
 external help file: SqlServerAgentTools-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: SqlServerAgentTools
-ms.date: 07/29/2025
+ms.date: 03/31/2026
 PlatyPS schema version: 2024-05-01
-title: New-SmoSqlAgentAlert
+title: Set-SmoSqlAgentAlert
 ---
 
-# New-SmoSqlAgentAlert
+# Set-SmoSqlAgentAlert
 
 ## SYNOPSIS
 
-Creates a agent alert.
+Sets the properties of a SQL Server Agent alert.
 
 ## SYNTAX
 
 ### SqlServerEventMessageID_ServerInstance (Default)
+
 ```
-New-SmoSqlAgentAlert
-	-ServerInstance <String>
-	-AlertName <String>
-	[-IsEnabled <Boolean>]
-	-AlertType <AlertType>
-	[-DatabaseName <string>]
-	-MessageID <Int32>
-	[-EventDescriptionKeyword <String>]
-	[-JobName <String>]
-	[-IncludeEventDescription <NotifyMethods>]
-	[-NotificationMessage <String>]
-	[-DelayBetweenResponses <Int32>]
-	[-WhatIf]
-	[-Confirm]
-	[<CommonParameters>]
+Set-SmoSqlAgentAlert
+  -ServerInstance <string>
+  -AlertName <string>
+  -MessageID <Object>
+  [-IsEnabled <bool>]
+  [-DatabaseName <Object>]
+  [-EventDescriptionKeyword <Object>]
+  [-JobName <string>]
+  [-IncludeEventDescription <NotifyMethods>]
+  [-NotificationMessage <string>]
+  [-DelayBetweenResponses <int>]
+  [-WhatIf]
+  [-Confirm]
+  [<CommonParameters>]
+```
+
+### WmiEvent_ServerInstance
+
+```
+Set-SmoSqlAgentAlert
+  -ServerInstance <string>
+  -AlertName <string>
+  -WmiEventNamespace <Object>
+  -WmiEventQuery <Object>
+  [-IsEnabled <bool>]
+  [-JobName <string>]
+  [-IncludeEventDescription <NotifyMethods>]
+  [-NotificationMessage <string>]
+  [-DelayBetweenResponses <int>]
+  [-WhatIf]
+  [-Confirm]
+  [<CommonParameters>]
+```
+
+### SqlServerPerformanceCondition_ServerInstance
+
+```
+Set-SmoSqlAgentAlert
+  -ServerInstance <string>
+  -AlertName <string>
+  -PerformanceObject <Object>
+  -PerformanceCounter <Object>
+  -ComparisonOperator <Object>
+  -PerformanceValue <Object>
+  [-IsEnabled <bool>]
+  [-PerformanceCounterInstance <Object>]
+  [-JobName <string>]
+  [-IncludeEventDescription <NotifyMethods>]
+  [-NotificationMessage <string>]
+  [-DelayBetweenResponses <int>]
+  [-WhatIf]
+  [-Confirm]
+  [<CommonParameters>]
 ```
 
 ### SqlServerEventSeverity_ServerInstance
+
 ```
-New-SmoSqlAgentAlert
-	-ServerInstance <String>
-	-AlertName <String>
-	[-IsEnabled <Boolean>]
-	-AlertType <AlertType>
-	[-DatabaseName <String>]
-	-Severity <Int32>
-	[-EventDescriptionKeyword <String>]
-	[-JobName <String>]
-	[-IncludeEventDescription <NotifyMethods>]
-	[-NotificationMessage <String>]
-	[-DelayBetweenResponses <Int32>]
-	[-WhatIf]
-	[-Confirm]
-	[<CommonParameters>]
+Set-SmoSqlAgentAlert
+  -ServerInstance <string>
+  -AlertName <string>
+  -Severity <Object>
+  [-IsEnabled <bool>]
+  [-DatabaseName <Object>]
+  [-EventDescriptionKeyword <Object>]
+  [-JobName <string>]
+  [-IncludeEventDescription <NotifyMethods>]
+  [-NotificationMessage <string>]
+  [-DelayBetweenResponses <int>]
+  [-WhatIf]
+  [-Confirm]
+  [<CommonParameters>]
 ```
 
-### SqlServerPerformance_ServerInstance
+### WmiEvent_SmoServer
+
 ```
-New-SmoSqlAgentAlert
-	-ServerInstance <String>
-	-AlertName <String>
-	[-IsEnabled <Boolean>]
-	-AlertType <AlertType>
-	-PerformanceObject <String>
-	-PerformanceCounter <String>
-	[-PerformanceCounterInstance <String>]
-	[-ComparisonOperator <String>]
-	[-PerformanceValue <Decimal>]
-	[-JobName <String>]
-	[-IncludeEventDescription <NotifyMethods>]
-	[-NotificationMessage <String>]
-	[-DelayBetweenResponses <Int32>]
-	[-WhatIf]
-	[-Confirm]
-	[<CommonParameters>]
+Set-SmoSqlAgentAlert
+  -SmoServerObject <Server>
+  -AlertName <string>
+  -WmiEventNamespace <Object>
+  -WmiEventQuery <Object>
+  [-IsEnabled <bool>]
+  [-JobName <string>]
+  [-IncludeEventDescription <NotifyMethods>]
+  [-NotificationMessage <string>]
+  [-DelayBetweenResponses <int>]
+  [-WhatIf]
+  [-Confirm]
+  [<CommonParameters>]
 ```
 
-### SqlServerWmiEvent_ServerInstance
-```
-New-SmoSqlAgentAlert
-	-ServerInstance <String>
-	-AlertName <String>
-	[-IsEnabled <Boolean>]
-	-AlertType <AlertType>
-	-WmiEventNamespace <String>
-	-WmiEventQuery <String>
-	[-JobName <String>]
-	[-IncludeEventDescription <NotifyMethods>]
-	[-NotificationMessage <String>]
-	[-DelayBetweenResponses <Int32>]
-	[-WhatIf]
-	[-Confirm]
-	[<CommonParameters>]
-```
+### SqlServerPerformanceCondition_SmoServer
 
-### SqlServerEventMessageID_SmoServer
 ```
-New-SmoSqlAgentAlert
-	-SmoServerObject <Server>
-	-AlertName <String>
-	[-IsEnabled <Boolean>]
-	-AlertType <AlertType>
-	[-DatabaseName <string>]
-	-MessageID <Int32>
-	[-EventDescriptionKeyword <String>]
-	[-JobName <String>]
-	[-IncludeEventDescription <NotifyMethods>]
-	[-NotificationMessage <String>]
-	[-DelayBetweenResponses <Int32>]
-	[-WhatIf]
-	[-Confirm]
-	[<CommonParameters>]
+Set-SmoSqlAgentAlert
+  -SmoServerObject <Server>
+  -AlertName <string>
+  -PerformanceObject <Object>
+  -PerformanceCounter <Object>
+  -ComparisonOperator <Object>
+  -PerformanceValue <Object>
+  [-IsEnabled <bool>]
+  [-PerformanceCounterInstance <Object>]
+  [-JobName <string>]
+  [-IncludeEventDescription <NotifyMethods>]
+  [-NotificationMessage <string>]
+  [-DelayBetweenResponses <int>]
+  [-WhatIf]
+  [-Confirm]
+  [<CommonParameters>]
 ```
 
 ### SqlServerEventSeverity_SmoServer
+
 ```
-New-SmoSqlAgentAlert
-	-SmoServerObject <Server>
-	-AlertName <String>
-	[-IsEnabled <Boolean>]
-	-AlertType <AlertType>
-	[-DatabaseName <String>]
-	-Severity <Int32>
-	[-EventDescriptionKeyword <String>]
-	[-JobName <String>]
-	[-IncludeEventDescription <NotifyMethods>]
-	[-NotificationMessage <String>]
-	[-DelayBetweenResponses <Int32>]
-	[-WhatIf]
-	[-Confirm]
-	[<CommonParameters>]
+Set-SmoSqlAgentAlert
+  -SmoServerObject <Server>
+  -AlertName <string>
+  -Severity <Object>
+  [-IsEnabled <bool>]
+  [-DatabaseName <Object>]
+  [-EventDescriptionKeyword <Object>]
+  [-JobName <string>]
+  [-IncludeEventDescription <NotifyMethods>]
+  [-NotificationMessage <string>]
+  [-DelayBetweenResponses <int>]
+  [-WhatIf]
+  [-Confirm]
+  [<CommonParameters>]
 ```
 
-### SqlServerPerformance_SmoServer
-```
-New-SmoSqlAgentAlert
-	-SmoServerObject <Server>
-	-AlertName <String>
-	[-IsEnabled <Boolean>]
-	-AlertType <AlertType>
-	-PerformanceObject <String>
-	-PerformanceCounter <String>
-	[-PerformanceCounterInstance <String>]
-	[-ComparisonOperator <String>]
-	[-PerformanceValue <Decimal>]
-	[-JobName <String>]
-	[-IncludeEventDescription <NotifyMethods>]
-	[-NotificationMessage <String>]
-	[-DelayBetweenResponses <Int32>]
-	[-WhatIf]
-	[-Confirm]
-	[<CommonParameters>]
-```
+### SqlServerEventMessageID_SmoServer
 
-### SqlServerWmiEvent_SmoServer
 ```
-New-SmoSqlAgentAlert
-	-SmoServerObject <Server>
-	-AlertName <String>
-	[-IsEnabled <Boolean>]
-	-AlertType <AlertType>
-	-WmiEventNamespace <String>
-	-WmiEventQuery <String>
-	[-JobName <String>]
-	[-IncludeEventDescription <NotifyMethods>]
-	[-NotificationMessage <String>]
-	[-DelayBetweenResponses <Int32>]
-	[-WhatIf]
-	[-Confirm]
-	[<CommonParameters>]
+Set-SmoSqlAgentAlert
+  -SmoServerObject <Server>
+  -AlertName <string>
+  -MessageID <Object>
+  [-IsEnabled <bool>]
+  [-DatabaseName <Object>]
+  [-EventDescriptionKeyword <Object>]
+  [-JobName <string>]
+  [-IncludeEventDescription <NotifyMethods>]
+  [-NotificationMessage <string>]
+  [-DelayBetweenResponses <int>]
+  [-WhatIf]
+  [-Confirm]
+  [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -178,80 +178,88 @@ This cmdlet has the following aliases:
 
 ## DESCRIPTION
 
-Creates a agent alert.
+Sets the properties of a SQL Server Agent alert.
 
 ## EXAMPLES
 
 ### Example 1
 
 ```powershell
-New-SmoSqlAgentAlert -ServerInstance . -AlertName MyAlert -AlertType SqlServerEvent -MessageID 823
+Set-SmoSqlAgentAlert -ServerInstance MyServer -AlertName  'AlwaysOn - AG is Offline' -MessageID 41404
 ```
 
-Creates agent alert for events with message ID 823.
+Sets the alert named 'AlwaysOn - AG is Offline' on the SQL Server instance 'MyServer' to trigger on message ID 41404.
 
 ### Example 2
 
 ```powershell
-New-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName MyAlert -AlertType SqlServerEvent -MessageID 823
+Set-SmoSqlAgentAlert -ServerInstance MyServer -AlertName DeadlockEvent -WmiEventNamespace '\\.\root\Microsoft\SqlServer\ServerEvents\MSSQLSERVER' -WmiEventQuery 'SELECT * FROM DEADLOCK_GRAPH'
 ```
 
-Creates agent alert for events with message ID 823 using Smo server object.
+Sets the alert named 'DeadlockEvent' on the SQL Server instance 'MyServer' to trigger on the WMI event for deadlock graphs.
 
 ### Example 3
 
 ```powershell
-New-SmoSqlAgentAlert -ServerInstance . -AlertName TestServerEvent -AlertType SqlServerEvent -Severity 16
+Set-SmoSqlAgentAlert -ServerInstance MyServer -AlertName 'Blocked Process Alert' -PerformanceObject 'General Statistics' -PerformanceCounter 'Processes blocked' -PerformanceCounterInstance '' -ComparisonOperator '>' -PerformanceValue 0
 ```
 
-Creates agent alert for events with severity 16.
+Sets the alert named 'Blocked Process Alert' on the SQL Server instance 'MyServer' to trigger when the 'Processes blocked' performance counter for the 'General Statistics' object is greater than 0.
 
 ### Example 4
 
 ```powershell
-New-SmoSqlAgentAlert -ServerInstance . -AlertName TestPerformanceCondition -AlertType SqlServerPerformanceCondition -PerformanceObject 'SQL Statistics' -PerformanceCounter 'SQL Compilations/sec' -PerformanceCounterInstance '' -ComparisonOperator '>' -PerformanceValue 3000
+Set-SmoSqlAgentAlert -ServerInstance MyServer -AlertName 'Fatal Error: Table Integrity Suspect' -Severity 22
 ```
 
-Creates alert on performance object.
+Sets the alert named 'Fatal Error: Table Integrity Suspect' on the SQL Server instance 'MyServer' to trigger on severity level 22 errors.
 
 ### Example 5
 
 ```powershell
-New-SmoSqlAgentAlert -ServerInstance . -AlertName TestWmiEvent -AlertType WmiEvent -WmiEventNamespace '\\.\root\Microsoft\SqlServer\ServerEvents\MSSQLSERVER' -WmiEventQuery 'SELECT * FROM DDL_DATABASE_EVENTS'
+$SmoServerObject = Connect-SmoServer -ServerInstance .
+Set-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName  'AlwaysOn - AG is Offline' -MessageID 41404
+
 ```
 
-Creates alert on WMI results.
+Sets the alert named 'AlwaysOn - AG is Offline' on the local SQL Server instance to trigger on message ID 41404 using an SMO Server object.
+
+### Example 6
+
+```powershell
+$SmoServerObject = Connect-SmoServer -ServerInstance .
+Set-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName DeadlockEvent -WmiEventNamespace '\\.\root\Microsoft\SqlServer\ServerEvents\MSSQLSERVER' -WmiEventQuery 'SELECT * FROM DEADLOCK_GRAPH'
+```
+
+Sets the alert named 'DeadlockEvent' on the local SQL Server instance to trigger on the WMI event for deadlock graphs using an SMO Server object.
+
+### Example 7
+
+```powershell
+$SmoServerObject = Connect-SmoServer -ServerInstance .
+Set-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName 'Blocked Process Alert' -PerformanceObject 'General Statistics' -PerformanceCounter 'Processes blocked' -PerformanceCounterInstance '' -ComparisonOperator '>' -PerformanceValue 0
+```
+
+Sets the alert named 'Blocked Process Alert' on the local SQL Server instance to trigger when the 'Processes blocked' performance counter for the 'General Statistics' object is greater than 0 using an SMO Server object.
+
+### Example 8
+
+```powershell
+$SmoServerObject = Connect-SmoServer -ServerInstance .
+Set-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName 'Fatal Error: Table Integrity Suspect' -Severity 22
+```
+
+Sets the alert named 'Fatal Error: Table Integrity Suspect' on the local SQL Server instance to trigger on severity level 22 errors using an SMO Server object.
 
 ## PARAMETERS
 
 ### -AlertName
 
-Specifies the name of alert.
+The name of the SQL Agent Alert to update.
 
 ```yaml
 Type: System.String
-DefaultValue: None
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: Named
-  IsRequired: true
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -AlertType
-
-The type of alert condition.
-
-```yaml
-Type: Microsoft.SqlServer.Management.Smo.Agent.AlertType
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -268,22 +276,21 @@ HelpMessage: ''
 
 ### -ComparisonOperator
 
-The comparison operator used to compare counter to a value.
-Dynamic parameter required when AlertType is SqlServerPerformanceCondition.
+The comparison operator for the performance condition.
 
 ```yaml
-Type: System.String
-DefaultValue: None
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerPerformance_ServerInstance
+- Name: SqlServerPerformanceCondition_SmoServer
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerPerformance_SmoServer
+- Name: SqlServerPerformanceCondition_ServerInstance
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -300,7 +307,7 @@ Prompts you for confirmation before running the cmdlet.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
+DefaultValue: ''
 SupportsWildcards: false
 Aliases:
 - cf
@@ -318,22 +325,15 @@ HelpMessage: ''
 
 ### -DatabaseName
 
-The database in which the error must occur for the alert to fire.
-Dynamic parameter available when AlertType is SqlServerEvent.
+The name of the database to trigger the alert on. This is only applicable for certain types of alerts.
 
 ```yaml
-Type: System.String
-DefaultValue: None
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerEventMessageID_ServerInstance
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-- Name: SqlServerEventSeverity_ServerInstance
+- Name: SqlServerEventSeverity_SmoServer
   Position: Named
   IsRequired: false
   ValueFromPipeline: false
@@ -345,7 +345,13 @@ ParameterSets:
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerEventSeverity_SmoServer
+- Name: SqlServerEventSeverity_ServerInstance
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: SqlServerEventMessageID_ServerInstance
   Position: Named
   IsRequired: false
   ValueFromPipeline: false
@@ -358,11 +364,11 @@ HelpMessage: ''
 
 ### -DelayBetweenResponses
 
-The wait period, in seconds, between responses to the alert.
+The delay between responses for the alert.
 
 ```yaml
 Type: System.Int32
-DefaultValue: 0
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -379,23 +385,14 @@ HelpMessage: ''
 
 ### -EventDescriptionKeyword
 
-The sequence of characters that the description of the SQL Server error must be like.
-Transact-SQL LIKE expression pattern-matching characters can be used.
-Dynamic parameter available when AlertType is SqlServerEvent.
-
+The keyword to trigger the alert on based on the event description. This is only applicable for certain types of alerts.
 ```yaml
-Type: System.String
-DefaultValue: None
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerEventMessageID_ServerInstance
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-- Name: SqlServerEventSeverity_ServerInstance
+- Name: SqlServerEventSeverity_SmoServer
   Position: Named
   IsRequired: false
   ValueFromPipeline: false
@@ -407,7 +404,13 @@ ParameterSets:
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerEventSeverity_SmoServer
+- Name: SqlServerEventSeverity_ServerInstance
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: SqlServerEventMessageID_ServerInstance
   Position: Named
   IsRequired: false
   ValueFromPipeline: false
@@ -420,11 +423,11 @@ HelpMessage: ''
 
 ### -IncludeEventDescription
 
-Is whether the description of the SQL Server error should be included as part of the notification message.
+Includes the event description in the notification. This is only applicable for certain types of alerts.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods
-DefaultValue: NotifyEmail
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -441,11 +444,11 @@ HelpMessage: ''
 
 ### -IsEnabled
 
-Indicates the current status of the alert.
+Indicates whether the alert is enabled.
 
 ```yaml
 Type: System.Boolean
-DefaultValue: True
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -462,11 +465,11 @@ HelpMessage: ''
 
 ### -JobName
 
-The name of the job to be executed in response to this alert.
+The name of the job to execute when the alert is triggered.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -482,22 +485,22 @@ HelpMessage: ''
 ```
 
 ### -MessageID
-The message error number that defines the alert.
-Dynamic parameter available when AlertType is SqlServerEvent.
+
+The ID of the message to trigger the alert on.
 
 ```yaml
-Type: System.Int32
-DefaultValue: 0
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerEventMessageID_ServerInstance
+- Name: SqlServerEventMessageID_SmoServer
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerEventMessageID_SmoServer
+- Name: SqlServerEventMessageID_ServerInstance
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -510,11 +513,11 @@ HelpMessage: ''
 
 ### -NotificationMessage
 
-Is an optional additional message sent to the operator as part of the e-mail, net send, or pager notification.
+The message to include in the notification when the alert is triggered.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -531,22 +534,21 @@ HelpMessage: ''
 
 ### -PerformanceCounter
 
-The performance counter to monitor.
-Dynamic parameter required when AlertType is SqlServerPerformanceCondition.
+The performance counter to trigger the alert on.
 
 ```yaml
-Type: System.String
-DefaultValue: None
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerPerformance_ServerInstance
+- Name: SqlServerPerformanceCondition_SmoServer
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerPerformance_SmoServer
+- Name: SqlServerPerformanceCondition_ServerInstance
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -559,22 +561,21 @@ HelpMessage: ''
 
 ### -PerformanceCounterInstance
 
-The instance of the performance counter.
-Dynamic parameter available when AlertType is SqlServerPerformanceCondition.
+The instance of the performance counter to trigger the alert on. This is only applicable for certain types of performance counters.
 
 ```yaml
-Type: System.String
-DefaultValue: None
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerPerformance_ServerInstance
+- Name: SqlServerPerformanceCondition_SmoServer
   Position: Named
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerPerformance_SmoServer
+- Name: SqlServerPerformanceCondition_ServerInstance
   Position: Named
   IsRequired: false
   ValueFromPipeline: false
@@ -587,22 +588,21 @@ HelpMessage: ''
 
 ### -PerformanceObject
 
-The performance object of the counter.
-Dynamic parameter required when AlertType is SqlServerPerformanceCondition.
+The performance object to trigger the alert on.
 
 ```yaml
-Type: System.String
-DefaultValue: None
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerPerformance_ServerInstance
+- Name: SqlServerPerformanceCondition_SmoServer
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerPerformance_SmoServer
+- Name: SqlServerPerformanceCondition_ServerInstance
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -615,22 +615,21 @@ HelpMessage: ''
 
 ### -PerformanceValue
 
-The numeric threshold value of the counter.
-Dynamic parameter required when AlertType is SqlServerPerformanceCondition.
+The value of the performance counter to trigger the alert on.
 
 ```yaml
-Type: System.Decimal
-DefaultValue: None
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerPerformance_ServerInstance
+- Name: SqlServerPerformanceCondition_SmoServer
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerPerformance_SmoServer
+- Name: SqlServerPerformanceCondition_ServerInstance
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -643,15 +642,27 @@ HelpMessage: ''
 
 ### -ServerInstance
 
-The name of the SQL Server instance to connect to.
+The name of the SQL Server instance to configure the alert on.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases:
 - SqlServer
 ParameterSets:
+- Name: WmiEvent_ServerInstance
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: SqlServerPerformanceCondition_ServerInstance
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
 - Name: SqlServerEventSeverity_ServerInstance
   Position: Named
   IsRequired: true
@@ -664,18 +675,6 @@ ParameterSets:
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerPerformance_ServerInstance
-  Position: Named
-  IsRequired: true
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-- Name: SqlServerWmiEvent_ServerInstance
-  Position: Named
-  IsRequired: true
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
 DontShow: false
 AcceptedValues: []
 HelpMessage: ''
@@ -683,22 +682,21 @@ HelpMessage: ''
 
 ### -Severity
 
-The severity level (from 1 through 25) that defines the alert.
-Dynamic parameter available when AlertType is SqlServerEvent.
+The severity level to trigger the alert on.
 
 ```yaml
-Type: System.Int32
-DefaultValue: 0
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerEventSeverity_ServerInstance
+- Name: SqlServerEventSeverity_SmoServer
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerEventSeverity_SmoServer
+- Name: SqlServerEventSeverity_ServerInstance
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -711,14 +709,26 @@ HelpMessage: ''
 
 ### -SmoServerObject
 
-An existing SMO Server object representing the SQL Server instance.
+The SMO Server object representing the SQL Server instance to configure the alert on.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
+- Name: WmiEvent_SmoServer
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: SqlServerPerformanceCondition_SmoServer
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
 - Name: SqlServerEventSeverity_SmoServer
   Position: Named
   IsRequired: true
@@ -731,18 +741,6 @@ ParameterSets:
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerPerformance_SmoServer
-  Position: Named
-  IsRequired: true
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-- Name: SqlServerWmiEvent_SmoServer
-  Position: Named
-  IsRequired: true
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
 DontShow: false
 AcceptedValues: []
 HelpMessage: ''
@@ -750,12 +748,11 @@ HelpMessage: ''
 
 ### -WhatIf
 
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Runs the command in a mode that only reports what would happen without performing the actions.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
+DefaultValue: ''
 SupportsWildcards: false
 Aliases:
 - wi
@@ -773,22 +770,21 @@ HelpMessage: ''
 
 ### -WmiEventNamespace
 
-The WMI namespace to query for events.
-Dynamic parameter required when AlertType is WmiEvent.
+The WMI namespace to trigger the alert on. This is only applicable for WMI event alerts.
 
 ```yaml
-Type: System.String
-DefaultValue: None
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerWmiEvent_ServerInstance
+- Name: WmiEvent_SmoServer
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerWmiEvent_SmoServer
+- Name: WmiEvent_ServerInstance
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -801,22 +797,21 @@ HelpMessage: ''
 
 ### -WmiEventQuery
 
-The query that specifies the WMI event for the alert.
-Dynamic parameter required when AlertType is WmiEvent.
+The WMI event query (WQL) to trigger the alert on. This is only applicable for WMI event alerts.
 
 ```yaml
-Type: System.String
-DefaultValue: None
+Type: System.Object
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: SqlServerWmiEvent_ServerInstance
+- Name: WmiEvent_SmoServer
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: SqlServerWmiEvent_SmoServer
+- Name: WmiEvent_ServerInstance
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -846,8 +841,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 
 
-
 ## RELATED LINKS
 
-None.
+
 
