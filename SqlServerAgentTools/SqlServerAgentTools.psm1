@@ -5564,7 +5564,7 @@ function Set-SmoSqlAgentSubSystem {
 
 			if ($PSCmdlet.ShouldProcess('SQL Server Agent', "Restart job server")) {
 				for ($i = 0; $i -lt 20; $i++) {
-					if (($JobServer.Jobs.where({$_.JobType -eq 'Local'}).CurrentRunStatus -ne 'Idle').Count -eq 0) {
+					if (($JobServer.Jobs.where({$_.JobType -eq 'Local' -and $_.CurrentRunStatus -ne 'Idle'}).Count -eq 0)) {
 						Invoke-Command @CommandParameters
 
 						break
