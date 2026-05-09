@@ -1,10 +1,10 @@
 ﻿---
 document type: cmdlet
 external help file: SqlServerAgentTools-Help.xml
-HelpUri: ''
+HelpUri: https://github.com/netsec4u/SqlServerAgentTools/blob/main/docs/Set-SmoSqlAgentAlert.md
 Locale: en-US
 Module Name: SqlServerAgentTools
-ms.date: 03/31/2026
+ms.date: 05/08/2026
 PlatyPS schema version: 2024-05-01
 title: Set-SmoSqlAgentAlert
 ---
@@ -842,6 +842,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 
 ## RELATED LINKS
-
-
 

@@ -4,7 +4,7 @@
 RootModule = 'SqlServerAgentTools.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.1.0.1'
+ModuleVersion = '1.1.0.2'
 
 # Supported PSEditions
 CompatiblePSEditions = @('Core', 'Desktop')
@@ -166,7 +166,7 @@ PrivateData = @{
 } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
-HelpInfoURI = 'https://github.com/netsec4u/SqlServerAgentTools/blob/main/docs/SqlServerAgentTools.md'
+HelpInfoURI = 'https://netsec4u.github.io/Help/SqlServerAgentTools/'
 
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''

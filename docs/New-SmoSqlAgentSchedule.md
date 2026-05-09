@@ -1,10 +1,10 @@
 ---
 document type: cmdlet
 external help file: SqlServerAgentTools-Help.xml
-HelpUri: ''
+HelpUri: https://github.com/netsec4u/SqlServerAgentTools/blob/main/docs/New-SmoSqlAgentSchedule.md
 Locale: en-US
 Module Name: SqlServerAgentTools
-ms.date: 07/29/2025
+ms.date: 05/08/2026
 PlatyPS schema version: 2024-05-01
 title: New-SmoSqlAgentSchedule
 ---
@@ -554,8 +554,7 @@ HelpMessage: ''
 
 ### -WhatIf
 
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Runs the command in a mode that only reports what would happen without performing the actions.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -596,6 +595,4 @@ Duration start date and end date not implemented.
 
 
 ## RELATED LINKS
-
-None.
 

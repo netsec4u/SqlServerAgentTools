@@ -1,11 +1,11 @@
 ---
 document type: module
 Help Version: 2.0.0.0
-HelpInfoUri: https://github.com/netsec4u/SqlServerAgentTools/blob/main/docs/SqlServerAgentTools.md
+HelpInfoUri: https://netsec4u.github.io/Help/SqlServerAgentTools/
 Locale: en-US
 Module Guid: ee911fd4-6bc5-4cdc-9359-88716f4de69e
 Module Name: SqlServerAgentTools
-ms.date: 07/29/2025
+ms.date: 05/08/2026
 PlatyPS schema version: 2024-05-01
 title: SqlServerAgentTools Module
 ---
@@ -149,6 +149,10 @@ Removes subsystem from proxy account.
 ### [Remove-SmoSqlAgentSchedule](Remove-SmoSqlAgentSchedule.md)
 
 Removes SQL Agent schedule.
+
+### [Set-SmoSqlAgentAlert](Set-SmoSqlAgentAlert.md)
+
+Sets the properties of a SQL Server Agent alert.
 
 ### [Set-SmoSqlAgentJobOperator](Set-SmoSqlAgentJobOperator.md)
 
