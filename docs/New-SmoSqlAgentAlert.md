@@ -230,7 +230,7 @@ Specifies the name of alert.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -251,7 +251,7 @@ The type of alert condition.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Agent.AlertType
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -273,7 +273,7 @@ Dynamic parameter required when AlertType is SqlServerPerformanceCondition.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -323,7 +323,7 @@ Dynamic parameter available when AlertType is SqlServerEvent.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -385,7 +385,7 @@ Dynamic parameter available when AlertType is SqlServerEvent.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -466,7 +466,7 @@ The name of the job to be executed in response to this alert.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -514,7 +514,7 @@ Is an optional additional message sent to the operator as part of the e-mail, ne
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -536,7 +536,7 @@ Dynamic parameter required when AlertType is SqlServerPerformanceCondition.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -564,7 +564,7 @@ Dynamic parameter available when AlertType is SqlServerPerformanceCondition.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -592,7 +592,7 @@ Dynamic parameter required when AlertType is SqlServerPerformanceCondition.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -620,7 +620,7 @@ Dynamic parameter required when AlertType is SqlServerPerformanceCondition.
 
 ```yaml
 Type: System.Decimal
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -647,7 +647,7 @@ The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases:
 - SqlServer
@@ -715,7 +715,7 @@ An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -777,7 +777,7 @@ Dynamic parameter required when AlertType is WmiEvent.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -805,7 +805,7 @@ Dynamic parameter required when AlertType is WmiEvent.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:

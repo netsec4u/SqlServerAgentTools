@@ -311,13 +311,13 @@ function Add-SmoSqlAgentAlertOperator {
 						)
 					)
 				} else {
-					if ($PSCmdlet.ShouldProcess($Operator, "Add SQL Agent alert operator")) {
+					if ($PSCmdlet.ShouldProcess($Operator, 'Add SQL Agent alert operator')) {
 						$Alert.AddNotification($Operator, [Microsoft.SqlServer.Management.Smo.Agent.NotifyMethods]::NotifyEmail)
 					}
 				}
 			}
 
-			if ($PSCmdlet.ShouldProcess($AlertName, "Alter SQL Agent alert")) {
+			if ($PSCmdlet.ShouldProcess($AlertName, 'Alter SQL Agent alert')) {
 				$Alert.Alter()
 			}
 		}
@@ -446,7 +446,7 @@ function Add-SmoSqlAgentJobSchedule {
 				}
 			}
 
-			if ($PSCmdlet.ShouldProcess($ScheduleName, "Add SQL Agent job schedule")) {
+			if ($PSCmdlet.ShouldProcess($ScheduleName, 'Add SQL Agent job schedule')) {
 				$AgentJob.AddSharedSchedule($Schedule.ID)
 
 				$AgentJob.Alter()
@@ -726,31 +726,31 @@ function Add-SmoSqlAgentJobStep {
 
 			$JobServer = $SmoServerObject.JobServer
 
-			if ($PSBoundParameters.ContainsKey("CommandExecutionSuccessCode")) {
+			if ($PSBoundParameters.ContainsKey('CommandExecutionSuccessCode')) {
 				$CommandExecutionSuccessCode = $PSBoundParameters['CommandExecutionSuccessCode']
 			}
 
-			if ($PSBoundParameters.ContainsKey("DatabaseName")) {
+			if ($PSBoundParameters.ContainsKey('DatabaseName')) {
 				$DatabaseName = $PSBoundParameters['DatabaseName']
 			}
 
-			if ($PSBoundParameters.ContainsKey("DatabaseUserName")) {
+			if ($PSBoundParameters.ContainsKey('DatabaseUserName')) {
 				$DatabaseUserName = $PSBoundParameters['DatabaseUserName']
 			}
 
-			if ($PSBoundParameters.ContainsKey("OnFailStep")) {
+			if ($PSBoundParameters.ContainsKey('OnFailStep')) {
 				$OnFailStep = $PSBoundParameters['OnFailStep']
 			}
 
-			if ($PSBoundParameters.ContainsKey("OnSuccessStep")) {
+			if ($PSBoundParameters.ContainsKey('OnSuccessStep')) {
 				$OnSuccessStep = $PSBoundParameters['OnSuccessStep']
 			}
 
-			if ($PSBoundParameters.ContainsKey("ProxyName")) {
+			if ($PSBoundParameters.ContainsKey('ProxyName')) {
 				$ProxyName = $PSBoundParameters['ProxyName']
 			}
 
-			if ($PSBoundParameters.ContainsKey("Server")) {
+			if ($PSBoundParameters.ContainsKey('Server')) {
 				$Server = $PSBoundParameters['Server']
 			}
 		}
@@ -785,19 +785,19 @@ function Add-SmoSqlAgentJobStep {
 			#Region General
 			$JobStep.Subsystem = $AgentSubSystem
 
-			if ($PSBoundParameters.ContainsKey("ProxyName")) {
+			if ($PSBoundParameters.ContainsKey('ProxyName')) {
 				$JobStep.ProxyName = $ProxyName
 			}
 
-			if ($PSBoundParameters.ContainsKey("Server")) {
+			if ($PSBoundParameters.ContainsKey('Server')) {
 				$JobStep.Server = $Server
 			}
 
-			if ($PSBoundParameters.ContainsKey("DatabaseName")) {
+			if ($PSBoundParameters.ContainsKey('DatabaseName')) {
 				$JobStep.DatabaseName = $DatabaseName
 			}
 
-			if ($PSBoundParameters.ContainsKey("CommandExecutionSuccessCode")) {
+			if ($PSBoundParameters.ContainsKey('CommandExecutionSuccessCode')) {
 				$JobStep.CommandExecutionSuccessCode = $CommandExecutionSuccessCode
 			}
 
@@ -807,7 +807,7 @@ function Add-SmoSqlAgentJobStep {
 			#Region Advanced
 			$JobStep.OnSuccessAction = $OnSuccessAction
 
-			if ($PSBoundParameters.ContainsKey("OnSuccessStep")) {
+			if ($PSBoundParameters.ContainsKey('OnSuccessStep')) {
 				$JobStep.OnSuccessStep = $OnSuccessStep
 			}
 
@@ -816,24 +816,24 @@ function Add-SmoSqlAgentJobStep {
 
 			$JobStep.OnFailAction = $OnFailureAction
 
-			if ($PSBoundParameters.ContainsKey("OnFailStep")) {
+			if ($PSBoundParameters.ContainsKey('OnFailStep')) {
 				$JobStep.OnFailStep = $OnFailStep
 			}
 
-			if ($PSBoundParameters.ContainsKey("OutputFileName")) {
+			if ($PSBoundParameters.ContainsKey('OutputFileName')) {
 				$JobStep.OutputFileName = $OutputFileName
 			}
 
-			if ($PSBoundParameters.ContainsKey("JobStepFlags")) {
+			if ($PSBoundParameters.ContainsKey('JobStepFlags')) {
 				$JobStep.JobStepFlags = $JobStepFlags
 			}
 
-			if ($PSBoundParameters.ContainsKey("DatabaseUserName")) {
+			if ($PSBoundParameters.ContainsKey('DatabaseUserName')) {
 				$JobStep.DatabaseUserName = $DatabaseUserName
 			}
 			#EndRegion
 
-			if ($PSCmdlet.ShouldProcess($JobName, "Add SQL Agent job step")) {
+			if ($PSCmdlet.ShouldProcess($JobName, 'Add SQL Agent job step')) {
 				$JobStep.Create()
 			}
 		}
@@ -952,12 +952,12 @@ function Add-SmoSqlAgentProxyPrincipal {
 			}
 
 			foreach ($Principal in $PrincipalName) {
-				if ($PSCmdlet.ShouldProcess($Principal, "Add SQL Agent proxy principal")) {
+				if ($PSCmdlet.ShouldProcess($Principal, 'Add SQL Agent proxy principal')) {
 					$ProxyAccount.AddLogin($Principal)
 				}
 			}
 
-			if ($PSCmdlet.ShouldProcess($ProxyAccountName, "Alter SQL Agent proxy account")) {
+			if ($PSCmdlet.ShouldProcess($ProxyAccountName, 'Alter SQL Agent proxy account')) {
 				$ProxyAccount.Alter()
 			}
 		}
@@ -1063,7 +1063,7 @@ function Add-SmoSqlAgentProxySubSystem {
 				)
 			}
 
-			if ($PSCmdlet.ShouldProcess($SubSystemName, "Add SQL Agent proxy subsystem")) {
+			if ($PSCmdlet.ShouldProcess($SubSystemName, 'Add SQL Agent proxy subsystem')) {
 				$ProxyAccount.AddSubSystem($SubSystemName)
 
 				$ProxyAccount.Alter()
@@ -1153,7 +1153,7 @@ function Get-SmoSqlAgentAlert {
 
 	process {
 		try {
-			if ($PSBoundParameters.ContainsKey("AlertName")) {
+			if ($PSBoundParameters.ContainsKey('AlertName')) {
 				$Alerts = $JobServer.Alerts[$AlertName]
 			} else {
 				$Alerts = $JobServer.Alerts
@@ -1259,21 +1259,21 @@ function Get-SmoSqlAgentCategory {
 		try {
 			switch ($Class) {
 				'Alert' {
-					if ($PSBoundParameters.ContainsKey("CategoryName")) {
+					if ($PSBoundParameters.ContainsKey('CategoryName')) {
 						$Category = $JobServer.AlertCategories[$CategoryName]
 					} else {
 						$Category = $JobServer.AlertCategories
 					}
 				}
 				'Job' {
-					if ($PSBoundParameters.ContainsKey("CategoryName")) {
+					if ($PSBoundParameters.ContainsKey('CategoryName')) {
 						$Category = $JobServer.JobCategories[$CategoryName]
 					} else {
 						$Category = $JobServer.JobCategories
 					}
 				}
 				'Operator' {
-					if ($PSBoundParameters.ContainsKey("CategoryName")) {
+					if ($PSBoundParameters.ContainsKey('CategoryName')) {
 						$Category = $JobServer.OperatorCategories[$CategoryName]
 					} else {
 						$Category = $JobServer.OperatorCategories
@@ -1367,7 +1367,7 @@ function Get-SmoSqlAgentJob {
 
 	process {
 		try {
-			if ($PSBoundParameters.ContainsKey("JobName")) {
+			if ($PSBoundParameters.ContainsKey('JobName')) {
 				$Jobs = $JobServer.Jobs[$JobName]
 			} else {
 				$Jobs = $JobServer.Jobs
@@ -1633,7 +1633,7 @@ function Get-SmoSqlAgentOperator {
 
 	process {
 		try {
-			if ($PSBoundParameters.ContainsKey("OperatorName")) {
+			if ($PSBoundParameters.ContainsKey('OperatorName')) {
 				$Operators = $JobServer.Operators[$OperatorName]
 			} else {
 				$Operators = $JobServer.Operators
@@ -1725,7 +1725,7 @@ function Get-SmoSqlAgentProxyAccount {
 
 	process {
 		try {
-			if ($PSBoundParameters.ContainsKey("ProxyAccountName")) {
+			if ($PSBoundParameters.ContainsKey('ProxyAccountName')) {
 				$ProxyAccounts = $JobServer.ProxyAccounts[$ProxyAccountName]
 			} else {
 				$ProxyAccounts = $JobServer.ProxyAccounts
@@ -1817,7 +1817,7 @@ function Get-SmoSqlAgentSchedule {
 
 	process {
 		try {
-			if ($PSBoundParameters.ContainsKey("ScheduleName")) {
+			if ($PSBoundParameters.ContainsKey('ScheduleName')) {
 				$SharedSchedules = $JobServer.SharedSchedules[$ScheduleName]
 			} else {
 				$SharedSchedules = $JobServer.SharedSchedules
@@ -1918,7 +1918,7 @@ function Get-SmoSqlAgentSubSystem {
 		try {
 			$DataSet = $DatabaseObject.ExecuteWithResults($Query_AgentSubsystems)
 
-			if ($PSBoundParameters.ContainsKey("AgentSubSystem")) {
+			if ($PSBoundParameters.ContainsKey('AgentSubSystem')) {
 				$Rows = $DataSet.Tables.Select("subsystem = '$AgentSubSystem'")
 			} else {
 				$Rows = $DataSet.Tables.Select()
@@ -1960,7 +1960,7 @@ function New-SmoSqlAgentAlert {
 		PositionalBinding = $false,
 		SupportsShouldProcess = $true,
 		ConfirmImpact = 'Low',
-		DefaultParameterSetName = 'SqlServerEventMessageID_ServerInstance'
+		DefaultParameterSetName = 'ServerInstance'
 	)]
 
 	[OutputType([Microsoft.SqlServer.Management.Smo.Agent.Alert])]
@@ -1970,13 +1970,7 @@ function New-SmoSqlAgentAlert {
 			Mandatory = $true,
 			ValueFromPipeline = $false,
 			ValueFromPipelineByPropertyName = $false,
-			ParameterSetName = 'SqlServerEventMessageID_ServerInstance'
-		)]
-		[Parameter(
-			Mandatory = $true,
-			ValueFromPipeline = $false,
-			ValueFromPipelineByPropertyName = $false,
-			ParameterSetName = 'SqlServerEventSeverity_ServerInstance'
+			ParameterSetName = 'ServerInstance'
 		)]
 		[ValidateLength(1, 128)]
 		[Alias('SqlServer')]
@@ -1986,13 +1980,7 @@ function New-SmoSqlAgentAlert {
 			Mandatory = $true,
 			ValueFromPipeline = $false,
 			ValueFromPipelineByPropertyName = $false,
-			ParameterSetName = 'SqlServerEventMessageID_SmoServer'
-		)]
-		[Parameter(
-			Mandatory = $true,
-			ValueFromPipeline = $false,
-			ValueFromPipelineByPropertyName = $false,
-			ParameterSetName = 'SqlServerEventSeverity_SmoServer'
+			ParameterSetName = 'SmoServer'
 		)]
 		[Microsoft.SqlServer.Management.Smo.Server]$SmoServerObject,
 
@@ -2058,7 +2046,7 @@ function New-SmoSqlAgentAlert {
 				throw [System.Management.Automation.ErrorRecord]::New(
 					[Exception]::New('Alert type not supported.'),
 					'1',
-					[System.Management.Automation.ErrorCategory]::InvalidOperation,
+					[System.Management.Automation.ErrorCategory]::NotImplemented,
 					$AlertType
 				)
 			}
@@ -2083,18 +2071,9 @@ function New-SmoSqlAgentAlert {
 				#Region MessageID
 				$ParameterName = 'MessageID'
 
+				$MessageIDParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
-
-				$MessageIDParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
-				$MessageIDParameterAttribute.Mandatory = $true
-				$MessageIDParameterAttribute.ParameterSetName = 'SqlServerEventMessageID_ServerInstance'
-
-				$AttributeCollection.Add($MessageIDParameterAttribute)
-
-				$MessageIDParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
-				$MessageIDParameterAttribute.Mandatory = $true
-				$MessageIDParameterAttribute.ParameterSetName = 'SqlServerEventMessageID_SmoServer'
-
 				$AttributeCollection.Add($MessageIDParameterAttribute)
 
 				$ValidateRangeAttribute = [System.Management.Automation.ValidateRangeAttribute]::New(1, 65535)
@@ -2108,18 +2087,9 @@ function New-SmoSqlAgentAlert {
 				#Region Severity
 				$ParameterName = 'Severity'
 
+				$SeverityParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
+
 				$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
-
-				$SeverityParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
-				$SeverityParameterAttribute.Mandatory = $true
-				$SeverityParameterAttribute.ParameterSetName = 'SqlServerEventSeverity_ServerInstance'
-
-				$AttributeCollection.Add($SeverityParameterAttribute)
-
-				$SeverityParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
-				$SeverityParameterAttribute.Mandatory = $true
-				$SeverityParameterAttribute.ParameterSetName = 'SqlServerEventSeverity_SmoServer'
-
 				$AttributeCollection.Add($SeverityParameterAttribute)
 
 				$ValidateRangeAttribute = [System.Management.Automation.ValidateRangeAttribute]::New(1, 25)
@@ -2291,19 +2261,37 @@ function New-SmoSqlAgentAlert {
 		try {
 			switch ($AlertType) {
 				'SqlServerEvent' {
-					if ($PSBoundParameters.ContainsKey("DatabaseName")) {
+					if (-not $PSBoundParameters.ContainsKey('Severity') -and -not $PSBoundParameters.ContainsKey('MessageID')) {
+						throw [System.Management.Automation.ErrorRecord]::New(
+							[System.ArgumentException]::New('Required parameter missing.  SqlServerEvent requires Severity or MessageID.'),
+							'1',
+							[System.Management.Automation.ErrorCategory]::InvalidOperation,
+							$AlertType
+						)
+					}
+
+					if ($PSBoundParameters.ContainsKey('Severity') -and $PSBoundParameters.ContainsKey('MessageID')) {
+						throw [System.Management.Automation.ErrorRecord]::New(
+							[System.ArgumentException]::New('The parameters Severity and MessageID are mutually exclusive and cannot be used together.'),
+							'1',
+							[System.Management.Automation.ErrorCategory]::InvalidOperation,
+							$AlertType
+						)
+					}
+
+					if ($PSBoundParameters.ContainsKey('DatabaseName')) {
 						$DatabaseName = $PSBoundParameters['DatabaseName']
 					}
 
-					if ($PSBoundParameters.ContainsKey("MessageID")) {
+					if ($PSBoundParameters.ContainsKey('MessageID')) {
 						$MessageID = $PSBoundParameters['MessageID']
 					}
 
-					if ($PSBoundParameters.ContainsKey("Severity")) {
+					if ($PSBoundParameters.ContainsKey('Severity')) {
 						$Severity = $PSBoundParameters['Severity']
 					}
 
-					if ($PSBoundParameters.ContainsKey("EventDescriptionKeyword")) {
+					if ($PSBoundParameters.ContainsKey('EventDescriptionKeyword')) {
 						$EventDescriptionKeyword = $PSBoundParameters['EventDescriptionKeyword']
 					}
 				}
@@ -2349,19 +2337,19 @@ function New-SmoSqlAgentAlert {
 
 			switch ($AlertType) {
 				'SqlServerEvent' {
-					if ($PSBoundParameters.ContainsKey("DatabaseName")) {
+					if ($PSBoundParameters.ContainsKey('DatabaseName')) {
 						$AgentAlert.DatabaseName = $DatabaseName
 					}
 
-					if ($PSBoundParameters.ContainsKey("MessageID")) {
+					if ($PSBoundParameters.ContainsKey('MessageID')) {
 						$AgentAlert.MessageID = $MessageID
 					}
 
-					if ($PSBoundParameters.ContainsKey("Severity")) {
+					if ($PSBoundParameters.ContainsKey('Severity')) {
 						$AgentAlert.Severity = $Severity
 					}
 
-					if ($PSBoundParameters.ContainsKey("EventDescriptionKeyword")) {
+					if ($PSBoundParameters.ContainsKey('EventDescriptionKeyword')) {
 						$AgentAlert.EventDescriptionKeyword = $EventDescriptionKeyword
 					}
 				}
@@ -2378,7 +2366,7 @@ function New-SmoSqlAgentAlert {
 				}
 			}
 
-			if ($PSBoundParameters.ContainsKey("JobName")) {
+			if ($PSBoundParameters.ContainsKey('JobName')) {
 				$Job = Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName $JobName
 
 				if ($Job -isnot [Microsoft.SqlServer.Management.Smo.Agent.Job]) {
@@ -2395,13 +2383,13 @@ function New-SmoSqlAgentAlert {
 
 			$AgentAlert.IncludeEventDescription = $IncludeEventDescription
 
-			if ($PSBoundParameters.ContainsKey("NotificationMessage")) {
+			if ($PSBoundParameters.ContainsKey('NotificationMessage')) {
 				$AgentAlert.NotificationMessage = $NotificationMessage
 			}
 
 			$AgentAlert.DelayBetweenResponses = $DelayBetweenResponses
 
-			if ($PSCmdlet.ShouldProcess($AlertName, "Create SQL Agent alert")) {
+			if ($PSCmdlet.ShouldProcess($AlertName, 'Create SQL Agent alert')) {
 				$AgentAlert.Create()
 
 				$AgentAlert
@@ -2515,7 +2503,7 @@ function New-SmoSqlAgentCategory {
 				}
 			}
 
-			if ($PSCmdlet.ShouldProcess($CategoryName, "Create SQL Agent category")) {
+			if ($PSCmdlet.ShouldProcess($CategoryName, 'Create SQL Agent category')) {
 				$Category.Create()
 
 				$Category
@@ -2693,11 +2681,11 @@ function New-SmoSqlAgentJob {
 
 			$AgentJob.OwnerLoginName = $OwnerLoginName
 
-			if ($PSBoundParameters.ContainsKey("Description")) {
+			if ($PSBoundParameters.ContainsKey('Description')) {
 				$AgentJob.Category = $Category
 			}
 
-			if ($PSBoundParameters.ContainsKey("Description")) {
+			if ($PSBoundParameters.ContainsKey('Description')) {
 				$AgentJob.Description = $Description
 			}
 
@@ -2711,7 +2699,7 @@ function New-SmoSqlAgentJob {
 			$AgentJob.EventLogLevel = $EventLogLevel
 			$AgentJob.DeleteLevel = $DeleteLevel
 
-			if ($PSCmdlet.ShouldProcess($JobName, "Create SQL Agent job")) {
+			if ($PSCmdlet.ShouldProcess($JobName, 'Create SQL Agent job')) {
 				$AgentJob.Create()
 
 				$AgentJob.ApplyToTargetServer('(local)')
@@ -2825,7 +2813,7 @@ function New-SmoSqlAgentOperator {
 			$Operator.Enabled = $IsEnabled
 			$Operator.EmailAddress = $OperatorEmailAddress
 
-			if ($PSCmdlet.ShouldProcess($OperatorName, "Create SQL Agent operator")) {
+			if ($PSCmdlet.ShouldProcess($OperatorName, 'Create SQL Agent operator')) {
 				$Operator.Create()
 
 				$Operator
@@ -2940,7 +2928,7 @@ function New-SmoSqlAgentProxyAccount {
 		try {
 			$ProxyAccount = [Microsoft.SqlServer.Management.Smo.Agent.ProxyAccount]::New($JobServer, $ProxyAccountName, $CredentialName, $true, $Description)
 
-			if ($PSCmdlet.ShouldProcess($ProxyAccountName, "Create SQL Agent proxy account")) {
+			if ($PSCmdlet.ShouldProcess($ProxyAccountName, 'Create SQL Agent proxy account')) {
 				$ProxyAccount.Create()
 
 				$ProxyAccount.AddSubSystem($AgentSubSystem)
@@ -2986,12 +2974,6 @@ function New-SmoSqlAgentSchedule {
 			ValueFromPipelineByPropertyName = $false,
 			ParameterSetName = 'ServerInstance'
 		)]
-		[Parameter(
-			Mandatory = $true,
-			ValueFromPipeline = $false,
-			ValueFromPipelineByPropertyName = $false,
-			ParameterSetName = 'ServerInstance_FrequencySubDay'
-		)]
 		[ValidateLength(1, 128)]
 		[Alias('SqlServer')]
 		[string]$ServerInstance,
@@ -3001,12 +2983,6 @@ function New-SmoSqlAgentSchedule {
 			ValueFromPipeline = $false,
 			ValueFromPipelineByPropertyName = $false,
 			ParameterSetName = 'SmoServer'
-		)]
-		[Parameter(
-			Mandatory = $true,
-			ValueFromPipeline = $false,
-			ValueFromPipelineByPropertyName = $false,
-			ParameterSetName = 'SmoServer_FrequencySubDay'
 		)]
 		[Microsoft.SqlServer.Management.Smo.Server]$SmoServerObject,
 
@@ -3079,18 +3055,9 @@ function New-SmoSqlAgentSchedule {
 			#Region FrequencySubDayType
 			$ParameterName = 'FrequencySubDayType'
 
+			$FrequencySubDayTypeParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
+
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
-
-			$FrequencySubDayTypeParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
-			$FrequencySubDayTypeParameterAttribute.Mandatory = $true
-			$FrequencySubDayTypeParameterAttribute.ParameterSetName = 'ServerInstance_FrequencySubDay'
-
-			$AttributeCollection.Add($FrequencySubDayTypeParameterAttribute)
-
-			$FrequencySubDayTypeParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
-			$FrequencySubDayTypeParameterAttribute.Mandatory = $true
-			$FrequencySubDayTypeParameterAttribute.ParameterSetName = 'SmoServer_FrequencySubDay'
-
 			$AttributeCollection.Add($FrequencySubDayTypeParameterAttribute)
 
 			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [Microsoft.SqlServer.Management.SMO.Agent.FrequencySubDayTypes], $AttributeCollection)
@@ -3101,16 +3068,9 @@ function New-SmoSqlAgentSchedule {
 			#Region FrequencySubDayInterval
 			$ParameterName = 'FrequencySubDayInterval'
 
+			$FrequencySubDayIntervalParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
+
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
-
-			$FrequencySubDayIntervalParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
-			$FrequencySubDayIntervalParameterAttribute.ParameterSetName = 'ServerInstance_FrequencySubDay'
-
-			$AttributeCollection.Add($FrequencySubDayIntervalParameterAttribute)
-
-			$FrequencySubDayIntervalParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
-			$FrequencySubDayIntervalParameterAttribute.ParameterSetName = 'SmoServer_FrequencySubDay'
-
 			$AttributeCollection.Add($FrequencySubDayIntervalParameterAttribute)
 
 			$ValidateRangeAttribute = [System.Management.Automation.ValidateRangeAttribute]::New([System.Management.Automation.ValidateRangeKind]::Positive)
@@ -3124,16 +3084,9 @@ function New-SmoSqlAgentSchedule {
 			#Region ActiveEndTimeOfDay
 			$ParameterName = 'ActiveEndTimeOfDay'
 
+			$ActiveEndTimeOfDayParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
+
 			$AttributeCollection = [System.Collections.ObjectModel.Collection[System.Attribute]]::New()
-
-			$ActiveEndTimeOfDayParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
-			$ActiveEndTimeOfDayParameterAttribute.ParameterSetName = 'ServerInstance_FrequencySubDay'
-
-			$AttributeCollection.Add($ActiveEndTimeOfDayParameterAttribute)
-
-			$ActiveEndTimeOfDayParameterAttribute = [System.Management.Automation.ParameterAttribute]::New()
-			$ActiveEndTimeOfDayParameterAttribute.ParameterSetName = 'SmoServer_FrequencySubDay'
-
 			$AttributeCollection.Add($ActiveEndTimeOfDayParameterAttribute)
 
 			$RuntimeDefinedParameter = [System.Management.Automation.RuntimeDefinedParameter]::New($ParameterName, [TimeSpan], $AttributeCollection)
@@ -3233,43 +3186,54 @@ function New-SmoSqlAgentSchedule {
 		$ServerInstanceParameterSets = @('ServerInstance', 'ServerInstance_FrequencySubDay')
 
 		try {
-			if ($PSBoundParameters.ContainsKey("ActiveEndDate")) {
+			if ($PSBoundParameters['FrequencyType'] -in @('Daily', 'Monthly', 'MonthlyRelative', 'Weekly')) {
+				if (-not $PSBoundParameters.ContainsKey('FrequencySubDayType') -and ($PSBoundParameters.ContainsKey('FrequencySubDayInterval') -or $PSBoundParameters.ContainsKey('ActiveEndTimeOfDay'))) {
+						throw [System.Management.Automation.ErrorRecord]::New(
+							[System.ArgumentException]::New('FrequencySubDayInterval or ActiveEndTimeOfDay not valid without FrequencySubDayType.'),
+							'1',
+							[System.Management.Automation.ErrorCategory]::InvalidOperation,
+							$PSBoundParameters['FrequencyType']
+						)
+				}
+			}
+
+			if ($PSBoundParameters.ContainsKey('ActiveEndDate')) {
 				$ActiveEndDate = $PSBoundParameters['ActiveEndDate']
 			}
 
-			if ($PSBoundParameters.ContainsKey("ActiveEndTimeOfDay")) {
+			if ($PSBoundParameters.ContainsKey('ActiveEndTimeOfDay')) {
 				$ActiveEndTimeOfDay = $PSBoundParameters['ActiveEndTimeOfDay']
 			}
 
-			if ($PSBoundParameters.ContainsKey("ActiveStartDate")) {
+			if ($PSBoundParameters.ContainsKey('ActiveStartDate')) {
 				$ActiveStartDate = $PSBoundParameters['ActiveStartDate']
 			}
 
-			if ($PSBoundParameters.ContainsKey("ActiveStartTimeOfDay")) {
+			if ($PSBoundParameters.ContainsKey('ActiveStartTimeOfDay')) {
 				$ActiveStartTimeOfDay = $PSBoundParameters['ActiveStartTimeOfDay']
 			}
 
-			if ($PSBoundParameters.ContainsKey("FrequencyInterval")) {
+			if ($PSBoundParameters.ContainsKey('FrequencyInterval')) {
 				$FrequencyInterval = $PSBoundParameters['FrequencyInterval']
 			}
 
-			if ($PSBoundParameters.ContainsKey("FrequencyRecurrenceFactor")) {
+			if ($PSBoundParameters.ContainsKey('FrequencyRecurrenceFactor')) {
 				$FrequencyRecurrenceFactor = $PSBoundParameters['FrequencyRecurrenceFactor']
 			}
 
-			if ($PSBoundParameters.ContainsKey("FrequencyRelativeIntervals")) {
+			if ($PSBoundParameters.ContainsKey('FrequencyRelativeIntervals')) {
 				$FrequencyRelativeIntervals = $PSBoundParameters['FrequencyRelativeIntervals']
 			}
 
-			if ($PSBoundParameters.ContainsKey("FrequencySubDayInterval")) {
+			if ($PSBoundParameters.ContainsKey('FrequencySubDayInterval')) {
 				$FrequencySubDayInterval = $PSBoundParameters['FrequencySubDayInterval']
 			}
 
-			if ($PSBoundParameters.ContainsKey("FrequencySubDayType")) {
+			if ($PSBoundParameters.ContainsKey('FrequencySubDayType')) {
 				$FrequencySubDayType = $PSBoundParameters['FrequencySubDayType']
 
 				if ($FrequencySubDayType -eq 'Once') {
-					if ($PSBoundParameters.ContainsKey("FrequencySubDayInterval")) {
+					if ($PSBoundParameters.ContainsKey('FrequencySubDayInterval')) {
 						throw [System.Management.Automation.ErrorRecord]::New(
 							[Exception]::New('FrequencySubDayInterval is not valid when FrequencySubDayType is Once.'),
 							'1',
@@ -3278,7 +3242,7 @@ function New-SmoSqlAgentSchedule {
 						)
 					}
 
-					if ($PSBoundParameters.ContainsKey("ActiveEndTimeOfDay")) {
+					if ($PSBoundParameters.ContainsKey('ActiveEndTimeOfDay')) {
 						throw [System.Management.Automation.ErrorRecord]::New(
 							[Exception]::New('ActiveEndTimeOfDay is not valid when FrequencySubDayType is Once.'),
 							'1',
@@ -3289,7 +3253,7 @@ function New-SmoSqlAgentSchedule {
 				}
 			}
 
-			if ($PSBoundParameters.ContainsKey("ActiveStartDate") -and $PSBoundParameters.ContainsKey("ActiveEndDate")) {
+			if ($PSBoundParameters.ContainsKey('ActiveStartDate') -and $PSBoundParameters.ContainsKey('ActiveEndDate')) {
 				if ($ActiveStartDate -ge $ActiveEndDate) {
 					throw [System.Management.Automation.ErrorRecord]::New(
 						[Exception]::New('ActiveStartDate must be less than ActiveEndDate.'),
@@ -3300,7 +3264,7 @@ function New-SmoSqlAgentSchedule {
 				}
 			}
 
-			if ($PSBoundParameters.ContainsKey("ActiveStartTimeOfDay") -and $PSBoundParameters.ContainsKey("ActiveEndTimeOfDay")) {
+			if ($PSBoundParameters.ContainsKey('ActiveStartTimeOfDay') -and $PSBoundParameters.ContainsKey('ActiveEndTimeOfDay')) {
 				if ($ActiveStartTimeOfDay -ge $ActiveEndTimeOfDay) {
 					throw [System.Management.Automation.ErrorRecord]::New(
 						[Exception]::New('ActiveStartTimeOfDay must be less than ActiveEndTimeOfDay.'),
@@ -3338,48 +3302,48 @@ function New-SmoSqlAgentSchedule {
 			$JobSchedule.FrequencyTypes = $FrequencyType
 
 			#Region Frequency
-			if ($PSBoundParameters.ContainsKey("FrequencyRelativeIntervals")) {
+			if ($PSBoundParameters.ContainsKey('FrequencyRelativeIntervals')) {
 				$JobSchedule.FrequencyRelativeIntervals = $FrequencyRelativeIntervals
 			}
 
-			if ($PSBoundParameters.ContainsKey("FrequencyInterval")) {
+			if ($PSBoundParameters.ContainsKey('FrequencyInterval')) {
 				$JobSchedule.FrequencyInterval = $FrequencyInterval
 			}
 
-			if ($PSBoundParameters.ContainsKey("FrequencyRecurrenceFactor")) {
+			if ($PSBoundParameters.ContainsKey('FrequencyRecurrenceFactor')) {
 				$JobSchedule.FrequencyRecurrenceFactor = $FrequencyRecurrenceFactor
 			}
 			#EndRegion
 
 			#Region Daily Frequency
-			if ($PSBoundParameters.ContainsKey("FrequencySubDayType")) {
+			if ($PSBoundParameters.ContainsKey('FrequencySubDayType')) {
 				$JobSchedule.FrequencySubDayTypes = $FrequencySubDayType
 			}
 
-			if ($PSBoundParameters.ContainsKey("ActiveStartTimeOfDay")) {
+			if ($PSBoundParameters.ContainsKey('ActiveStartTimeOfDay')) {
 				$JobSchedule.ActiveStartTimeOfDay = $ActiveStartTimeOfDay
 			}
 
-			if ($PSBoundParameters.ContainsKey("ActiveEndTimeOfDay")) {
+			if ($PSBoundParameters.ContainsKey('ActiveEndTimeOfDay')) {
 				$JobSchedule.ActiveEndTimeOfDay = $ActiveEndTimeOfDay
 			}
 
-			if ($PSBoundParameters.ContainsKey("FrequencySubDayInterval")) {
+			if ($PSBoundParameters.ContainsKey('FrequencySubDayInterval')) {
 				$JobSchedule.FrequencySubDayInterval = $FrequencySubDayInterval
 			}
 			#EndRegion
 
 			#Region Duration
-			if ($PSBoundParameters.ContainsKey("ActiveStartDate")) {
+			if ($PSBoundParameters.ContainsKey('ActiveStartDate')) {
 				$JobSchedule.ActiveStartDate = $ActiveStartDate
 			}
 
-			if ($PSBoundParameters.ContainsKey("ActiveEndDate")) {
+			if ($PSBoundParameters.ContainsKey('ActiveEndDate')) {
 				$JobSchedule.ActiveEndDate = $ActiveEndDate
 			}
 			#EndRegion
 
-			if ($PSCmdlet.ShouldProcess($ScheduleName, "Create SQL Agent schedule")) {
+			if ($PSCmdlet.ShouldProcess($ScheduleName, 'Create SQL Agent schedule')) {
 				$JobSchedule.Create()
 
 				$JobSchedule
@@ -3606,23 +3570,23 @@ function Read-SmoSqlAgentJobHistory {
 
 			$JobHistoryFilter.JobName = $JobName
 
-			if ($PSBoundParameters.ContainsKey("CompletionResult")) {
+			if ($PSBoundParameters.ContainsKey('CompletionResult')) {
 				$JobHistoryFilter.OutcomeTypes = $CompletionResult
 			}
 
-			if ($PSBoundParameters.ContainsKey("MessageID")) {
+			if ($PSBoundParameters.ContainsKey('MessageID')) {
 				$JobHistoryFilter.SqlMessageID = $MessageID
 			}
 
-			if ($PSBoundParameters.ContainsKey("Severity")) {
+			if ($PSBoundParameters.ContainsKey('Severity')) {
 				$JobHistoryFilter.SqlSeverity = $Severity
 			}
 
-			if ($PSBoundParameters.ContainsKey("StartRunDate")) {
+			if ($PSBoundParameters.ContainsKey('StartRunDate')) {
 				$JobHistoryFilter.StartRunDate = $StartRunDate
 			}
 
-			if ($PSBoundParameters.ContainsKey("EndRunDate")) {
+			if ($PSBoundParameters.ContainsKey('EndRunDate')) {
 				$JobHistoryFilter.EndRunDate = $EndRunDate
 			}
 
@@ -3737,7 +3701,7 @@ function Remove-SmoSqlAgentAlert {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($AlertName, "Remove SQL Agent alert")) {
+			if ($PSCmdlet.ShouldProcess($AlertName, 'Remove SQL Agent alert')) {
 				$AgentAlert = $JobServer.Alerts[$AlertName]
 
 				$AgentAlert.Drop()
@@ -3847,12 +3811,12 @@ function Remove-SmoSqlAgentAlertOperator {
 			}
 
 			foreach ($Operator in $OperatorName) {
-				if ($PSCmdlet.ShouldProcess($Operator, "Remove SQL Agent alert operator")) {
+				if ($PSCmdlet.ShouldProcess($Operator, 'Remove SQL Agent alert operator')) {
 					$Alert.RemoveNotification($Operator)
 				}
 			}
 
-			if ($PSCmdlet.ShouldProcess($AlertName, "Alter SQL Agent alert")) {
+			if ($PSCmdlet.ShouldProcess($AlertName, 'Alter SQL Agent alert')) {
 				$Alert.Alter()
 			}
 		}
@@ -3960,7 +3924,7 @@ function Remove-SmoSqlAgentCategory {
 				}
 			}
 
-			if ($PSCmdlet.ShouldProcess($CategoryName, "Remove SQL Agent category")) {
+			if ($PSCmdlet.ShouldProcess($CategoryName, 'Remove SQL Agent category')) {
 				$Category.Drop()
 			}
 		}
@@ -4048,7 +4012,7 @@ function Remove-SmoSqlAgentJob {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($JobName, "Remove SQL Agent job")) {
+			if ($PSCmdlet.ShouldProcess($JobName, 'Remove SQL Agent job')) {
 				$AgentJob = $JobServer.Jobs[$JobName]
 
 				$AgentJob.Drop()
@@ -4149,7 +4113,7 @@ function Remove-SmoSqlAgentJobSchedule {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($ScheduleName, "Remove SQL Agent job schedule")) {
+			if ($PSCmdlet.ShouldProcess($ScheduleName, 'Remove SQL Agent job schedule')) {
 				$AgentJob.RemoveSharedSchedule($Schedule.ID)
 
 				$AgentJob.Alter()
@@ -4249,7 +4213,7 @@ function Remove-SmoSqlAgentJobStep {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($JobStepName, "Remove SQL Agent job step")) {
+			if ($PSCmdlet.ShouldProcess($JobStepName, 'Remove SQL Agent job step')) {
 				$JobStep = $JobServer.Jobs[$AgentJob].JobSteps[$JobStepName]
 
 				$JobStep.Drop()
@@ -4339,7 +4303,7 @@ function Remove-SmoSqlAgentOperator {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($OperatorName, "Remove SQL Agent operator")) {
+			if ($PSCmdlet.ShouldProcess($OperatorName, 'Remove SQL Agent operator')) {
 				$Operator = $JobServer.Operators[$OperatorName]
 
 				$Operator.Drop()
@@ -4429,7 +4393,7 @@ function Remove-SmoSqlAgentProxyAccount {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($ProxyAccountName, "Remove SQL Agent proxy account")) {
+			if ($PSCmdlet.ShouldProcess($ProxyAccountName, 'Remove SQL Agent proxy account')) {
 				$ProxyAccount = $JobServer.ProxyAccounts[$ProxyAccountName]
 
 				$ProxyAccount.Drop()
@@ -4530,12 +4494,12 @@ function Remove-SmoSqlAgentProxyPrincipal {
 	process {
 		try {
 			foreach ($Principal in $PrincipalName) {
-				if ($PSCmdlet.ShouldProcess($Principal, "Remove SQL Agent proxy principal")) {
+				if ($PSCmdlet.ShouldProcess($Principal, 'Remove SQL Agent proxy principal')) {
 					$ProxyAccount.RemoveLogin($Principal)
 				}
 			}
 
-			if ($PSCmdlet.ShouldProcess($ProxyAccountName, "Alter SQL Agent proxy account")) {
+			if ($PSCmdlet.ShouldProcess($ProxyAccountName, 'Alter SQL Agent proxy account')) {
 				$ProxyAccount.Alter()
 			}
 		}
@@ -4632,7 +4596,7 @@ function Remove-SmoSqlAgentProxySubSystem {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($SubSystemName, "Remove SQL Agent proxy subsystem")) {
+			if ($PSCmdlet.ShouldProcess($SubSystemName, 'Remove SQL Agent proxy subsystem')) {
 				$ProxyAccount.RemoveSubSystem($SubSystemName)
 
 				$ProxyAccount.Alter()
@@ -4722,7 +4686,7 @@ function Remove-SmoSqlAgentSchedule {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($ScheduleName, "Remove SQL Agent schedule")) {
+			if ($PSCmdlet.ShouldProcess($ScheduleName, 'Remove SQL Agent schedule')) {
 				$JobSchedule = $JobServer.SharedSchedules[$ScheduleName]
 
 				$JobSchedule.Drop()
@@ -5043,47 +5007,47 @@ function Set-SmoSqlAgentAlert {
 		try {
 			$ServerInstanceParameterSets = @('SqlServerEventMessageID_ServerInstance', 'SqlServerEventSeverity_ServerInstance', 'SqlServerPerformanceCondition_ServerInstance', 'WmiEvent_ServerInstance')
 
-			if ($PSBoundParameters.ContainsKey("DatabaseName")) {
+			if ($PSBoundParameters.ContainsKey('DatabaseName')) {
 				$DatabaseName = $PSBoundParameters['DatabaseName']
 			}
 
-			if ($PSBoundParameters.ContainsKey("MessageID")) {
+			if ($PSBoundParameters.ContainsKey('MessageID')) {
 				$MessageID = $PSBoundParameters['MessageID']
 			}
 
-			if ($PSBoundParameters.ContainsKey("Severity")) {
+			if ($PSBoundParameters.ContainsKey('Severity')) {
 				$Severity = $PSBoundParameters['Severity']
 			}
 
-			if ($PSBoundParameters.ContainsKey("EventDescriptionKeyword")) {
+			if ($PSBoundParameters.ContainsKey('EventDescriptionKeyword')) {
 				$EventDescriptionKeyword = $PSBoundParameters['EventDescriptionKeyword']
 			}
 
-			if ($PSBoundParameters.ContainsKey("PerformanceObject")) {
+			if ($PSBoundParameters.ContainsKey('PerformanceObject')) {
 				$PerformanceObject = $PSBoundParameters['PerformanceObject']
 			}
 
-			if ($PSBoundParameters.ContainsKey("PerformanceCounter")) {
+			if ($PSBoundParameters.ContainsKey('PerformanceCounter')) {
 				$PerformanceCounter = $PSBoundParameters['PerformanceCounter']
 			}
 
-			if ($PSBoundParameters.ContainsKey("PerformanceCounterInstance")) {
+			if ($PSBoundParameters.ContainsKey('PerformanceCounterInstance')) {
 				$PerformanceCounterInstance = $PSBoundParameters['PerformanceCounterInstance']
 			}
 
-			if ($PSBoundParameters.ContainsKey("ComparisonOperator")) {
+			if ($PSBoundParameters.ContainsKey('ComparisonOperator')) {
 				$ComparisonOperator = $PSBoundParameters['ComparisonOperator']
 			}
 
-			if ($PSBoundParameters.ContainsKey("PerformanceValue")) {
+			if ($PSBoundParameters.ContainsKey('PerformanceValue')) {
 				$PerformanceValue = $PSBoundParameters['PerformanceValue']
 			}
 
-			if ($PSBoundParameters.ContainsKey("WmiEventNamespace")) {
+			if ($PSBoundParameters.ContainsKey('WmiEventNamespace')) {
 				$WmiEventNamespace = $PSBoundParameters['WmiEventNamespace']
 			}
 
-			if ($PSBoundParameters.ContainsKey("WmiEventQuery")) {
+			if ($PSBoundParameters.ContainsKey('WmiEventQuery')) {
 				$WmiEventQuery = $PSBoundParameters['WmiEventQuery']
 			}
 
@@ -5108,24 +5072,24 @@ function Set-SmoSqlAgentAlert {
 		try {
 			$AgentAlert = Get-SmoSqlAgentAlert -SmoServerObject $SmoServerObject -AlertName $AlertName
 
-			if ($PSBoundParameters.ContainsKey("IsEnabled")) {
+			if ($PSBoundParameters.ContainsKey('IsEnabled')) {
 				$AgentAlert.IsEnabled = $IsEnabled
 			}
 
 			#Region SqlServerEvent
-			if ($PSBoundParameters.ContainsKey("DatabaseName")) {
+			if ($PSBoundParameters.ContainsKey('DatabaseName')) {
 				$AgentAlert.DatabaseName = $DatabaseName
 			}
 
-			if ($PSBoundParameters.ContainsKey("MessageID")) {
+			if ($PSBoundParameters.ContainsKey('MessageID')) {
 				$AgentAlert.MessageID = $MessageID
 			}
 
-			if ($PSBoundParameters.ContainsKey("Severity")) {
+			if ($PSBoundParameters.ContainsKey('Severity')) {
 				$AgentAlert.Severity = $Severity
 			}
 
-			if ($PSBoundParameters.ContainsKey("EventDescriptionKeyword")) {
+			if ($PSBoundParameters.ContainsKey('EventDescriptionKeyword')) {
 				$AgentAlert.EventDescriptionKeyword = $EventDescriptionKeyword
 			}
 			#EndRegion
@@ -5139,16 +5103,16 @@ function Set-SmoSqlAgentAlert {
 			#EndRegion
 
 			#Region WmiEvent
-			if ($PSBoundParameters.ContainsKey("WmiEventNamespace")) {
+			if ($PSBoundParameters.ContainsKey('WmiEventNamespace')) {
 				$AgentAlert.WmiEventNamespace = $WmiEventNamespace
 			}
 
-			if ($PSBoundParameters.ContainsKey("WmiEventQuery")) {
+			if ($PSBoundParameters.ContainsKey('WmiEventQuery')) {
 				$AgentAlert.WmiEventQuery = $WmiEventQuery
 			}
 			#EndRegion
 
-			if ($PSBoundParameters.ContainsKey("JobName")) {
+			if ($PSBoundParameters.ContainsKey('JobName')) {
 				$Job = Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName $JobName
 
 				if ($Job -isnot [Microsoft.SqlServer.Management.Smo.Agent.Job]) {
@@ -5163,19 +5127,19 @@ function Set-SmoSqlAgentAlert {
 				$AgentAlert.JobID = $Job.JobID
 			}
 
-			if ($PSBoundParameters.ContainsKey("IncludeEventDescription")) {
+			if ($PSBoundParameters.ContainsKey('IncludeEventDescription')) {
 				$AgentAlert.IncludeEventDescription = $IncludeEventDescription
 			}
 
-			if ($PSBoundParameters.ContainsKey("NotificationMessage")) {
+			if ($PSBoundParameters.ContainsKey('NotificationMessage')) {
 				$AgentAlert.NotificationMessage = $NotificationMessage
 			}
 
-			if ($PSBoundParameters.ContainsKey("DelayBetweenResponses")) {
+			if ($PSBoundParameters.ContainsKey('DelayBetweenResponses')) {
 				$AgentAlert.DelayBetweenResponses = $DelayBetweenResponses
 			}
 
-			if ($PSCmdlet.ShouldProcess($AlertName, "Create SQL Agent alert")) {
+			if ($PSCmdlet.ShouldProcess($AlertName, 'Create SQL Agent alert')) {
 				$AgentAlert.Create()
 
 				$AgentAlert
@@ -5284,7 +5248,7 @@ function Set-SmoSqlAgentJobOperator {
 		try {
 			$Operator = $JobServer.Operators[$OperatorName]
 
-			if ($PSCmdlet.ShouldProcess($Operator.name, "Set SQL Agent operator")) {
+			if ($PSCmdlet.ShouldProcess($Operator.name, 'Set SQL Agent operator')) {
 				$AgentJob.OperatorToEmail = $Operator.name
 				$AgentJob.EmailLevel = $EmailLevel
 
@@ -5401,7 +5365,7 @@ function Set-SmoSqlAgentMsxEncryptChannelOption {
 				)
 			}
 
-			if ($PSCmdlet.ShouldProcess($SmoServerObject.Name, "Set MsxSecureChannelOption")) {
+			if ($PSCmdlet.ShouldProcess($SmoServerObject.Name, 'Set MsxSecureChannelOption')) {
 				Invoke-Command @CommandParameters
 			}
 
@@ -5417,7 +5381,7 @@ function Set-SmoSqlAgentMsxEncryptChannelOption {
 				$CommandParameters.Add('ComputerName', $SmoServerObject.Information.FullyQualifiedNetName)
 			}
 
-			if ($PSCmdlet.ShouldProcess('SQL Server Agent', "Restart job server")) {
+			if ($PSCmdlet.ShouldProcess('SQL Server Agent', 'Restart job server')) {
 				for ($i = 0; $i -lt 20; $i++) {
 					if (($JobServer.Jobs.where({$_.JobType -eq 'Local'}).CurrentRunStatus -ne 'Idle').Count -eq 0) {
 						Invoke-Command @CommandParameters
@@ -5546,7 +5510,7 @@ function Set-SmoSqlAgentSubSystem {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($AgentSubSystem, "Set max worker threads")) {
+			if ($PSCmdlet.ShouldProcess($AgentSubSystem, 'Set max worker threads')) {
 				$DatabaseObject.ExecuteNonQuery([string]::Format($Query_SetMaxWorkerThreads, $MaxWorkerThreads, $AgentSubSystem))
 			}
 
@@ -5562,7 +5526,7 @@ function Set-SmoSqlAgentSubSystem {
 				$CommandParameters.Add('ComputerName', $SmoServerObject.Information.FullyQualifiedNetName)
 			}
 
-			if ($PSCmdlet.ShouldProcess('SQL Server Agent', "Restart job server")) {
+			if ($PSCmdlet.ShouldProcess('SQL Server Agent', 'Restart job server')) {
 				for ($i = 0; $i -lt 20; $i++) {
 					if (($JobServer.Jobs.where({$_.JobType -eq 'Local' -and $_.CurrentRunStatus -ne 'Idle'}).Count -eq 0)) {
 						Invoke-Command @CommandParameters
@@ -5689,7 +5653,7 @@ function Start-SmoSqlAgentJob {
 				)
 			}
 
-			if ($PSBoundParameters.ContainsKey("JobStepName")) {
+			if ($PSBoundParameters.ContainsKey('JobStepName')) {
 				if ($AgentJob.JobSteps.Name -NotContains $JobStepName) {
 					throw [System.Management.Automation.ErrorRecord]::New(
 						[Exception]::New('Agent job step not found.'),
@@ -5700,8 +5664,8 @@ function Start-SmoSqlAgentJob {
 				}
 			}
 
-			if ($PSCmdlet.ShouldProcess($JobName, "Start job")) {
-				if ($PSBoundParameters.ContainsKey("JobStepName")) {
+			if ($PSCmdlet.ShouldProcess($JobName, 'Start job')) {
+				if ($PSBoundParameters.ContainsKey('JobStepName')) {
 					$AgentJob.Start($JobStepName)
 				} else {
 					$AgentJob.Start()
@@ -5803,7 +5767,7 @@ function Stop-SmoSqlAgentJob {
 				)
 			}
 
-			if ($PSCmdlet.ShouldProcess($JobName, "Stop job")) {
+			if ($PSCmdlet.ShouldProcess($JobName, 'Stop job')) {
 				$AgentJob.Stop()
 			}
 		}
@@ -5824,8 +5788,8 @@ function Stop-SmoSqlAgentJob {
 # SIG # Begin signature block
 # MIInywYJKoZIhvcNAQcCoIInvDCCJ7gCAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCA1x/ncnSO9Nqvk
-# J8EgM35dI7Hmc+PKUhvyYNHHpivwYqCCINswggWNMIIEdaADAgECAhAOmxiO+dAt
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCDR1RfEl+aDsB0Y
+# FrJBc/Yjta/8wmxV3ckIhWcqkYiQWaCCINswggWNMIIEdaADAgECAhAOmxiO+dAt
 # 5+/bUOIIQBhaMA0GCSqGSIb3DQEBDAUAMGUxCzAJBgNVBAYTAlVTMRUwEwYDVQQK
 # EwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAiBgNV
 # BAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yMjA4MDEwMDAwMDBa
@@ -6005,34 +5969,34 @@ function Stop-SmoSqlAgentJob {
 # Uy5BLjEkMCIGA1UEAxMbQ2VydHVtIENvZGUgU2lnbmluZyAyMDIxIENBAhBDuzRB
 # nypScc4/rofK9qMeMA0GCWCGSAFlAwQCAQUAoIGEMBgGCisGAQQBgjcCAQwxCjAI
 # oAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwHAYKKwYBBAGCNwIB
-# CzEOMAwGCisGAQQBgjcCARUwLwYJKoZIhvcNAQkEMSIEIF7slRHq0NCvaUx7IWpg
-# nFL46S5tsZJCK0qyEQwgJuppMA0GCSqGSIb3DQEBAQUABIICAKAt4jemTjMSeizh
-# fhurwVg9aod4t3IHHEvYRtKR+gWzj491e2x+ohes4BVMBJrSFKDNILiRbieUH4rh
-# bdJ0a94i4Bzl5riKLEefI6MbxT5jBl7tAi8kgkFWd3dNUtUcLKc61MQhdV33TTXC
-# 6LvECb7xiW+7hY3JXKlsr+lZnWWqcQl5h1STJjnXRkb0X2Ur2v+Xi6VltKGWg1jm
-# D6IocXlxekZD3G1UVARCt8Etsm8TDOlMSiCUsGuBNYIJ1CN2uFIIJYGdOD6wx/hy
-# sfK8g/Wn9je2bRbPHgXF7EmScRdVzZp+MjRjoxXCBctya+LIeQM6Bpi1UODi0orm
-# 3v6tBEorOL8wbjamoA6j3sNyRoWomLpNosNeC5OHqPIM54g7f8Jwvt/gJYysqk+q
-# ybRlqrplWk/jcDhaWF785H7ceitQfU18ZqwZeWZS2q1V2CBlI38sNRWagaa1euNz
-# 1yOHi48Tnim436BPSsPKespwpnt2hGvLY6aBzaAo0IuXdyYSVQ5CVd78Ieta2gTt
-# gEnwvza08CwSchz9n/upaaMkOgf2LcmI6IucdniwCxtcMF5K6ZPR9N0FWuhvlZI8
-# d4Kg3kKdWroeBmJR90km7JvjAR1SEp9HnXBAU8q0pAe5HQw0nqi0pDFsMtebJRXa
-# Nu5OjLgTXs6J5fmlPrFLnAMP1rxGoYIDJjCCAyIGCSqGSIb3DQEJBjGCAxMwggMP
+# CzEOMAwGCisGAQQBgjcCARUwLwYJKoZIhvcNAQkEMSIEIFBPgYeBs0Chge7W8/qz
+# ENVfxBeLpcD270P3kfDDB8gaMA0GCSqGSIb3DQEBAQUABIICAKDyxmxE0RSaQZEf
+# stpCRjKvCwgWXcCaGhHMxuBKpd7St/n7e5deynfL2UyXA3YFTO5cZW5pvUxp1sUw
+# cSSmtF7O8I4ZznND7FA30rUvgAOKZ3JiHfUUBxPoLtZWCmcaDMLQfZuYd5By5Mxf
+# bWhBEVhkQffMSja3J5k4GWXzFYJ4Vt8Q2IstLLeKxcB11tevLz1X7c+CmZVO1YHc
+# bNZnSeV1Yy9KHjuxDSvhRb+bBoFFmbaPo935UCNxzelkwkB/0m+PIwaROaakB8ua
+# kopoEe/mo7Zp0DKxH3Ftun37MXWQpM4ayCmfRL3lZ+P3Iq3AGIrcweZwipPAljz/
+# oBCLwNOXGY3yZqse9HykGPMqz/YmBi5d5xzqoJFn3uRIChcOL+XkCL4A3VhA2asK
+# S0FaFMlv7Zq2OJUE9dKg7kdizx+i5XyZnRpbFItCzrn//QAkHlGd0NeL5Lyppgyc
+# qKTQ8fWr93UitLOyidSZkuvG++Zv4bIe/8ClhHO0bgnTcWtYl9qsgw3kFOF9Rnoj
+# mtgdPfa6gT8fXxQLTXmc3VZye7rs9Hxzm5T7c2L5/Xc/5Ix8T0ngL9jswpgyXKcc
+# bf1ZTNqn3Bkp1019KEfiojk9k0cAJ0GiV0hHCiEe0ssuS9vOadcN4HNC5mRWjfd7
+# PoXME5oAGcU0+ZNvqILyUUdxJFAnoYIDJjCCAyIGCSqGSIb3DQEJBjGCAxMwggMP
 # AgEBMH0waTELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0LCBJbmMuMUEw
 # PwYDVQQDEzhEaWdpQ2VydCBUcnVzdGVkIEc0IFRpbWVTdGFtcGluZyBSU0E0MDk2
 # IFNIQTI1NiAyMDI1IENBMQIQCE/cM09+RU7bww+P+ZIYNTANBglghkgBZQMEAgEF
 # AKBpMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2
-# MDkxMzE5MzYwMlowLwYJKoZIhvcNAQkEMSIEIKmQ3oZ4arSf0H4wkRYhYnWu3W58
-# RyQxwymTrmHQN3i5MA0GCSqGSIb3DQEBAQUABIICAEq5DuuA7RdF59lNjkGWC2Dl
-# cpY3w9jlsG/eYvvS1Uvlm/AxprDW6Gu2XY8Snfm6NfQR33ZiNP6C68rz3pKjHfJL
-# sCWPTXFYc0BKwe7ayk1UldJcDRO6wSzbkZOz5oxNb7Q2sjxQa7+XZVzfqwTWqAYY
-# k4zs+oN9OEM4KaxYEMgg3H73CGnh4cOm4S5BlLLbu2D6O7C1kTgSFzxl9LQ7FfbZ
-# wjTB2fSrYD4IoR1wSTx2NHG22GupDfqcL23Rl8GxX79MYa5c6dM8T4pf9t17sfKb
-# 9L7Pxu225EaFs3rh+IFJnWvR/1IIzNa8oZ+zGsETfbdf3hxbdnKcs9GMn98vupxD
-# FCGCa/jHNEiUBqOKCiUzkim/bGvCf3K32Z8A/TiK4sJj/8wplYBL5NpTOnj9sj1t
-# xBQFm55ZvQwDQSBhEX/pPbM7yW0CLaYCZjHwHqCrJXxj2apGZxaR7nRwjoDY/FbT
-# p3UfbBgCY7o0/pTmRukX6A30dKTs5yafhaQWR+PyaDYm69zSUcXV2do6LWBY8X7i
-# 0FUMlxaoNicWMUHtGYUqfVyngWOWP+CvX4tItPUC9o33kDvQgeHnTSnEYSIKmwK8
-# +PcxXLeUQm4rvLx95AGAG5WOpw3h/4a6/4ldJKq4EaeUQGZkF7bipES4gip8yLgV
-# MLxEbMrlM/6yC5ZM/Er8
+# MTAzMTE2MjcwNFowLwYJKoZIhvcNAQkEMSIEIEEC4JmtfGi2ljSmisyWM6x4wm45
+# XWs95Oq0ZJlscR58MA0GCSqGSIb3DQEBAQUABIICAD2i8glNs5LLLapLq8ZRxwlh
+# oE+xkC6jIwar0TjhsO7ODxTbfG/OyohLZi2DbxIyabuoUyvuLpUDc1q1hpghiPt0
+# GwIJj92pVcvoXXiSJ7ta4kyxN8lkTZaTiTZf9slOMvv6L5SHiAcyCBV89HJd3J5/
+# EBlCwlGSoWIHpBIGHE9NROksmRtNlm1iNd2J/GORpfXBdq2A665lxHLot/DGHdmH
+# ZiPucaXYCj99WUQqKL2HOYHt6px/aQviA0dP2LUV1IWK7fcE6S2O4xMKFOaqiR1n
+# mOEcij8FXa/AnZ+qt1TFwEk+hPHD4WuOkZq+CofWx8l0TpQjHb5EE/G8KJf6lmp+
+# WbDUXlretCY9F2BTvKErYV2AkrDZdrK7rAVeH/QXXG7018dA02mwpEcz2jTYRGwU
+# Di5ZQsGKTexsvEMFNJv0obR/MwmUU2Iy8fN4zC4ft2OOgjmouGgkMED9g/blaYik
+# gRinM7oKOfvjyeUfZkxtleQtwDnwa/nu0ziRSVgWz1kY93VyhX9e6oBNA5MPA6wS
+# DO2zPMrwqE0ArnyEgWOpfd3mnQ0IKl0SZmWSjfKGUxHT11RHVFjPoIquLmi9l8tF
+# BfwUZubwaxp6gORf6Y6EaHOBAxWXnoJ818wK9xChifFrTh1JUezFt9N2CUE7eDxH
+# YefpqkhGiDSCgBSqNYge
 # SIG # End signature block

@@ -125,7 +125,7 @@ The commands to be executed by SQLServerAgent service through subsystem.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -147,7 +147,7 @@ Dynamic parameter optional when AgentSubSystem is CmdExec.
 
 ```yaml
 Type: System.Int32
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -191,7 +191,7 @@ Dynamic parameter is required when AgentSubSystem is AnalysisQuery or TransactSq
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -213,7 +213,7 @@ Dynamic parameter required when AgentSubSystem is TransactSql.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -234,7 +234,7 @@ The name of the job to which to add the step.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -255,7 +255,7 @@ Is an option that controls behavior.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Agent.JobStepFlags
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -276,7 +276,7 @@ Specifies name of job step.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -298,7 +298,7 @@ Dynamic parameter required when OnFailureAction is GoToStep.
 
 ```yaml
 Type: System.Int32
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -362,7 +362,7 @@ Dynamic parameter required when OnSuccessAction is GoToStep.
 
 ```yaml
 Type: System.Int32
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -383,7 +383,7 @@ The name of the file in which the output of this step is saved.
 
 ```yaml
 Type: System.IO.FileInfo
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -405,7 +405,7 @@ Dynamic parameter required when when AgentSubSystem is CmdExec, PowerShell, or S
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -469,7 +469,7 @@ Dynamic parameter required when agent subsystem is AnalysisCommand or AnalysisQu
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -490,7 +490,7 @@ The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases:
 - SqlServer
@@ -512,7 +512,7 @@ An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:

@@ -171,7 +171,7 @@ Dynamic parameter required when FrequencyType is Daily, Monthly, MonthlyRelative
 
 ```yaml
 Type: System.DateTime
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -193,7 +193,7 @@ Dynamic parameter required when FrequencyType is Daily, Monthly, MonthlyRelative
 
 ```yaml
 Type: System.TimeSpan
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -221,7 +221,7 @@ Dynamic parameter required when FrequencyType is Daily, Monthly, MonthlyRelative
 
 ```yaml
 Type: System.DateTime
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -244,7 +244,7 @@ Dynamic parameter required when FrequencyType is Daily, Monthly, MonthlyRelative
 
 ```yaml
 Type: System.TimeSpan
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -288,7 +288,7 @@ Dynamic parameter required when FrequencyType is MonthlyRelative.
 
 ```yaml
 Type: System.Int32
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -312,7 +312,7 @@ Dynamic parameter required when FrequencyType is Monthly, MonthlyRelative, or We
 
 ```yaml
 Type: System.Int32
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -363,7 +363,7 @@ When FrequencyType is MonthlyRelative, is the relative values listed.
 
 ```yaml
 Type: System.Int32
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -385,7 +385,7 @@ Dynamic parameter available when FrequencyType is Daily, Monthly, MonthlyRelativ
 
 ```yaml
 Type: System.Int32
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -413,7 +413,7 @@ Dynamic parameter required when FrequencyType is Daily, Monthly, MonthlyRelative
 
 ```yaml
 Type: Microsoft.SqlServer.Management.SMO.Agent.FrequencySubDayTypes
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -440,7 +440,7 @@ A value indicating when a job is to be executed.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Agent.FrequencyTypes
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -482,7 +482,7 @@ The name of the schedule.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -503,7 +503,7 @@ The name of the SQL Server instance to connect to.
 
 ```yaml
 Type: System.String
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases:
 - SqlServer
@@ -531,7 +531,7 @@ An existing SMO Server object representing the SQL Server instance.
 
 ```yaml
 Type: Microsoft.SqlServer.Management.Smo.Server
-DefaultValue: None
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
