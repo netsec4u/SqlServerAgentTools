@@ -254,6 +254,8 @@ function Add-SmoSqlAgentAlertOperator {
 			}
 
 			$JobServer = $SmoServerObject.JobServer
+
+			$JobServer.Alerts.Refresh()
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -280,6 +282,8 @@ function Add-SmoSqlAgentAlertOperator {
 					$AlertName
 				)
 			}
+
+			$Alert.Refresh()
 
 			foreach ($Operator in $OperatorName) {
 				if ($Operator -NotIn $JobServer.Operators.Name) {
@@ -1137,6 +1141,8 @@ function Get-SmoSqlAgentAlert {
 			}
 
 			$JobServer = $SmoServerObject.JobServer
+
+			$JobServer.Alerts.Refresh()
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -1281,6 +1287,8 @@ function Get-SmoSqlAgentCategory {
 				}
 			}
 
+			$Category.Refresh()
+
 			$Category
 		}
 		catch {
@@ -1351,6 +1359,8 @@ function Get-SmoSqlAgentJob {
 			}
 
 			$JobServer = $SmoServerObject.JobServer
+
+			$JobServer.Jobs.Refresh()
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -1617,6 +1627,8 @@ function Get-SmoSqlAgentOperator {
 			}
 
 			$JobServer = $SmoServerObject.JobServer
+
+			$JobServer.Operators.Refresh()
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -1709,6 +1721,8 @@ function Get-SmoSqlAgentProxyAccount {
 			}
 
 			$JobServer = $SmoServerObject.JobServer
+
+			$JobServer.ProxyAccounts.Refresh()
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -1801,6 +1815,8 @@ function Get-SmoSqlAgentSchedule {
 			}
 
 			$JobServer = $SmoServerObject.JobServer
+
+			$JobServer.SharedSchedules.Refresh()
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -3685,6 +3701,8 @@ function Remove-SmoSqlAgentAlert {
 			}
 
 			$JobServer = $SmoServerObject.JobServer
+
+			$JobServer.Alerts.Refresh()
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -3783,6 +3801,8 @@ function Remove-SmoSqlAgentAlertOperator {
 			}
 
 			$JobServer = $SmoServerObject.JobServer
+
+			$JobServer.Alerts.Refresh()
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -3809,6 +3829,8 @@ function Remove-SmoSqlAgentAlertOperator {
 					$Alert
 				)
 			}
+
+			$Alert.Refresh()
 
 			foreach ($Operator in $OperatorName) {
 				if ($PSCmdlet.ShouldProcess($Operator, 'Remove SQL Agent alert operator')) {
@@ -3894,8 +3916,6 @@ function Remove-SmoSqlAgentCategory {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
-
-			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -3912,17 +3932,7 @@ function Remove-SmoSqlAgentCategory {
 
 	process {
 		try {
-			switch ($Class) {
-				'Alert' {
-					$Category = $JobServer.AlertCategories[$CategoryName]
-				}
-				'Job' {
-					$Category = $JobServer.JobCategories[$CategoryName]
-				}
-				'Operator' {
-					$Category = $JobServer.OperatorCategories[$CategoryName]
-				}
-			}
+			$Category = Get-SmoSqlAgentCategory -SmoServerObject $SmoServerObject -Class $Class -CategoryName $CategoryName
 
 			if ($PSCmdlet.ShouldProcess($CategoryName, 'Remove SQL Agent category')) {
 				$Category.Drop()
@@ -3994,8 +4004,6 @@ function Remove-SmoSqlAgentJob {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
-
-			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -4012,9 +4020,9 @@ function Remove-SmoSqlAgentJob {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($JobName, 'Remove SQL Agent job')) {
-				$AgentJob = $JobServer.Jobs[$JobName]
+			$AgentJob = Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName $JobName
 
+			if ($PSCmdlet.ShouldProcess($JobName, 'Remove SQL Agent job')) {
 				$AgentJob.Drop()
 			}
 		}
@@ -4285,8 +4293,6 @@ function Remove-SmoSqlAgentOperator {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
-
-			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -4303,9 +4309,9 @@ function Remove-SmoSqlAgentOperator {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($OperatorName, 'Remove SQL Agent operator')) {
-				$Operator = $JobServer.Operators[$OperatorName]
+			$Operator = Get-SmoSqlAgentOperator -SmoServerObject $SmoServerObject -OperatorName $OperatorName
 
+			if ($PSCmdlet.ShouldProcess($OperatorName, 'Remove SQL Agent operator')) {
 				$Operator.Drop()
 			}
 		}
@@ -4375,8 +4381,6 @@ function Remove-SmoSqlAgentProxyAccount {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
-
-			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -4393,9 +4397,9 @@ function Remove-SmoSqlAgentProxyAccount {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($ProxyAccountName, 'Remove SQL Agent proxy account')) {
-				$ProxyAccount = $JobServer.ProxyAccounts[$ProxyAccountName]
+			$ProxyAccount = Get-SmoSqlAgentProxyAccount -SmoServerObject $SmoServerObject -ProxyAccountName $ProxyAccountName
 
+			if ($PSCmdlet.ShouldProcess($ProxyAccountName, 'Remove SQL Agent proxy account')) {
 				$ProxyAccount.Drop()
 			}
 		}
@@ -4668,8 +4672,6 @@ function Remove-SmoSqlAgentSchedule {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
-
-			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -4686,9 +4688,9 @@ function Remove-SmoSqlAgentSchedule {
 
 	process {
 		try {
-			if ($PSCmdlet.ShouldProcess($ScheduleName, 'Remove SQL Agent schedule')) {
-				$JobSchedule = $JobServer.SharedSchedules[$ScheduleName]
+			$JobSchedule = Get-SmoSqlAgentSchedule -SmoServerObject $SmoServerObject -ScheduleName $ScheduleName
 
+			if ($PSCmdlet.ShouldProcess($ScheduleName, 'Remove SQL Agent schedule')) {
 				$JobSchedule.Drop()
 			}
 		}
@@ -5624,8 +5626,6 @@ function Start-SmoSqlAgentJob {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
-
-			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -5642,7 +5642,7 @@ function Start-SmoSqlAgentJob {
 
 	process {
 		try {
-			$AgentJob = $JobServer.Jobs[$JobName]
+			$AgentJob = Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName $JobName
 
 			if ($null -eq $AgentJob) {
 				throw [System.Management.Automation.ErrorRecord]::New(
@@ -5738,8 +5738,6 @@ function Stop-SmoSqlAgentJob {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
 				$SmoServerObject = Connect-SmoServer -ServerInstance $ServerInstance
 			}
-
-			$JobServer = $SmoServerObject.JobServer
 		}
 		catch {
 			if ($PSCmdlet.ParameterSetName -in $ServerInstanceParameterSets) {
@@ -5756,7 +5754,7 @@ function Stop-SmoSqlAgentJob {
 
 	process {
 		try {
-			$AgentJob = $JobServer.Jobs[$JobName]
+			$AgentJob = Get-SmoSqlAgentJob -SmoServerObject $SmoServerObject -JobName $JobName
 
 			if ($null -eq $AgentJob) {
 				throw [System.Management.Automation.ErrorRecord]::New(
@@ -5788,8 +5786,8 @@ function Stop-SmoSqlAgentJob {
 # SIG # Begin signature block
 # MIInywYJKoZIhvcNAQcCoIInvDCCJ7gCAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCDR1RfEl+aDsB0Y
-# FrJBc/Yjta/8wmxV3ckIhWcqkYiQWaCCINswggWNMIIEdaADAgECAhAOmxiO+dAt
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCAVwC0+0pmWPaaI
+# D/wQRNsu5P4692lYtSRehNVbddih2aCCINswggWNMIIEdaADAgECAhAOmxiO+dAt
 # 5+/bUOIIQBhaMA0GCSqGSIb3DQEBDAUAMGUxCzAJBgNVBAYTAlVTMRUwEwYDVQQK
 # EwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAiBgNV
 # BAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yMjA4MDEwMDAwMDBa
@@ -5969,34 +5967,34 @@ function Stop-SmoSqlAgentJob {
 # Uy5BLjEkMCIGA1UEAxMbQ2VydHVtIENvZGUgU2lnbmluZyAyMDIxIENBAhBDuzRB
 # nypScc4/rofK9qMeMA0GCWCGSAFlAwQCAQUAoIGEMBgGCisGAQQBgjcCAQwxCjAI
 # oAKAAKECgAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQwHAYKKwYBBAGCNwIB
-# CzEOMAwGCisGAQQBgjcCARUwLwYJKoZIhvcNAQkEMSIEIFBPgYeBs0Chge7W8/qz
-# ENVfxBeLpcD270P3kfDDB8gaMA0GCSqGSIb3DQEBAQUABIICAKDyxmxE0RSaQZEf
-# stpCRjKvCwgWXcCaGhHMxuBKpd7St/n7e5deynfL2UyXA3YFTO5cZW5pvUxp1sUw
-# cSSmtF7O8I4ZznND7FA30rUvgAOKZ3JiHfUUBxPoLtZWCmcaDMLQfZuYd5By5Mxf
-# bWhBEVhkQffMSja3J5k4GWXzFYJ4Vt8Q2IstLLeKxcB11tevLz1X7c+CmZVO1YHc
-# bNZnSeV1Yy9KHjuxDSvhRb+bBoFFmbaPo935UCNxzelkwkB/0m+PIwaROaakB8ua
-# kopoEe/mo7Zp0DKxH3Ftun37MXWQpM4ayCmfRL3lZ+P3Iq3AGIrcweZwipPAljz/
-# oBCLwNOXGY3yZqse9HykGPMqz/YmBi5d5xzqoJFn3uRIChcOL+XkCL4A3VhA2asK
-# S0FaFMlv7Zq2OJUE9dKg7kdizx+i5XyZnRpbFItCzrn//QAkHlGd0NeL5Lyppgyc
-# qKTQ8fWr93UitLOyidSZkuvG++Zv4bIe/8ClhHO0bgnTcWtYl9qsgw3kFOF9Rnoj
-# mtgdPfa6gT8fXxQLTXmc3VZye7rs9Hxzm5T7c2L5/Xc/5Ix8T0ngL9jswpgyXKcc
-# bf1ZTNqn3Bkp1019KEfiojk9k0cAJ0GiV0hHCiEe0ssuS9vOadcN4HNC5mRWjfd7
-# PoXME5oAGcU0+ZNvqILyUUdxJFAnoYIDJjCCAyIGCSqGSIb3DQEJBjGCAxMwggMP
+# CzEOMAwGCisGAQQBgjcCARUwLwYJKoZIhvcNAQkEMSIEILXVFmWJUSGbl/6ihabO
+# QMBd2IkNbmgPpl3M/5eEKyrzMA0GCSqGSIb3DQEBAQUABIICAG71OyE0qKKLR5yj
+# nnRosQyJrLoJmi/7YCasqTX+m5mS1iIANmGOJ3pZ16uOTfDMlafci+CU2I6dfGeP
+# Gz8J9fguqRMyw7VeHqsPnI4DtjLlp3oz3op3deI7Gf/h8cDH5Sn5wMJSu04cxV8m
+# 104qAnUT0rMcnwHLwq18NsUc6mPtKdBByiKoD8mWhjFoDqZSpUoD54JGmXfb0dTg
+# qPf0ztFjBLMktOCX4+G9T1kX6AyoFrGSku4vh5aOnjo4gWz8iKzuqakAQRnzPx0x
+# 36t7AwXbLnUDcpKBR9J2uqcBiMB/WPZJjJa0WNtLu6Ubn4qBhEH396MozHvP2eYE
+# hAgrjrBTh3d9Syl6yvGgsN+DUjxYpTcj9Exrl4RIDzmWfGOJeOxmXhpDjv7SDQHm
+# GQ/aEDGuugPaX2znpYc5tSsAKJuzxK5S+ku/WxZDy6LysmGlZ+jTjAt3hwzPBpe6
+# lfcQvJlRX1DUbtWxNenozP0XE/g9idTfycCvx0gXE3TckQxvwlMzzWxr1gOnei27
+# Gi2KvjHCqYrAn+DVrJ7ooQyXr3ml9EpQvJB3hx4MoGJYnLgINfc5iplZRe5WMaao
+# qF5gFdUipBTwQXXxvf6sItlecjblB1+uJMFnApXS7ONYDVkZeM6G6DMnwhY2sUGZ
+# PPeOlX5lTOX2LNDYw8IbDTpxFXrmoYIDJjCCAyIGCSqGSIb3DQEJBjGCAxMwggMP
 # AgEBMH0waTELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0LCBJbmMuMUEw
 # PwYDVQQDEzhEaWdpQ2VydCBUcnVzdGVkIEc0IFRpbWVTdGFtcGluZyBSU0E0MDk2
 # IFNIQTI1NiAyMDI1IENBMQIQCE/cM09+RU7bww+P+ZIYNTANBglghkgBZQMEAgEF
 # AKBpMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2
-# MTAzMTE2MjcwNFowLwYJKoZIhvcNAQkEMSIEIEEC4JmtfGi2ljSmisyWM6x4wm45
-# XWs95Oq0ZJlscR58MA0GCSqGSIb3DQEBAQUABIICAD2i8glNs5LLLapLq8ZRxwlh
-# oE+xkC6jIwar0TjhsO7ODxTbfG/OyohLZi2DbxIyabuoUyvuLpUDc1q1hpghiPt0
-# GwIJj92pVcvoXXiSJ7ta4kyxN8lkTZaTiTZf9slOMvv6L5SHiAcyCBV89HJd3J5/
-# EBlCwlGSoWIHpBIGHE9NROksmRtNlm1iNd2J/GORpfXBdq2A665lxHLot/DGHdmH
-# ZiPucaXYCj99WUQqKL2HOYHt6px/aQviA0dP2LUV1IWK7fcE6S2O4xMKFOaqiR1n
-# mOEcij8FXa/AnZ+qt1TFwEk+hPHD4WuOkZq+CofWx8l0TpQjHb5EE/G8KJf6lmp+
-# WbDUXlretCY9F2BTvKErYV2AkrDZdrK7rAVeH/QXXG7018dA02mwpEcz2jTYRGwU
-# Di5ZQsGKTexsvEMFNJv0obR/MwmUU2Iy8fN4zC4ft2OOgjmouGgkMED9g/blaYik
-# gRinM7oKOfvjyeUfZkxtleQtwDnwa/nu0ziRSVgWz1kY93VyhX9e6oBNA5MPA6wS
-# DO2zPMrwqE0ArnyEgWOpfd3mnQ0IKl0SZmWSjfKGUxHT11RHVFjPoIquLmi9l8tF
-# BfwUZubwaxp6gORf6Y6EaHOBAxWXnoJ818wK9xChifFrTh1JUezFt9N2CUE7eDxH
-# YefpqkhGiDSCgBSqNYge
+# MTEwOTAwMzEwMlowLwYJKoZIhvcNAQkEMSIEICCc67+Emc9mciox0qo+zQCs9DtP
+# rURX1N3F2NhcnSNoMA0GCSqGSIb3DQEBAQUABIICALVw4rUeoS/1et+ymjwAN0qn
+# Y+JrsMIy4O6bHD9V+L40az2S1lFHj117yZ9MLtyb9OTxrHy5viV/FS9ZOwT/sYD9
+# VY9LAHyxsU6qOpECwmodWSeL+j3K6r41iXUYCUbyLfa9uULDpjrJUCuue/+AOzw4
+# aydvrK3040fQK7p+p3aAdLUpj17vbfzZqNj7fwmTUS9zKqJvPOl1p+zEY5AVxBpR
+# NBVKURoS5SfsJwL25NjaVqNoWAeMGNCvENYh1znhpYxwSxS0A+tRnt9bWB9AAUJ8
+# oIq+Yz8eGLndw8xZw54LjmW8a8PuTLWXNr/+F4OEiyw7S0a+nd9r9rSsEhJGvf1X
+# 5UaOAUd3AON8/aX6SA4GtDo5lizwYd0rR5uzV5BxCFu1bja3iIYmWAp93N2rofWB
+# J2Ofq/OrTdFu9lXiCwn7kfQZM9wj5VLJKXR90bKdoR/CU1BB8QlqUu7yHegY27hQ
+# l8zC0IxbEZ1Sxk9ucY0HR+Twv5+lugTwR6ZN0hJ2mIJq6g6aZFB6JAZY4UdH8mA9
+# 1hbKiI59cbim9SznKONTo+NkPWJqbOiUzsc6Rk8SHjOoJ34teR9SJR8BFUw9+wxM
+# xBea8Uy6CjVO9JrreLIt1QnTvlvviwoG/ms/iW/XwbYEaHEpwoGZwT9lp7tTSSvg
+# HQarDXPpUPkJQ/S0j0vF
 # SIG # End signature block
